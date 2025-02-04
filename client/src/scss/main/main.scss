@@ -1,0 +1,43 @@
+@import '@/scss/common/helpers/_mixins.scss';
+@import '@/scss/common/helpers/_variables.scss';
+
+.main {
+  .top-content-wrap {
+    img {
+      @include size(100%, 910px);
+      object-fit: cover;
+    }
+
+  }
+
+  .middle-content-wrap {
+    .banner-container {
+      .banner-wrap {
+        @include size(100%, 400px);
+      }
+    }
+
+    .confirm-wrap {
+      @include flex-box(center, center);
+      flex-direction: column;
+      gap: 32px;
+      @include padding(65px 0 31px);
+
+      h2 {
+        font-size: 32px;
+        font-weight: 700;
+      }
+
+      a {
+        @include size(184px, 48px);
+        font-size: 18px;
+        line-height: 48px;
+        background: #712732;
+        color: #F5F5F5;
+        border-radius: 30px;
+        box-shadow: 1px 1px 2.5px 0px rgba(0, 0, 0, 0.25);
+        text-align: center;
+      }
+    }
+  }
+}

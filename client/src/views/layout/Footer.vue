@@ -6,5 +6,5 @@
 </template>
 
 <style scoped lang="scss">
-@import "@/scss/desktop/layout/footer"
+@import "@/scss/layout/footer";
 </style>

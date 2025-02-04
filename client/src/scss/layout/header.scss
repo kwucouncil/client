@@ -1,0 +1,41 @@
+@import '@/scss/common/helpers/_mixins.scss';
+@import '@/scss/common/helpers/_variables.scss';
+
+header {
+  background: #F5F5F5;
+
+  .header-wrap {
+    @include size(100%, 100px);
+    @include flex-box(space-around, center);
+    word-break: keep-all;
+
+    .logo-wrap {
+      @include size(238px, 70px);
+      @include padding(0 50px);
+    }
+
+    .menu-wrap {
+      ul {
+        @include flex-box();
+        gap: 50px;
+        line-height: 40px;
+
+        li {
+          @include padding(30px);
+          font-size: 18px;
+
+          a {
+            font-weight: bold;
+          }
+        }
+      }
+    }
+
+    .user-wrap {
+      @include flex-box(center, center);
+      @include padding(23px);
+      gap: 44px;
+      font-size: 14px;
+    }
+  }
+}
