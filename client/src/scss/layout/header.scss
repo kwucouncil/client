@@ -10,8 +10,11 @@ header {
     word-break: keep-all;
 
     .logo-wrap {
-      @include size(238px, 70px);
       @include padding(0 50px);
+
+      img {
+        @include size(238px, 70px);
+      }
     }
 
     .menu-wrap {
