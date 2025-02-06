@@ -1,9 +1,11 @@
 import { createRouter, createWebHistory } from 'vue-router';
-import HomeView from '../views/main/Main.vue';
+import Main from '../views/main/Main.vue';
+import Confirm from '../views/orientation/Confirm.vue';
 // import AboutView from '../views/AboutView.vue';
 
 const routes = [
-  { path: '/', component: HomeView },
+  { path: '/', component: Main },
+  { path: '/confirm', component: Confirm },
 ];
 
 const router = createRouter({
