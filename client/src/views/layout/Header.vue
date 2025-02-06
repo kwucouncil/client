@@ -17,7 +17,7 @@
       </div>
       <div class="user-wrap" v-else>
         <router-link to="/login">로그인</router-link>
-        <router-link to="/register" >문의사항</router-link>
+        <router-link to="/register" >회원가입</router-link>
       </div>
     </div>
   </header>
