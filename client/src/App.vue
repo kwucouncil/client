@@ -1,18 +1,7 @@
 <template>
-  <div>
-    <Header />
-    <main>
-      <router-view />
-    </main>
-    <Footer />
-  </div>
+  <router-view />
 </template>
 
-<script setup>
-import Header from '@/views/layout/Header.vue'
-import Footer from '@/views/layout/Footer.vue'
-</script>
-
-<style lang="sass">
-@import "@/scss/common/base/reset"
+<style lang="scss">
+@import "@/scss/common/base/reset";
 </style>

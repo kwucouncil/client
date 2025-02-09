@@ -1,0 +1,25 @@
+@import '@/scss/common/helpers/_mixins.scss';
+@import '@/scss/common/helpers/_variables.scss';
+
+.banner-wrap {
+  @include size(100%, 400px);
+  position: relative;
+
+  img {
+    @include size(100%, 400px);
+    object-fit: cover;
+  }
+
+  .swiper-pagination {
+    @include flex-box(center, center);
+    gap: 15px;
+    bottom: 18px;
+
+    .swiper-pagination-bullet {
+      @include size(16px, 16px)
+    }
+    .swiper-pagination-bullet-active {
+      background: $white
+    }
+  }
+}

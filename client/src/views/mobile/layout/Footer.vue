@@ -17,5 +17,5 @@
 </template>
 
 <style scoped lang="scss">
-	@import "@/scss/layout/footer";
+	@import "@/scss/mobile/layout/footer";
 </style>

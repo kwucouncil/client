@@ -107,9 +107,9 @@
 </template>
 
 <style scoped lang="scss">
-@import "@/scss/main/main";
+@import "@/scss/desktop/main/main";
 </style>
 
 <script setup>
-import SwiperBanner from '@/views/main/component/SwiperBanner.vue'
+import SwiperBanner from '@/views/mobile/main/component/SwiperBanner.vue'
 </script>

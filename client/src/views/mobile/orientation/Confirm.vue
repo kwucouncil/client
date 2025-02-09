@@ -34,7 +34,7 @@
 </template>
 
 <style scoped lang="scss">
-@import "@/scss/orientaion/confirm";
+@import "@/scss/mobile/orientation/confirm";
 </style>
 
 <script setup>

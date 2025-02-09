@@ -24,7 +24,7 @@
 </template>
 
 <style scoped lang="scss">
-  @import "@/scss/layout/header";
+  @import "@/scss/mobile/layout/header";
 </style>
 
 <script setup>
