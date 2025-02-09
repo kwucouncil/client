@@ -4,7 +4,7 @@
 .main {
   .top-content-wrap {
     img {
-      @include size(100%, 910px);
+      @include size(100%, 710px);
       object-fit: cover;
     }
 
@@ -13,7 +13,7 @@
   .middle-content-wrap {
     .banner-container {
       .banner-wrap {
-        @include size(100%, 400px);
+        @include size(100%, 300px);
       }
     }
 
@@ -53,7 +53,7 @@
         background: $page-color;
         box-shadow: 0px 4px 4px 0px rgba(0, 0, 0, 0.25);
         position: relative;
-      
+
         .title-wrap {
           h3 {
             font-size: 32px;
@@ -61,7 +61,7 @@
             text-align: center;
             color: $white;
           }
-          
+
           a {
             font-size: 14px;
             color: $white;
@@ -88,11 +88,11 @@
                 @include padding(6px 0);
               }
             }
-  
+
             tbody {
               tr {
                 border-top: 1px solid #F1F1F1;
-                
+
                 td {
                   @include padding(10px 0);
                 }

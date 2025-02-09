@@ -5,32 +5,35 @@ footer {
   background: $page-color;
 
   .footer-wrap {
-    @include padding(29px 0 10px);
+    @include padding(4.33vw 0 1.87vw);
     @include flex-box(center, center);
     flex-direction: column;
     color: #F5F5F5;
 
-    .logo-wrap {
-      @include size(253.753px, 74.868px);
+    .logo-wrap img {
+      @include size(36.06vw, 10.64vw);
     }
 
     .intro {
-        margin-top: 25.13px;
-        font-size: 14px;
+        margin-top: 3.43vw;
+        font-size: 3.2vw;
         font-weight: 800;
-        letter-spacing: 2.8px;
+        letter-spacing: 0.64vw;
     }
+
     .info {
-        margin-top: 45px;
-        font-size: 12px;
+        margin-top: 3.2vw;
+        font-size: 3.2vw;
         text-align: center;
-        letter-spacing: -0.36px;
-        line-height: 22px;
-    }
-    .copyright {
-        margin-top: 32px;
-        font-size: 12px;
-        line-height: 22px;
+        letter-spacing: -0.1vw;
+        line-height: 5.87vw;
+        font-weight: 300;
+      }
+      .copyright {
+        margin-top: 2.13vw;
+        font-size: 2.13vw;
+        line-height: 5.87vw;
+        letter-spacing: -0.06vw;
     }
   }
 }
