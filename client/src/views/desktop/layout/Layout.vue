@@ -12,6 +12,3 @@
 import Header from '@/views/desktop/layout/Header.vue'
 import Footer from '@/views/desktop/layout/Footer.vue'
 </script>
-
-<style>
-</style>
