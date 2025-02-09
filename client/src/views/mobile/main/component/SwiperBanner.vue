@@ -24,7 +24,6 @@
 
   // Import Swiper styles
   import 'swiper/css';
-  import 'swiper/css/pagination';
   import '@/scss/mobile/main/banner.scss';
 
   // import required modules
@@ -37,7 +36,7 @@
     },
     setup() {
       return {
-        modules: [Pagination, Autoplay],
+        modules: [Autoplay],
       };
     },
   };

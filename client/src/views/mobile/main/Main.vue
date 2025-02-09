@@ -12,7 +12,7 @@
           <h2>새로배움터 신청 조회</h2>
           <router-link to="/confirm">신청 조회하기</router-link>
         </div>
-        <div class="card-wrap">
+        <!-- <div class="card-wrap">
           <div class="notice-wrap">
             <div class="title-wrap">
               <h3>공지사항</h3>
@@ -71,7 +71,7 @@
               </table>
             </div>
           </div>
-          <!-- <div class="events-wrap">
+          <div class="events-wrap">
             <div class="title-wrap">
               <h3>월별 주요 행사</h3>
             </div>
@@ -99,15 +99,15 @@
                 </tbody>
               </table>
             </div>
-          </div> -->
-        </div>
+          </div>
+        </div> -->
       </section>
     </div>
   </div>
 </template>
 
 <style scoped lang="scss">
-@import "@/scss/desktop/main/main";
+@import "@/scss/mobile/main/main";
 </style>
 
 <script setup>
