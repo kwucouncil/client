@@ -2,7 +2,7 @@
 	<footer>
 		<div class="footer-wrap">
 			<div class="logo-wrap">
-				<img src="@/assets/imgs/common/logo_w.svg" alt="광운대학교">
+				<img src="@/assets/imgs/desktop/common/logo_w.svg" alt="광운대학교">
 			</div>
 			<p class="intro">광운대학교 제52대 총학생회 비상대책위원회</p>
 			<p class="info">
