@@ -10,7 +10,7 @@
         </div>
         <div class="confirm-wrap">
           <h2>새로배움터 신청 조회</h2>
-          <router-link to="/confirm">신청 조회하기</router-link>
+          <router-link to="/orientation/confirm">신청 조회하기</router-link>
         </div>
         <!-- <div class="card-wrap">
           <div class="notice-wrap">

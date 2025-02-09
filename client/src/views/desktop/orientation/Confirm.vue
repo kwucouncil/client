@@ -57,7 +57,7 @@ const ConfirmFresh = () => {
 	Confirm.confirm(data).then((res) => {
     alert(res.data.message);
   }).catch((err) => {
-    console.log(err);
+    alert(err.response.data.message);
   })
 };
 
@@ -70,7 +70,7 @@ const ConfirmStudent = () => {
 	Confirm.confirm(data).then((res) => {
     alert(res.data.message);
   }).catch((err) => {
-    console.log(err);
+    alert(err.response.data.message);
   })
 };
 </script>
