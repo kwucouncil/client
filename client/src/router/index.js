@@ -72,7 +72,7 @@ const m_routes = [
 ];
 
 const w_router = () => createRouter({
-  history: createWebHistory(process.env.BASE_URL),
+  history: createWebHistory(),
   routes: w_routes,
   scrollBehavior() {
     // always scroll to top
@@ -81,7 +81,7 @@ const w_router = () => createRouter({
 })
 
 const m_router = () => createRouter({
-  history: createWebHistory(process.env.BASE_URL),
+  history: createWebHistory(),
   routes: m_routes,
   scrollBehavior() {
     // always scroll to top
