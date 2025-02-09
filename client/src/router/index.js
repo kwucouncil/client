@@ -5,8 +5,6 @@ import MobileDetect from 'mobile-detect';
 import LayoutW from '@/views/desktop/layout/Layout'
 import LayoutM from '@/views/mobile/layout/Layout'
 
-const basename = process.env.PUBLIC_URL;
-
 const w_routes = [
   {
     path: '/',
@@ -76,7 +74,6 @@ const m_routes = [
 const w_router = () => createRouter({
   history: createWebHashHistory(),
   routes: w_routes,
-  basename: basename,
   scrollBehavior() {
     // always scroll to top
     return { top: 0 }
@@ -86,7 +83,6 @@ const w_router = () => createRouter({
 const m_router = () => createRouter({
   history: createWebHashHistory(),
   routes: m_routes,
-  basename: basename,
   scrollBehavior() {
     // always scroll to top
     return { top: 0 }
