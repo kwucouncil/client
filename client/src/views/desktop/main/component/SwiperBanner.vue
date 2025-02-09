@@ -11,9 +11,7 @@
     :modules="modules"
     class="mySwiper banner-wrap"
   >
-    <swiper-slide><img src="@/assets/imgs/desktop/main/banner/ex1.svg" alt="banner_1"></swiper-slide>
-    <swiper-slide><img src="@/assets/imgs/desktop/main/banner/ex1.svg" alt="banner_1"></swiper-slide>
-    <swiper-slide><img src="@/assets/imgs/desktop/main/banner/ex1.svg" alt="banner_1"></swiper-slide>
+    <swiper-slide><img src="@/assets/imgs/desktop/main/banner/orientation2.svg" alt="banner_1"></swiper-slide>
     <swiper-slide><img src="@/assets/imgs/desktop/main/banner/ex1.svg" alt="banner_1"></swiper-slide>
   </swiper>
 </template>

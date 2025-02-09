@@ -1,5 +1,5 @@
 import { h, resolveComponent } from 'vue'
-import { createRouter, createWebHistory } from 'vue-router';
+import { createRouter, createWebHashHistory } from 'vue-router';
 import MobileDetect from 'mobile-detect';
 
 import LayoutW from '@/views/desktop/layout/Layout'
@@ -74,7 +74,7 @@ const m_routes = [
 ];
 
 const w_router = () => createRouter({
-  history: createWebHistory(),
+  history: createWebHashHistory(),
   routes: w_routes,
   basename: basename,
   scrollBehavior() {
@@ -84,7 +84,7 @@ const w_router = () => createRouter({
 })
 
 const m_router = () => createRouter({
-  history: createWebHistory(),
+  history: createWebHashHistory(),
   routes: m_routes,
   basename: basename,
   scrollBehavior() {
@@ -97,8 +97,10 @@ let router;
 const md = new MobileDetect(window.navigator.userAgent); //mobile-detect를 통해
 if (!md.mobile()) {
   router = w_router();
+  require('../scss/desktop/app.scss');
 } else {
   router = m_router();
+  require('../scss/mobile/app.scss');
 }
 
 export default router
