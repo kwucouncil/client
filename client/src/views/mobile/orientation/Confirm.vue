@@ -2,7 +2,7 @@
 	<div class="container">
 		<div class="confirm-wrap">
 			<div class="banner-wrap">
-				<img src="@/assets/imgs/mobile/orientation/banner.svg" alt="새로배움터 배너">
+				<img src="@/assets/imgs/mobile/orientation/banner.png" alt="새로배움터 배너">
 			</div>
 			<div class="notice-wrap">
 				<h2>새로배움터 신청조회</h2>

@@ -11,7 +11,7 @@
     :modules="modules"
     class="mySwiper banner-wrap"
   >
-    <swiper-slide><img src="@/assets/imgs/mobile/main/banner/orientation1.svg" alt="banner_1" /></swiper-slide>
+    <swiper-slide><img src="@/assets/imgs/mobile/main/banner/orientation1.png" alt="banner_1" /></swiper-slide>
     <!-- <swiper-slide><img src="@/assets/imgs/mobile/main/banner/ex1.svg" alt="banner_1" /></swiper-slide> -->
   </swiper>
 </template>
