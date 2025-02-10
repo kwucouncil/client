@@ -1,32 +1,38 @@
 <template>
 	<div class="container">
 		<div class="confirm-wrap">
-			<div class="title-wrap">
-				<h2>2025 광운대학교 새로배움터 신청 조회</h2>
-				<p>새내기 여러분들의 입학을 진심으로 축하합니다.</p>
+			<div class="banner-wrap">
+				<img src="@/assets/imgs/desktop/orientation/banner.svg" alt="새로배움터 배너">
 			</div>
 			<div class="form-wrap">
+				<p class="notice">* 2025년 02월 11일 10:00 이전 참가비 납부자 기준</p>
 				<form @submit.prevent="ConfirmFresh()">
 					<div class="freshman-wrap">
-						<div class="title-wrap">신입생</div>
+						<div class="info-wrap">
+							<h2>신입생 조회</h2>
+							<p>신청 조회를 위해 이름과 생년월일을 입력해주세요.</p>
+						</div>
 						<div class="input-wrap">
 							<input type="text" placeholder="이름" v-model="fresh_name">
 							<input type="text" placeholder="생년월일" v-model="fresh_date">
 						</div>
 						<div class="btn-wrap">
-							<button class="btn-submit" type="submit">확인</button>
+							<button class="btn-submit" type="submit">신청 조회</button>
 						</div>
 					</div>
 				</form>
 				<form @submit.prevent="ConfirmStudent()">
-					<div class="students">
-						<div class="title-wrap">재학생</div>
+					<div class="students-wrap">
+						<div class="info-wrap">
+							<h2>재학생 조회</h2>
+							<p>신청 조회를 위해 이름과 학번을 입력해주세요.</p>
+						</div>
 						<div class="input-wrap">
 							<input type="text" placeholder="이름" v-model="student_name">
 							<input type="text" placeholder="학번" v-model="student_id">
 						</div>
 						<div class="btn-wrap">
-							<button class="btn-submit" type="submit">확인</button>
+							<button class="btn-submit" type="submit">신청 조회</button>
 						</div>
 					</div>
 				</form>
