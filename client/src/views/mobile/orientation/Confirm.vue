@@ -7,7 +7,8 @@
 			<div class="notice-wrap">
 				<h2>새로배움터 신청조회</h2>
 				<p>이름과 생년월일 및 학번을 입력해<br/>새로배움터 신청조회가 가능합니다.</p>
-				<p class="guide">* 2025년 02월 11일 10:00 이전 참가비 납부자 기준</p>
+				<p>신청 폼에 기입한 이름과 입금자명에<br/>기입한 이름이 다를 경우 확인이 어려울 수 있습니다.<br/>문의사항:https://open.kakao.com/me/kwuec2025</p>
+				<p class="guide">* 2025년 02월 10일 10:00 이전 참가비 납부자 기준</p>
 			</div>
 			<div class="form-wrap">
 				<form @submit.prevent="ConfirmFresh()">
@@ -66,7 +67,7 @@ const ConfirmFresh = () => {
 	}
 	Confirm.confirm(data).then((res) => {
     if(res.data.result){
-			alert("신입생 새로배움터 신청이 확인되었습니다. 새로배움터 일정 : 2/25~27")
+			alert("신입생 새로배움터 신청이 확인되었습니다.\n새로배움터 일정 : 2/25~27")
 		} else {
 			if(res.data.is_cost){
 				alert("요금 납부는 확인되었지만, 폼 작성이 필요합니다.")
@@ -87,7 +88,7 @@ const ConfirmStudent = () => {
 	}
 	Confirm.confirm(data).then((res) => {
     if(res.data.result){
-			alert("재학생 새로배움터 신청이 확인되었습니다. 새로배움터 일정 : 2/25~27")
+			alert("재학생 새로배움터 신청이 확인되었습니다.\n새로배움터 일정 : 2/25~27")
 		} else {
 			if(res.data.is_cost){
 				alert("요금 납부는 확인되었지만, 폼 작성이 필요합니다.")

@@ -5,7 +5,7 @@
 				<img src="@/assets/imgs/desktop/orientation/banner.svg" alt="새로배움터 배너">
 			</div>
 			<div class="form-wrap">
-				<p class="notice">* 2025년 02월 11일 10:00 이전 참가비 납부자 기준</p>
+				<p class="notice">* 2025년 02월 10일 10:00 이전 참가비 납부자 기준</p>
 				<form @submit.prevent="ConfirmFresh()">
 					<div class="freshman-wrap">
 						<div class="info-wrap">
@@ -61,7 +61,7 @@ const ConfirmFresh = () => {
 	}
 	Confirm.confirm(data).then((res) => {
 		if(res.data.result){
-			alert("신입생 새로배움터 신청이 확인되었습니다. 새로배움터 일정 : 2/25~27")
+			alert("신입생 새로배움터 신청이 확인되었습니다.\n새로배움터 일정 : 2/25~27")
 		} else {
 			if(res.data.is_cost){
 				alert("요금 납부는 확인되었지만, 폼 작성이 필요합니다.")
@@ -81,7 +81,7 @@ const ConfirmStudent = () => {
 	}
 	Confirm.confirm(data).then((res) => {
 		if(res.data.result){
-			alert("재학생 새로배움터 신청이 확인되었습니다. 새로배움터 일정 : 2/25~27")
+			alert("재학생 새로배움터 신청이 확인되었습니다.\n새로배움터 일정 : 2/25~27")
 		} else {
 			if(res.data.is_cost){
 				alert("요금 납부는 확인되었지만, 폼 작성이 필요합니다.")

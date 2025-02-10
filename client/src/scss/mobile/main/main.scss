@@ -21,7 +21,7 @@
       @include flex-box(center, center);
       flex-direction: column;
       gap: 1.33vw;
-      @include padding(4vw 0);
+      @include padding(7vw 0);
 
       h2 {
         font-size: 3.73vw;
@@ -37,6 +37,43 @@
         border-radius: 8vw;
         box-shadow: 0.27vw 0.27vw 0.67vw 0vw rgba(0, 0, 0, 0.25);
         text-align: center;
+      }
+    }
+
+    .orientation-register-wrap {
+      text-align: center;
+      .register-wrap {
+        @include flex-box(center, center, 8.53vw);
+        flex-direction: column;
+        padding: 7vw 0;
+        background: #F5F5F5;
+
+        .freshman-wrap, .student-wrap {
+          h2 {
+            font-size: 4.8vw;
+            font-weight: bold;
+            letter-spacing: -0.14vw;
+            color: #712732;
+          }
+
+          .form-wrap {
+            margin-top: 4.27vw;
+            @include flex-box(center, center, 2.13vw);
+            flex-direction: column;
+
+            a {
+              @include size(94.67vw, 10.67vw);
+              @include border(0.27vw solid $black);
+              font-size: 3.73vw;
+              line-height: 10.67vw;
+              box-shadow: 0.27vw 0.27vw 0.67vw 0vw rgba(0, 0, 0, 0.25);
+              
+              b {
+                color: #712732;
+              }
+            }
+          }
+        }
       }
     }
   }

@@ -73,6 +73,7 @@
           @include padding(1.07vw 1.33vw);
           @include box-sizing(border-box);
           @include border(0.27vw solid $white);
+          font-size: 3.2vw;
           background-color: #F5F5F5;
 
           &::placeholder {
