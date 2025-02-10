@@ -65,7 +65,15 @@ const ConfirmFresh = () => {
 		birth_date: fresh_date.value,
 	}
 	Confirm.confirm(data).then((res) => {
-    alert(res.data.message);
+    if(res.data.result){
+			alert("신입생 새로배움터 신청이 확인되었습니다. 새로배움터 일정 : 2/25~27")
+		} else {
+			if(res.data.is_cost){
+				alert("요금 납부는 확인되었지만, 폼 작성이 필요합니다.")
+			} else {
+				alert("폼 신청은 확인되었지만, 요금 납부가 확인되지 않았습니다.")
+			}
+		}
   }).catch((err) => {
     alert(err.response.data.message);
   })
@@ -78,7 +86,15 @@ const ConfirmStudent = () => {
 		student_id: student_id.value,
 	}
 	Confirm.confirm(data).then((res) => {
-    alert(res.data.message);
+    if(res.data.result){
+			alert("재학생 새로배움터 신청이 확인되었습니다. 새로배움터 일정 : 2/25~27")
+		} else {
+			if(res.data.is_cost){
+				alert("요금 납부는 확인되었지만, 폼 작성이 필요합니다.")
+			} else {
+				alert("폼 신청은 확인되었지만, 요금 납부가 확인되지 않았습니다.")
+			}
+		}
   }).catch((err) => {
     alert(err.response.data.message);
   })
