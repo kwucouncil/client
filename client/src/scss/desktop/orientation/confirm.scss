@@ -4,6 +4,11 @@
 .confirm-wrap {
   .banner-wrap {
     @include size(100%, 400px);
+
+    img {
+      @include size(100%, 400px);
+      object-fit: cover;
+    }
   }
 
   .form-wrap {
