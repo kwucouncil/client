@@ -2,6 +2,115 @@
 @import '@/scss/common/helpers/_variables.scss';
 
 .confirm-wrap {
-  padding: 100px 0;
-  margin: 0 auto;
+  .banner-wrap {
+    @include size(100%, 32vw);
+
+    img {
+      @include size(100%, 32vw);
+      object-fit: cover;
+    }
+  }
+
+  .notice-wrap {
+    @include padding(4vw 0);
+    text-align: center;
+
+    h2 {
+      font-size: 4.8vw;
+      font-weight: bold;
+      letter-spacing: -0.14vw;
+    }
+
+    p {
+      margin-top: 1.87vw;
+      font-size: 3.73vw;
+      letter-spacing: -0.11vw;
+      // line-height: normal;
+    }
+
+    .guide {
+      margin-top: 1.33vw;
+      font-size: 3.2vw;
+    }
+  }
+
+  .form-wrap {
+    @include flex-box(center, center, 5.33vw);
+    flex-direction: column;
+    @include padding(10.67vw 0);
+    position: relative;
+    background: #F5F5F5;
+
+    .freshman-wrap, .students-wrap {
+      @include size(69.33vw, 41.6vw);
+      @include padding(2.67vw 9.33vw);
+      @include box-sizing(border-box);
+      border-radius: 5.33vw;
+      text-align: center;
+      background: $white;
+
+
+      .info-wrap {
+        h2 {
+          font-size: 3.73vw;
+          font-weight: bold;
+          letter-spacing: -0.11vw;
+          color: #712732;
+        }
+
+        p {
+          font-size: 3.73vw;
+          letter-spacing: -0.11vw;
+          margin-top: 0.53vw;
+        }
+      }
+
+      .input-wrap {
+        margin-top: 2.13vw;
+
+        input {
+          @include size(49.07vw, 6.4vw);
+          @include padding(1.07vw 1.33vw);
+          @include box-sizing(border-box);
+          @include border(0.27vw solid $white);
+          background-color: #F5F5F5;
+
+          &::placeholder {
+            color: $gray-800;
+            font-size: 3.2vw;
+          }
+
+          &:not(:first-child){
+            margin-top: 1.33vw;
+          }
+        }
+      }
+
+      .btn-wrap {
+        margin-top: 2.13vw;
+        border-radius: 8vw;
+
+        button {
+          @include size(26.67vw, 7.47vw);
+          @include box-sizing(border-box);
+          display: block;
+          margin: 0 auto;
+          background: #712732;
+          box-shadow: 0.27vw 0.27vw 0.67vw 0vw rgba(0, 0, 0, 0.25);
+          color: #F5F5F5;
+          font-size: 3.2vw;
+          line-height: 28x;
+          cursor: pointer;
+          border: none;
+          border-radius: 8vw;
+
+          &:disabled {
+            background-color: $gray-800;
+            color: $white;
+            cursor: not-allowed;
+          }
+        }
+      }
+    }
+  }
 }

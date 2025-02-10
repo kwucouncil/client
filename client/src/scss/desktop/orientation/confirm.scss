@@ -25,7 +25,9 @@
     }
 
     .freshman-wrap, .students-wrap {
+      @include size(570px, 315px);
       @include padding(30px 80px);
+      @include box-sizing(border-box);
       border-radius: 20px;
       text-align: center;
       background: $white;
