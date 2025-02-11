@@ -42,12 +42,12 @@
 
     .orientation-register-wrap {
       background: #712732;
-      padding-top: 100px;
+      padding-top: 60px;
       text-align: center;
 
       .register-wrap {
         @include flex-box(center, flex-start, 20px);
-        padding: 90px 0;
+        padding: 50px 0;
         background: $white;
 
         .freshman-wrap, .student-wrap {

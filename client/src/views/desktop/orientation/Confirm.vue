@@ -5,7 +5,7 @@
 				<img src="@/assets/imgs/desktop/orientation/banner.svg" alt="새로배움터 배너">
 			</div>
 			<div class="form-wrap">
-				<p class="notice">* 2025년 02월 10일 10:00 이전 참가비 납부자 기준</p>
+				<p class="notice">* 2025년 02월 12일 15:00 신청자 명단 업데이트 예정</p>
 				<form @submit.prevent="ConfirmFresh()">
 					<div class="freshman-wrap">
 						<div class="info-wrap">

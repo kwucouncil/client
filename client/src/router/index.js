@@ -1,5 +1,5 @@
 import { h, resolveComponent } from 'vue'
-import { createRouter, createWebHashHistory } from 'vue-router';
+import { createRouter, createWebHistory } from 'vue-router';
 import MobileDetect from 'mobile-detect';
 
 import LayoutW from '@/views/desktop/layout/Layout'
@@ -72,7 +72,7 @@ const m_routes = [
 ];
 
 const w_router = () => createRouter({
-  history: createWebHashHistory(),
+  history: createWebHistory(),
   routes: w_routes,
   scrollBehavior() {
     // always scroll to top
@@ -81,7 +81,7 @@ const w_router = () => createRouter({
 })
 
 const m_router = () => createRouter({
-  history: createWebHashHistory(),
+  history: createWebHistory(),
   routes: m_routes,
   scrollBehavior() {
     // always scroll to top

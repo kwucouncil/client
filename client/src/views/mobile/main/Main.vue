@@ -2,14 +2,14 @@
   <div class="main">
     <div class="container">
       <section class="top-content-wrap">
-        <img src="@/assets/imgs/mobile/main/university.png" alt="광운대학교" />
+        <img src="@/assets/imgs/mobile/main/university1.png" alt="광운대학교" />
       </section>
       <section class="middle-content-wrap">
         <div class="banner-container">
           <SwiperBanner/>
         </div>
         <div class="confirm-wrap">
-          <h2>새로배움터 신청 조회</h2>
+          <h2>2025 새로배움터 신청 조회</h2>
           <router-link to="/orientation/confirm">신청 조회하기</router-link>
         </div>
         <div class="orientation-register-wrap">
