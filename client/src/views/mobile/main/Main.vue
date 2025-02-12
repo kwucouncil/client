@@ -2,7 +2,7 @@
   <div class="main">
     <div class="container">
       <section class="top-content-wrap">
-        <img src="@/assets/imgs/mobile/main/university1.png" alt="광운대학교" />
+        <img src="@/assets/imgs/mobile/main/university.png" alt="광운대학교" />
       </section>
       <section class="middle-content-wrap">
         <div class="banner-container">
