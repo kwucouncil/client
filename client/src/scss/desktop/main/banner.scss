@@ -7,7 +7,7 @@
 
   img {
     @include size(100%, 300px);
-    object-fit: cover;
+    object-fit: fill;
   }
 
   .swiper-pagination {
