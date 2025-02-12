@@ -8,7 +8,7 @@
 				<h2>새로배움터 신청조회</h2>
 				<p>이름과 생년월일 및 학번을 입력해<br/>새로배움터 신청조회가 가능합니다.</p>
 				<p>신청 폼에 기입한 이름과 입금자명에<br/>기입한 이름이 다를 경우 확인이 어려울 수 있습니다.<br/>문의사항:https://open.kakao.com/me/kwuec2025</p>
-				<p class="guide">* 2025년 02월 13일 15:00 신청자 명단 업데이트 예정</p>
+				<p class="guide">* 2025년 02월 13일 15:00 신청자 명단 업데이트 예정<br/>업데이트 이후 버튼 활성화 예정입니다.</p>
 			</div>
 			<div class="form-wrap">
 				<form @submit.prevent="ConfirmFresh()">
@@ -22,7 +22,7 @@
 							<input type="text" placeholder="생년월일" v-model="fresh_date">
 						</div>
 						<div class="btn-wrap">
-							<button class="btn-submit" type="submit">신청 조회</button>
+							<button class="btn-submit" type="submit" disabled>신청 조회</button>
 						</div>
 					</div>
 				</form>
@@ -37,7 +37,7 @@
 							<input type="text" placeholder="학번" v-model="student_id">
 						</div>
 						<div class="btn-wrap">
-							<button class="btn-submit" type="submit">신청 조회</button>
+							<button class="btn-submit" type="submit" disabled>신청 조회</button>
 						</div>
 					</div>
 				</form>

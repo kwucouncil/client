@@ -5,7 +5,7 @@
 				<img src="@/assets/imgs/desktop/orientation/banner.svg" alt="새로배움터 배너">
 			</div>
 			<div class="form-wrap">
-				<p class="notice">* 2025년 02월 13일 15:00 신청자 명단 업데이트 예정</p>
+				<p class="notice">* 2025년 02월 13일 15:00 신청자 명단 업데이트 예정<br/>업데이트 이후 버튼 활성화 예정입니다.</p>
 				<form @submit.prevent="ConfirmFresh()">
 					<div class="freshman-wrap">
 						<div class="info-wrap">
@@ -17,7 +17,7 @@
 							<input type="text" placeholder="생년월일" v-model="fresh_date">
 						</div>
 						<div class="btn-wrap">
-							<button class="btn-submit" type="submit">신청 조회</button>
+							<button class="btn-submit" type="submit" disabled>신청 조회</button>
 						</div>
 					</div>
 				</form>
@@ -32,7 +32,7 @@
 							<input type="text" placeholder="학번" v-model="student_id">
 						</div>
 						<div class="btn-wrap">
-							<button class="btn-submit" type="submit">신청 조회</button>
+							<button class="btn-submit" type="submit" disabled>신청 조회</button>
 						</div>
 					</div>
 				</form>
