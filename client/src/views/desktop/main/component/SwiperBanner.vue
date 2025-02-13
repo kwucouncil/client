@@ -13,6 +13,7 @@
   >
     <swiper-slide><img src="@/assets/imgs/desktop/main/banner/orientation.png" alt="새로배움터"></swiper-slide>
     <swiper-slide><img src="@/assets/imgs/desktop/main/banner/jinro.png" alt="하이트진로"></swiper-slide>
+    <swiper-slide><img src="@/assets/imgs/desktop/main/banner/pre-learning.png" alt="자율전공 미리배움터"></swiper-slide>
   </swiper>
 </template>
 
