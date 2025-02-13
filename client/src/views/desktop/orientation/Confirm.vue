@@ -5,7 +5,7 @@
 				<img src="@/assets/imgs/desktop/orientation/banner.svg" alt="새로배움터 배너">
 			</div>
 			<div class="form-wrap">
-				<p class="notice">* 2025년 2월 13일 09:00 이전 신청자만 조회 가능합니다.</p>
+				<p class="notice">* 2025년 2월 12일 18:00 이전 신청자만 조회 가능합니다.<br>* 각 과, 단과대 집행부 제외</p>
 				<form @submit.prevent="ConfirmFresh()">
 					<div class="freshman-wrap">
 						<div class="info-wrap">
@@ -14,7 +14,7 @@
 						</div>
 						<div class="input-wrap">
 							<input type="text" placeholder="이름" v-model="fresh_name">
-							<input type="text" placeholder="생년월일" v-model="fresh_date">
+							<input type="text" placeholder="생년월일 ex)010810" v-model="fresh_date">
 						</div>
 						<div class="btn-wrap">
 							<button class="btn-submit" type="submit">신청 조회</button>
