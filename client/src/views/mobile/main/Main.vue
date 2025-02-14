@@ -25,6 +25,7 @@
                 <a href="https://forms.gle/HmLCHZhRwU16rR2R7" target="_blank"><b>📝[전자정보공과대학]</b>2025 새로배움터 신청서</a>
                 <a href="https://forms.gle/fuzaEixLBTtMqRUAA" target="_blank"><b>📝[정책법학대학]</b>2025 새로배움터 신청서</a>
                 <a href="https://forms.gle/CCfMyrh4ifQPSDM2A" target="_blank"><b>📝[자율전공학부]</b>2025 새로배움터 신청서</a>
+                <a href="https://forms.gle/TEssvxMrHqUkdEXM8" target="_blank">2025 새로배움터 환불신청서</a>
               </div>
             </div>
             <div class="student-wrap">
@@ -37,6 +38,7 @@
                 <a href="https://forms.gle/o8WQtX5F5NcvfJeEA" target="_blank"><b>📝[자연과학대학]</b>2025 새로배움터 신청서</a>
                 <a href="https://forms.gle/2tZqYMLdJCSieq959" target="_blank"><b>📝[전자정보공과대학]</b>2025 새로배움터 신청서</a>
                 <a href="https://forms.gle/UKKL6yimTTd6CZt88" target="_blank"><b>📝[정책법학대학]</b>2025 새로배움터 신청서</a>
+                <a href="https://forms.gle/i4GqaQLHHV4WoU3F7" target="_blank">2025 새로배움터 환불신청서</a>
               </div>
             </div>
           </div>

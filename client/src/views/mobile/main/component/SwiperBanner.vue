@@ -13,6 +13,7 @@
   >
     <swiper-slide><img src="@/assets/imgs/mobile/main/banner/orientation.png" alt="banner_1" /></swiper-slide>
     <swiper-slide><img src="@/assets/imgs/mobile/main/banner/jinro.png" alt="banner_1" /></swiper-slide>
+    <swiper-slide><a href="https://open.kakao.com/o/sY8gKDeh" target="_blank"><img src="@/assets/imgs/mobile/main/banner/pre-learning.png" alt="자율전공 미리배움터"></a></swiper-slide>
   </swiper>
 </template>
 
