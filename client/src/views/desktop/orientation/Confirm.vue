@@ -5,7 +5,7 @@
 				<img src="@/assets/imgs/desktop/orientation/banner.svg" alt="새로배움터 배너">
 			</div>
 			<div class="form-wrap">
-				<p class="notice">* 2025년 2월 12일 18:00 이전 신청자만 조회 가능합니다.<br>* 각 과, 단과대 집행부 제외</p>
+				<p class="notice">* 2025년 2월 14일 18:00 이전 신청자만 조회 가능합니다.<br>* 각 과, 단과대 집행부 제외</p>
 				<form @submit.prevent="ConfirmFresh()">
 					<div class="freshman-wrap">
 						<div class="info-wrap">

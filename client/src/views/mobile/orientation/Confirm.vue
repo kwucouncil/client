@@ -8,7 +8,7 @@
 				<h2>새로배움터 신청조회</h2>
 				<p>이름과 생년월일 및 학번을 입력해<br/>새로배움터 신청조회가 가능합니다.</p>
 				<p>신청 폼에 기입한 이름과 입금자명에<br/>기입한 이름이 다를 경우 확인이 어려울 수 있습니다.<br/>문의사항:https://open.kakao.com/me/kwuec2025</p>
-				<p class="guide">* 2025년 02월 12일 18:00 이전 신청자만 조회 가능합니다.<br>* 각 과, 단과대 집행부 제외</p>
+				<p class="guide">* 2025년 02월 14일 18:00 이전 신청자만 조회 가능합니다.<br>* 각 과, 단과대 집행부 제외</p>
 			</div>
 			<div class="form-wrap">
 				<form @submit.prevent="ConfirmFresh()">
