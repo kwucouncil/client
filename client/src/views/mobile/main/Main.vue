@@ -17,28 +17,14 @@
             <div class="freshman-wrap">
               <h2>신입생 신청</h2>
               <div class="form-wrap">
-                <a href="https://forms.gle/nBvi1rvNSna36RCq6" target="_blank"><b>📝[경영대학]</b>2025 새로배움터 신청서</a>
-                <a href="https://forms.gle/So2tJLNEutkEhqsf7" target="_blank"><b>📝[공과대학]</b>2025 새로배움터 신청서</a>
-                <a href="https://forms.gle/T8j9rg2yuvcg2Pu79" target="_blank"><b>📝[인공지능융합대학]</b>2025 새로배움터 신청서</a>
-                <a href="https://forms.gle/avy6XJRNpiQghJSW6" target="_blank"><b>📝[인문사회과학대학]</b>2025 새로배움터 신청서</a>
-                <a href="https://forms.gle/PR7pt7zWykserg9F6" target="_blank"><b>📝[자연과학대학]</b>2025 새로배움터 신청서</a>
-                <a href="https://forms.gle/HmLCHZhRwU16rR2R7" target="_blank"><b>📝[전자정보공과대학]</b>2025 새로배움터 신청서</a>
-                <a href="https://forms.gle/fuzaEixLBTtMqRUAA" target="_blank"><b>📝[정책법학대학]</b>2025 새로배움터 신청서</a>
-                <a href="https://forms.gle/CCfMyrh4ifQPSDM2A" target="_blank"><b>📝[자율전공학부]</b>2025 새로배움터 신청서</a>
-                <a href="https://forms.gle/TEssvxMrHqUkdEXM8" target="_blank">2025 새로배움터 환불신청서</a>
+                <a href="https://forms.gle/y7A2wFUPUoKXBABh8" target="_blank"><b>📝[신입생(자율전공 외)]</b>2025 새로배움터 2차 신청서</a>
+                <a href="https://forms.gle/B4zhShDSrfBDopPVA" target="_blank"><b>📝[신입생(자율전공학부)]</b> 2025 새로배움터 2차 신청서</a>
               </div>
             </div>
             <div class="student-wrap">
               <h2>재학생 신청</h2>
               <div class="form-wrap">
-                <a href="https://forms.gle/LJKPvVDcpDnbC2SF9" target="_blank"><b>📝[경영대학]</b>2025 새로배움터 신청서</a>
-                <a href="https://forms.gle/miWmLdB4M7VLh3MM9" target="_blank"><b>📝[공과대학]</b>2025 새로배움터 신청서</a>
-                <a href="https://forms.gle/rzbzKUzRcGDpCUhWA" target="_blank"><b>📝[인공지능융합대학]</b>2025 새로배움터 신청서</a>
-                <a href="https://forms.gle/UxPNZCwJUFfNh9jX9" target="_blank"><b>📝[인문사회과학대학]</b>2025 새로배움터 신청서</a>
-                <a href="https://forms.gle/o8WQtX5F5NcvfJeEA" target="_blank"><b>📝[자연과학대학]</b>2025 새로배움터 신청서</a>
-                <a href="https://forms.gle/2tZqYMLdJCSieq959" target="_blank"><b>📝[전자정보공과대학]</b>2025 새로배움터 신청서</a>
-                <a href="https://forms.gle/UKKL6yimTTd6CZt88" target="_blank"><b>📝[정책법학대학]</b>2025 새로배움터 신청서</a>
-                <a href="https://forms.gle/i4GqaQLHHV4WoU3F7" target="_blank">2025 새로배움터 환불신청서</a>
+                <a href="https://forms.gle/CY78MoXP8sFP3ioUA" target="_blank"><b>📝[재학생]</b>2025 새로배움터 2차 신청서</a>
               </div>
             </div>
           </div>
