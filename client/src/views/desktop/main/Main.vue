@@ -15,16 +15,9 @@
         <div class="orientation-register-wrap">
           <div class="register-wrap">
             <div class="freshman-wrap">
-              <h2>신입생 신청</h2>
+              <h2>환불 신청</h2>
               <div class="form-wrap">
-                <a href="https://forms.gle/y7A2wFUPUoKXBABh8" target="_blank"><b>📝[신입생(자율전공 외)]</b>2025 새로배움터 2차 신청서</a>
-                <a href="https://forms.gle/B4zhShDSrfBDopPVA" target="_blank"><b>📝[신입생(자율전공학부)]</b> 2025 새로배움터 2차 신청서</a>
-              </div>
-            </div>
-            <div class="student-wrap">
-              <h2>재학생 신청</h2>
-              <div class="form-wrap">
-                <a href="https://forms.gle/CY78MoXP8sFP3ioUA" target="_blank"><b>📝[재학생]</b>2025 새로배움터 2차 신청서</a>
+                <a href="https://forms.gle/9qTAVqD7Bswk1veJ6" target="_blank"><b>미신청자(구글폼)</b>&ensp;2025 새로배움터 환불서</a>
               </div>
             </div>
           </div>
