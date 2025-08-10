@@ -69,7 +69,7 @@
               font-size: 14px;
               line-height: 40px;
               box-shadow: 1px 1px 2.5px 0px rgba(0, 0, 0, 0.25);
-              
+
               b {
                 color: #712732;
               }
@@ -79,76 +79,77 @@
       }
     }
 
-    // .card-wrap {
-    //   @include padding(60px 0);
-    //   @include flex-box(center);
-    //   gap: 20px;
+    .card-wrap {
+      @include padding(60px 0);
+      @include flex-box(center);
+      gap: 20px;
 
-    //   .notice-wrap, .events-wrap {
-    //     @include size(570px);
-    //     @include padding(23px 25px);
-    //     border-radius: 30px;
-    //     border: 1px solid rgba(0, 0, 0, 0.10);
-    //     background: $page-color;
-    //     box-shadow: 0px 4px 4px 0px rgba(0, 0, 0, 0.25);
-    //     position: relative;
+      .notice-wrap, .events-wrap {
+        @include size(570px);
+        @include padding(23px 25px);
+        border-radius: 30px;
+        border: 1px solid rgba(0, 0, 0, 0.10);
+        background: $page-color;
+        box-shadow: 0px 4px 4px 0px rgba(0, 0, 0, 0.25);
+        position: relative;
 
-    //     .title-wrap {
-    //       h3 {
-    //         font-size: 32px;
-    //         font-weight: bold;
-    //         text-align: center;
-    //         color: $white;
-    //       }
+        .title-wrap {
+          h3 {
+            font-size: 32px;
+            font-weight: bold;
+            text-align: center;
+            color: $white;
+          }
 
-    //       a {
-    //         font-size: 14px;
-    //         color: $white;
-    //         position: absolute;
-    //         top: 44px;
-    //         right: 65px;
-    //         text-decoration: underline;
-    //       }
-    //     }
+          a {
+            font-size: 14px;
+            color: $white;
+            position: absolute;
+            top: 44px;
+            right: 65px;
+            text-decoration: underline;
+          }
+        }
 
-    //     .table-wrap {
-    //       @include padding(20px 40px);
-    //       margin-top: 23px;
-    //       background: $white;
-    //       border-radius: 24px;
-    //       font-size: 14px;
+        .table-wrap {
+          @include padding(20px 40px);
+          margin-top: 23px;
+          background: $white;
+          border-radius: 24px;
+          font-size: 14px;
 
-    //       table {
-    //         @include size(100%);
-    //         border-collapse: collapse;
+          table {
+            @include size(100%);
+            border-collapse: collapse;
 
-    //         thead {
-    //           tr th {
-    //             @include padding(6px 0);
-    //           }
-    //         }
+            thead {
+              tr th {
+                @include padding(6px 0);
+              }
+            }
 
-    //         tbody {
-    //           tr {
-    //             border-top: 1px solid #F1F1F1;
+            tbody {
+              tr {
+                border-top: 1px solid #F1F1F1;
+                cursor: pointer;
 
-    //             td {
-    //               @include padding(10px 0);
-    //             }
+                td {
+                  @include padding(10px 0);
+                }
 
-    //             .title {
-    //               font-weight: bold;
-    //             }
+                .title {
+                  font-weight: bold;
+                }
 
-    //             .date {
-    //               text-align: center;
-    //             }
-    //           }
-    //         }
-    //       }
+                .date {
+                  text-align: center;
+                }
+              }
+            }
+          }
 
-    //     }
-    //   }
-    // }
+        }
+      }
+    }
   }
 }

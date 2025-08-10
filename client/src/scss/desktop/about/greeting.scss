@@ -1,0 +1,47 @@
+@import '@/scss/common/helpers/_mixins.scss';
+@import '@/scss/common/helpers/_variables.scss';
+
+.greeting-wrap {
+  h2 {
+    font-size: 32px;
+    font-weight: 700;
+    line-height: normal;
+    color: #191516;
+  }
+
+  .seokhyeon-wrap {
+    @include flex-box(center, center, 64px);
+    margin-top: 10px;
+
+    .img-wrap {
+      @include flex-box(center, center, 41px);
+      flex-direction: column;
+
+      .photo {
+        @include size(199px, 204px);
+      }
+
+      .sign {
+        @include size(84px, 55px);
+      }
+    }
+
+    .text-wrap {
+      margin-top: 10px;
+
+      h3 {
+        font-size: 20px;
+        font-weight: 400;
+        line-height: normal;
+      }
+
+      .jo {
+        margin-top: 30px;
+        font-size: 12px;
+        font-weight: 200;
+        line-height: normal;
+        color: #000;
+      }
+    }
+  }
+}

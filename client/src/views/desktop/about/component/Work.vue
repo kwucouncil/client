@@ -13,10 +13,10 @@
 						</div>
 						<div class="input-wrap">
 							<input type="text" placeholder="이름" v-model="fresh_name">
-							<input type="text" placeholder="생년월일 ex)060101" v-model="fresh_date">
+							<input type="text" placeholder="생년월일 ex)010810" v-model="fresh_date">
 						</div>
 						<div class="btn-wrap">
-							<button class="btn-submit" type="submit" disabled>신청 조회</button>
+							<button class="btn-submit" type="submit">신청 조회</button>
 						</div>
 					</div>
 				</form>
@@ -31,7 +31,7 @@
 							<input type="text" placeholder="전화번호 ex)010-1234-1234" v-model="student_id">
 						</div>
 						<div class="btn-wrap">
-							<button class="btn-submit" type="submit" disabled>신청 조회</button>
+							<button class="btn-submit" type="submit">신청 조회</button>
 						</div>
 					</div>
 				</form>

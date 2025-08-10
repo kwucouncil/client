@@ -34,6 +34,23 @@ const w_routes = [
           },
         ]
       },
+      {
+        path: '/about',
+        name: 'about',
+        component: {
+          render() {
+            return h(resolveComponent('router-view'))
+          },
+        },
+        redirect: '/about',
+        children: [
+          {
+            path: '/about',
+            name: 'About',
+            component: () => import('@/views/desktop/about/About.vue'),
+          },
+        ]
+      },
     ]
   },
 ];

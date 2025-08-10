@@ -1,0 +1,14 @@
+@import '@/scss/common/helpers/_mixins.scss';
+@import '@/scss/common/helpers/_variables.scss';
+
+.org-wrap {
+  h2 {
+    font-size: 32px;
+    font-weight: 700;
+    line-height: normal;
+    color: #191516;
+  }
+  .img-wrap {
+    margin-top: 60px;
+  }
+}

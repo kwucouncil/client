@@ -12,7 +12,7 @@
           <h2>2025 새로배움터 신청 조회</h2>
           <router-link to="/orientation/confirm">신청 조회하기</router-link>
         </div> -->
-        <div class="orientation-register-wrap">
+        <!-- <div class="orientation-register-wrap">
           <div class="register-wrap">
             <div class="freshman-wrap">
               <h2>환불 신청</h2>
@@ -21,8 +21,8 @@
               </div>
             </div>
           </div>
-        </div>
-        <!-- <div class="card-wrap">
+        </div> -->
+        <div class="card-wrap">
           <div class="notice-wrap">
             <div class="title-wrap">
               <h3>공지사항</h3>
@@ -41,42 +41,6 @@
                     <td class="title">2025 총학생회 홈페이지 공지사항</td>
                     <td class="date">2025.01.01</td>
                   </tr>
-                  <tr>
-                    <td class="title">2025 총학생회 홈페이지 공지사항</td>
-                    <td class="date">2025.01.01</td>
-                  </tr>
-                  <tr>
-                    <td class="title">2025 총학생회 홈페이지 공지사항</td>
-                    <td class="date">2025.01.01</td>
-                  </tr>
-                  <tr>
-                    <td class="title">2025 총학생회 홈페이지 공지사항</td>
-                    <td class="date">2025.01.01</td>
-                  </tr>
-                  <tr>
-                    <td class="title">2025 총학생회 홈페이지 공지사항</td>
-                    <td class="date">2025.01.01</td>
-                  </tr>
-                  <tr>
-                    <td class="title">2025 총학생회 홈페이지 공지사항</td>
-                    <td class="date">2025.01.01</td>
-                  </tr>
-                  <tr>
-                    <td class="title">2025 총학생회 홈페이지 공지사항</td>
-                    <td class="date">2025.01.01</td>
-                  </tr>
-                  <tr>
-                    <td class="title">2025 총학생회 홈페이지 공지사항</td>
-                    <td class="date">2025.01.01</td>
-                  </tr>
-                  <tr>
-                    <td class="title">2025 총학생회 홈페이지 공지사항</td>
-                    <td class="date">2025.01.01</td>
-                  </tr>
-                  <tr>
-                    <td class="title">2025 총학생회 홈페이지 공지사항</td>
-                    <td class="date">2025.01.01</td>
-                  </tr>
                 </tbody>
               </table>
             </div>
@@ -90,27 +54,23 @@
                 <thead>
                   <tr>
                     <th>제목</th>
-                    <th>작성일</th>
+                    <th>행사일</th>
                   </tr>
                 </thead>
                 <tbody>
                   <tr>
-                    <td class="title">2025 총학생회 홈페이지 공지사항</td>
-                    <td class="date">2025.01.01</td>
+                    <td class="title">2025 연촌체전 카드뉴스 공개</td>
+                    <td class="date">2025.08.24</td>
                   </tr>
                   <tr>
-                    <td class="title">2025 총학생회 홈페이지 공지사항</td>
-                    <td class="date">2025.01.01</td>
-                  </tr>
-                  <tr>
-                    <td class="title">2025 총학생회 홈페이지 공지사항</td>
-                    <td class="date">2025.01.01</td>
+                    <td class="title">2025 연촌체전 홈페이지 오픈</td>
+                    <td class="date">2025.09.07</td>
                   </tr>
                 </tbody>
               </table>
             </div>
           </div>
-        </div> -->
+        </div>
       </section>
     </div>
   </div>
