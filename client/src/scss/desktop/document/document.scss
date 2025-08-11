@@ -1,0 +1,48 @@
+@import '@/scss/common/helpers/_mixins.scss';
+@import '@/scss/common/helpers/_variables.scss';
+
+.banner-wrap {
+    img {
+      @include size(100%, 300px);
+      object-fit: cover
+    }
+}
+
+.document-wrap {
+  @include flex-box(center, normal, 40px);
+  @include padding(50px 0 150px);
+
+  .tab-wrap {
+    @include size(234px);
+
+    .title-wrap {
+      @include padding(22px 20px);
+      font-size: 20px;
+      font-weight: 400;
+      color: #F5F5F5;
+      background-color: #712732;
+    }
+
+    ul {
+      background-color: #E7E7E7;
+      @include padding(10px 22px 10px);
+
+      li {
+        @include padding(10px 0);
+        cursor: pointer;
+        color: #888;
+
+        &.active {
+          color: #712732;
+          font-weight: 700;
+          text-decoration: underline;
+        }
+
+        &:hover {
+          text-decoration: underline;
+          font-weight: 700;
+        }
+      }
+    }
+  }
+}

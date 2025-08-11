@@ -2,7 +2,7 @@
 	<div class="org-wrap">
 		<h2>조직도</h2>
 		<div class="img-wrap">
-			<!-- <img src="@/assets/imgs/desktop/about/org.png"> -->
+			<img src="@/assets/imgs/desktop/about/org.svg">
 		</div>
 	</div>
 </template>

@@ -8,9 +8,9 @@
         <ul>
           <li @click="showAlert"><router-link to="/about" >총학생회</router-link></li>
           <li @click="showAlert"><router-link to="/orientation" >새로배움터</router-link></li>
-          <li @click="showAlert"><router-link to="/" >제휴사업</router-link></li>
-          <li @click="showAlert"><router-link to="/" >자료실</router-link></li>
-          <li @click="showAlert"><router-link to="/" >공지사항</router-link></li>
+          <!-- <li @click="showAlert"><router-link to="/" >제휴사업</router-link></li> -->
+          <li @click="showAlert"><router-link to="/document" >자료실</router-link></li>
+          <li @click="showAlert"><router-link to="/notice" >공지사항</router-link></li>
         </ul>
       </div>
       <!-- <div class="user-wrap" v-if="is_login">

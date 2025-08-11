@@ -51,6 +51,48 @@ const w_routes = [
           },
         ]
       },
+      {
+        path: '/notice',
+        name: 'notice',
+        component: {
+          render() {
+            return h(resolveComponent('router-view'))
+          },
+        },
+        redirect: '/notice',
+        children: [
+          {
+            path: '/notice',
+            name: 'Notice',
+            component: () => import('@/views/desktop/notice/Notice.vue'),
+          },
+          {
+            path: '/notice/:id',
+            name: 'NoticeDetail',
+            meta: {
+              title: '공지사항'
+            },
+            component: () => import('@/views/desktop/notice/NoticeDetail.vue'),
+          },
+        ]
+      },
+            {
+        path: '/document',
+        name: 'document',
+        component: {
+          render() {
+            return h(resolveComponent('router-view'))
+          },
+        },
+        redirect: '/document',
+        children: [
+          {
+            path: '/document',
+            name: 'Document',
+            component: () => import('@/views/desktop/document/Document.vue'),
+          },
+        ]
+      },
     ]
   },
 ];

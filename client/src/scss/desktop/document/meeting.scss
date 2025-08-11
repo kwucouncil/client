@@ -1,0 +1,49 @@
+@import '@/scss/common/helpers/_mixins.scss';
+@import '@/scss/common/helpers/_variables.scss';
+
+.meeting-wrap {
+  @include size(1046px);
+
+  h2 {
+    font-size: 32px;
+    font-weight: 700;
+    line-height: normal;
+  }
+
+  ul {
+    margin-top: 15px;
+    border-top: 1px solid #888;
+    border-bottom: 1px solid #888;
+
+    li {
+      @include padding(15px 13px);
+      color: #191516;
+
+      &:hover {
+        cursor: pointer;
+        
+        .title {
+          font-weight: 700;
+        }
+      }
+      
+      a {
+        @include flex-box(space-between, center);
+
+      }
+
+      .title {
+        color: #191516;
+      }
+
+      .btn-pdf {
+        @include size(50px, 25px);
+        border-radius: 5px;
+        color: $white;
+        text-align: center;
+        line-height: 25px;
+        background: #712732;
+      }
+    }
+  }
+}

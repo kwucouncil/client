@@ -9,6 +9,10 @@
     color: #191516;
   }
   .img-wrap {
-    margin-top: 60px;
+    margin-top: 50px;
+
+    img {
+      @include size(900px)
+    }
   }
 }
