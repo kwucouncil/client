@@ -93,6 +93,23 @@ const w_routes = [
           },
         ]
       },
+      {
+        path: '/contact',
+        name: 'contact',
+        component: {
+          render() {
+            return h(resolveComponent('router-view'))
+          },
+        },
+        redirect: '/contact',
+        children: [
+          {
+            path: '/contact',
+            name: 'Contact',
+            component: () => import('@/views/desktop/contact/Contact.vue'),
+          },
+        ]
+      },
     ]
   },
 ];
