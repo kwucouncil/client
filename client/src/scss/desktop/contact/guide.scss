@@ -9,17 +9,24 @@
     color: #191516;
   }
 
+  .img-wrap {
+    img {
+      margin-top: 40px;
+      margin-left: 200px;
+    }
+  }
+
   .text-wrap {
-    margin-top: 14px;
+    margin-top: 60px;
 
     h3 {
-      font-size: 24px;
+      font-size: 20px;
       font-weight: 700;
       color: #712732;
     }
 
     .desc-wrap {
-      margin-top: 14px;
+      margin-top: 11px;
 
       div {
         &:not(:first-child){

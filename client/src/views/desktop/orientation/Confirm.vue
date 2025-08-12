@@ -1,7 +1,7 @@
 <template>
 	<div class="container">
 		<div class="confirm-wrap">
-			<div class="banner-wrap">
+			<div class="ori-banner-wrap">
 				<img src="@/assets/imgs/desktop/orientation/banner.svg" alt="새로배움터 배너">
 			</div>
 			<div class="form-wrap">

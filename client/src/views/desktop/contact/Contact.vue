@@ -1,6 +1,6 @@
 <template>
   <div class="container">
-    <div class="banner-wrap">
+    <div class="detail-banner-wrap">
       <img src="@/assets/imgs/desktop/common/detail_banner.png" alt="광운대학교" />
     </div>
     <div class="contact-wrap">

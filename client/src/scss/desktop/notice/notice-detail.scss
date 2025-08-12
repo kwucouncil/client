@@ -1,7 +1,7 @@
 @import '@/scss/common/helpers/_mixins.scss';
 @import '@/scss/common/helpers/_variables.scss';
 
-.banner-wrap {
+.detail-banner-wrap {
     img {
       @include size(100%, 300px);
       object-fit: cover
@@ -30,7 +30,7 @@
         @include padding(15px 0);
         color: #191516;
         font-weight: 700;
-        
+
         span {
           margin-top: 5px;
           display: block;

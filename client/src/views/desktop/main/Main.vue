@@ -47,7 +47,7 @@
           </div>
           <div class="events-wrap">
             <div class="title-wrap">
-              <h3>월별 주요 행사</h3>
+              <h3>최근 주요 행사</h3>
             </div>
             <div class="table-wrap">
               <table>
@@ -58,6 +58,10 @@
                   </tr>
                 </thead>
                 <tbody>
+                  <tr>
+                    <td class="title">총학생회 홈페이지 리뉴얼 오픈</td>
+                    <td class="date">2025.08.20</td>
+                  </tr>
                   <tr>
                     <td class="title">2025 연촌체전 카드뉴스 공개</td>
                     <td class="date">2025.08.24</td>

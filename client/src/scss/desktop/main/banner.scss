@@ -2,11 +2,11 @@
 @import '@/scss/common/helpers/_variables.scss';
 
 .banner-wrap {
-  @include size(100%, 300px);
+  @include size(100%, 400px);
   position: relative;
 
   img {
-    @include size(100%, 300px);
+    @include size(100%, 400px);
     object-fit: fill;
   }
 
