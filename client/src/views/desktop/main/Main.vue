@@ -26,7 +26,7 @@
           <div class="notice-wrap">
             <div class="title-wrap">
               <h3>공지사항</h3>
-              <router-link to="/">공지사항 더보기</router-link>
+              <router-link to="/notice">공지사항 더보기</router-link>
             </div>
             <div class="table-wrap">
               <table>

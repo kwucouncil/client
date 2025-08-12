@@ -27,20 +27,24 @@
       border-bottom: 1px solid #888;
 
       li {
-        @include padding(15px 0);
         color: #191516;
-        
-        span {
-          margin-top: 5px;
-          display: block;
-          font-size: 12px;
-          font-weight: 400;
-          color: #888;
-        }
 
-        &:hover {
-          cursor: pointer;
-          font-weight: 700;
+        a {
+          display: block;
+          @include padding(15px 0);
+
+          span {
+            margin-top: 5px;
+            display: block;
+            font-size: 12px;
+            font-weight: 400;
+            color: #888;
+          }
+
+          &:hover {
+            cursor: pointer;
+            font-weight: 700;
+          }
         }
       }
     }
