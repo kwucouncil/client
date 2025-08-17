@@ -7,22 +7,10 @@
       <div class="content-wrap">
         <h2>공지사항</h2>
         <ul>
-          <li>
-            <router-link to="/notice/1" >
-              2025 총학생회 홈페이지 공지사항
-              <span>2025-01-28</span>
-            </router-link>
-          </li>
-          <li>
-            <router-link to="/notice/1" >
-              2025 총학생회 홈페이지 공지사항
-              <span>2025-01-28</span>
-            </router-link>
-          </li>
-          <li>
-            <router-link to="/notice/1" >
-              2025 총학생회 홈페이지 공지사항
-              <span>2025-01-28</span>
+          <li v-for="notice in noticeList" v-bind:key="notice.id">
+            <router-link :to="`/notice/${notice.id}`">
+              {{ notice.title }}
+              <span>{{ notice.content }}</span>
             </router-link>
           </li>
         </ul>
@@ -36,5 +24,18 @@
 </style>
 
 <script setup>
+import Notice from '@/api/notice/notice';
+import { ref } from 'vue';
+const noticeList = ref([])
+
+const getNoticeList = () => {
+  Notice.getNoticeList().then((res) => {
+    noticeList.value = res.data.items
+  }).catch((err) => {
+    console.log(err)
+  })
+};
+
+getNoticeList()
 </script>
 

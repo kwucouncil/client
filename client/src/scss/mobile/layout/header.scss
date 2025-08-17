@@ -11,7 +11,16 @@ header {
 
     .btn-wrap {
       position: absolute;
-      display: none;
+      left: 2.67vw;
+
+      button {
+        @include size(5.73vw, 4.53vw);
+        padding: 0;
+        background-repeat: no-repeat;
+        background-color: #F5F5F5;
+        border: 0;
+        background-image: url('/src/assets/imgs/mobile/header/btn-menu.svg')
+      }
     }
 
     .logo-wrap {
@@ -19,5 +28,52 @@ header {
         @include size(100%, 8vw);
       }
     }
+
+    .menu-detail {
+      @include size(100%, 100%);
+      position: fixed;
+      top: 0;
+      left: 0;
+      background-color: $white;
+
+      .close-wrap {
+        @include flex-box(flex-end, center);
+        @include padding(25px 24px);
+
+        .btn-close {
+          @include size(24px, 24px);
+        }
+      }
+
+      .menu-navigation {
+        .menu {
+          .menu-down {
+            @include flex-box(space-between, center);
+            @include padding(20px 28px);
+            font-size: 18px;
+            font-weight: bold;
+          }
+
+          ul {
+            @include padding(10px 40px 20px);
+
+            li {
+              line-height: 20px;
+
+              &:not(:first-child) {
+                @include margin(top 24px);
+              }
+            }
+          }
+
+          .router-link-active,
+          a:hover {
+            font-weight: bold;
+            text-decoration: underline;
+          }
+        }
+      }
+    }
+
   }
 }

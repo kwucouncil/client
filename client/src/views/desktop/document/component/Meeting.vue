@@ -1,6 +1,6 @@
 <template>
 	<div class="meeting-wrap">
-		<h2>공지사항</h2>
+		<h2>회의록</h2>
 		<ul>
 			<li>
 				<a>

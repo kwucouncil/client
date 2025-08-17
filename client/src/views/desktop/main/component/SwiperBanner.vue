@@ -11,7 +11,8 @@
     :modules="modules"
     class="mySwiper banner-wrap"
   >
-    <swiper-slide><a href="https://www.kw.ac.kr/ko/" target="_blank"><img src="@/assets/imgs/desktop/main/banner/kwangwoon.jpg" alt="광운대학교"></a></swiper-slide>
+    <swiper-slide><a href="https://www.instagram.com/p/DKt3HXZSpUl/" target="_blank"><img src="@/assets/imgs/desktop/main/banner/aines.png" alt="아이네스:조각"></a></swiper-slide>
+    <!-- <swiper-slide><a href="https://www.kw.ac.kr/ko/" target="_blank"><img src="@/assets/imgs/desktop/main/banner/kwangwoon.jpg" alt="광운대학교"></a></swiper-slide> -->
     <swiper-slide><a href="https://www.instagram.com/p/DIYEl4dSVo3/" target="_blank"><img src="@/assets/imgs/desktop/main/banner/association.png" alt="학생총회"></a></swiper-slide>
     <!-- <swiper-slide><img src="@/assets/imgs/desktop/main/banner/orientation.png" alt="새로배움터"></swiper-slide>
     <swiper-slide><img src="@/assets/imgs/desktop/main/banner/eunbi.png" alt="권은비"></swiper-slide>

@@ -7,11 +7,11 @@
       <div class="menu-wrap">
         <ul>
           <li @click="showAlert"><router-link to="/about" >총학생회</router-link></li>
-          <li @click="showAlert"><router-link to="/orientation" >새로배움터</router-link></li>
           <!-- <li @click="showAlert"><router-link to="/" >제휴사업</router-link></li> -->
           <li @click="showAlert"><router-link to="/document" >자료실</router-link></li>
           <li @click="showAlert"><router-link to="/notice" >공지사항</router-link></li>
           <!-- <li @click="showAlert"><router-link to="/contact" >소통</router-link></li> -->
+          <li @click="showAlert"><router-link to="/orientation" >새로배움터</router-link></li>
           <li @click="showAlert"><a href="https://www.kw.ac.kr/ko/" target="_blank">광운대학교</a></li>
         </ul>
       </div>

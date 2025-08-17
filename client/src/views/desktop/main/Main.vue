@@ -37,9 +37,9 @@
                   </tr>
                 </thead>
                 <tbody>
-                  <tr>
-                    <td class="title">2025 총학생회 홈페이지 공지사항</td>
-                    <td class="date">2025.01.01</td>
+                  <tr v-for="notice in noticeList" v-bind:key="notice.id" @click="toDetail(notice.id)">
+                    <td class="title">{{ notice.title }}</td>
+                    <td class="date">{{ notice.date }}</td>
                   </tr>
                 </tbody>
               </table>
@@ -86,4 +86,24 @@
 
 <script setup>
 import SwiperBanner from '@/views/desktop/main/component/SwiperBanner.vue'
+
+import Notice from '@/api/notice/notice';
+import { ref } from 'vue';
+import { useRouter } from 'vue-router';
+const router = useRouter()
+const noticeList = ref([])
+
+const getNoticeList = () => {
+  Notice.getNoticeList().then((res) => {
+    noticeList.value = res.data.items
+  }).catch((err) => {
+    console.log(err)
+  })
+};
+
+const toDetail = (id) => {
+  router.push(`notice/${id}`);
+}
+
+getNoticeList()
 </script>
