@@ -11,7 +11,8 @@
     :modules="modules"
     class="mySwiper banner-wrap"
   >
-    <swiper-slide><img src="@/assets/imgs/mobile/main/banner/association.png" alt="학생총회회" /></swiper-slide>
+    <swiper-slide><img src="@/assets/imgs/mobile/main/banner/aines.png" alt="아이네스:조각" /></swiper-slide>
+    <swiper-slide><img src="@/assets/imgs/mobile/main/banner/association.png" alt="학생총회" /></swiper-slide>
     <!-- <swiper-slide><img src="@/assets/imgs/mobile/main/banner/orientation.png" alt="새로배움터" /></swiper-slide>
     <swiper-slide><img src="@/assets/imgs/mobile/main/banner/eunbi.png" alt="권은비" /></swiper-slide>
     <swiper-slide><img src="@/assets/imgs/mobile/main/banner/jinro.png" alt="하이트진로" /></swiper-slide>

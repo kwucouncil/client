@@ -30,18 +30,30 @@ header {
     }
 
     .menu-detail {
-      @include size(100%, 100%);
+      @include size(86.13vw, 100%);
       position: fixed;
       top: 0;
       left: 0;
-      background-color: $white;
+      background-color: #FEFEFE;
+      z-index: 1000;
+      border-right: 1px solid #F1F1F1;
 
-      .close-wrap {
-        @include flex-box(flex-end, center);
-        @include padding(25px 24px);
+      .title-wrap {
+        @include padding(8vw 6.13vw);
+        @include flex-box(space-between, center);
 
-        .btn-close {
-          @include size(24px, 24px);
+        h3 {
+          font-weight: 700;
+          color: #191516
+        }
+
+        button {
+          @include size(7.2vw, 7.2vw);
+          padding: 0;
+          background-repeat: no-repeat;
+          background-color: #FEFEFE;
+          border: 0;
+          background-image: url('/src/assets/imgs/mobile/header/btn-close.svg')
         }
       }
 
@@ -49,25 +61,27 @@ header {
         .menu {
           .menu-down {
             @include flex-box(space-between, center);
-            @include padding(20px 28px);
-            font-size: 18px;
+            @include padding(5.33vw 7.47vw);
+            border-top: 1px solid #F1F1F1;
+            font-size: 4.8vw;
             font-weight: bold;
           }
 
           ul {
-            @include padding(10px 40px 20px);
+            @include padding(2.67vw 10.67vw 5.33vw);
 
             li {
-              line-height: 20px;
+              line-height: 5.33vw;
 
               &:not(:first-child) {
-                @include margin(top 24px);
+                @include margin(top 6.4vw);
               }
             }
           }
 
           .router-link-active,
           a:hover {
+            color: #712732;
             font-weight: bold;
             text-decoration: underline;
           }

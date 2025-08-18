@@ -11,7 +11,7 @@
         <!-- <div class="confirm-wrap">
           <h2>2025 새로배움터 신청 조회</h2>
           <router-link to="/orientation/confirm">신청 조회하기</router-link>
-        </div> -->
+        </div>
         <div class="orientation-register-wrap">
           <div class="register-wrap">
             <div class="freshman-wrap">
@@ -21,95 +21,28 @@
               </div>
             </div>
           </div>
-        </div>
+        </div> -->
+        <!-- <div class="notice-wrap">
+          <div class="title-wrap">
+            <h3>공지사항</h3>
+            <router-link to="/notice">+</router-link>
+          </div>
+          <div class="table-wrap">
+            <table>
+              <tbody>
+                <tr v-for="notice in noticeList" v-bind:key="notice.id" @click="toDetail(notice.id)">
+                  <td class="title">{{ notice.title }}</td>
+                  <td class="date">{{ notice.date }}</td>
+                </tr>
+              </tbody>
+            </table>
+          </div>
+        </div> -->
         <!-- <div class="card-wrap">
-          <div class="notice-wrap">
-            <div class="title-wrap">
-              <h3>공지사항</h3>
-              <router-link to="/">공지사항 더보기</router-link>
-            </div>
-            <div class="table-wrap">
-              <table>
-                <thead>
-                  <tr>
-                    <th>제목</th>
-                    <th>작성일</th>
-                  </tr>
-                </thead>
-                <tbody>
-                  <tr>
-                    <td class="title">2025 총학생회 홈페이지 공지사항</td>
-                    <td class="date">2025.01.01</td>
-                  </tr>
-                  <tr>
-                    <td class="title">2025 총학생회 홈페이지 공지사항</td>
-                    <td class="date">2025.01.01</td>
-                  </tr>
-                  <tr>
-                    <td class="title">2025 총학생회 홈페이지 공지사항</td>
-                    <td class="date">2025.01.01</td>
-                  </tr>
-                  <tr>
-                    <td class="title">2025 총학생회 홈페이지 공지사항</td>
-                    <td class="date">2025.01.01</td>
-                  </tr>
-                  <tr>
-                    <td class="title">2025 총학생회 홈페이지 공지사항</td>
-                    <td class="date">2025.01.01</td>
-                  </tr>
-                  <tr>
-                    <td class="title">2025 총학생회 홈페이지 공지사항</td>
-                    <td class="date">2025.01.01</td>
-                  </tr>
-                  <tr>
-                    <td class="title">2025 총학생회 홈페이지 공지사항</td>
-                    <td class="date">2025.01.01</td>
-                  </tr>
-                  <tr>
-                    <td class="title">2025 총학생회 홈페이지 공지사항</td>
-                    <td class="date">2025.01.01</td>
-                  </tr>
-                  <tr>
-                    <td class="title">2025 총학생회 홈페이지 공지사항</td>
-                    <td class="date">2025.01.01</td>
-                  </tr>
-                  <tr>
-                    <td class="title">2025 총학생회 홈페이지 공지사항</td>
-                    <td class="date">2025.01.01</td>
-                  </tr>
-                </tbody>
-              </table>
-            </div>
-          </div>
-          <div class="events-wrap">
-            <div class="title-wrap">
-              <h3>월별 주요 행사</h3>
-            </div>
-            <div class="table-wrap">
-              <table>
-                <thead>
-                  <tr>
-                    <th>제목</th>
-                    <th>작성일</th>
-                  </tr>
-                </thead>
-                <tbody>
-                  <tr>
-                    <td class="title">2025 총학생회 홈페이지 공지사항</td>
-                    <td class="date">2025.01.01</td>
-                  </tr>
-                  <tr>
-                    <td class="title">2025 총학생회 홈페이지 공지사항</td>
-                    <td class="date">2025.01.01</td>
-                  </tr>
-                  <tr>
-                    <td class="title">2025 총학생회 홈페이지 공지사항</td>
-                    <td class="date">2025.01.01</td>
-                  </tr>
-                </tbody>
-              </table>
-            </div>
-          </div>
+          <div class="card-notice-wrap"></div>
+          <div class="card-notice-wrap"></div>
+          <div class="card-notice-wrap"></div>
+          <div class="card-notice-wrap"></div>
         </div> -->
       </section>
     </div>
@@ -122,4 +55,23 @@
 
 <script setup>
 import SwiperBanner from '@/views/mobile/main/component/SwiperBanner.vue'
+import Notice from '@/api/notice/notice';
+import { ref } from 'vue';
+import { useRouter } from 'vue-router';
+const router = useRouter()
+const noticeList = ref([])
+
+const getNoticeList = () => {
+  Notice.getNoticeList().then((res) => {
+    noticeList.value = res.data.items
+  }).catch((err) => {
+    console.log(err)
+  })
+};
+
+const toDetail = (id) => {
+  router.push(`notice/${id}`);
+}
+
+getNoticeList()
 </script>
