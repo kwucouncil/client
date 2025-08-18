@@ -35,7 +35,7 @@ table
 
 body
     font-family: $font-family-base
-    font-size: 4.27vw
+    font-size: $font-size-base
     line-height: normal
     color: $font-color-base
     -webkit-font-smoothing: antialiased
@@ -48,6 +48,9 @@ body
 html, body, #root
     // min-width: 1200px
     +size(100%, 100%)
+
+.mobile
+    font-size: 4.27vw
 
 #app_main
     // +size(100%, null null 68.3%)

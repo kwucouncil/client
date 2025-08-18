@@ -1,5 +1,5 @@
 <template>
-	<div>
+	<div class="mobile">
 		<Header />
 		<main>
 			<router-view />
