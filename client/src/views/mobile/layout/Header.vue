@@ -1,9 +1,7 @@
 <template>
   <header>
     <div class="header-wrap">
-      <div class="btn-wrap">
-        <button @click="ClickMenu" class="btn-menu"></button>
-      </div>
+      <button @click="ClickMenu" class="btn-menu"></button>
       <div class="logo-wrap">
         <router-link to="/"><img src="@/assets/imgs/mobile/common/logo.svg" alt="광운대학교"></router-link>
       </div>

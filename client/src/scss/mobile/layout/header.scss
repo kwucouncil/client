@@ -9,18 +9,16 @@ header {
     @include flex-box(center, center);
     word-break: keep-all;
 
-    .btn-wrap {
+    .btn-menu {
+      @include size(5.73vw, 4.53vw);
       position: absolute;
       left: 2.67vw;
-
-      button {
-        @include size(5.73vw, 4.53vw);
-        padding: 0;
-        background-repeat: no-repeat;
-        background-color: #F5F5F5;
-        border: 0;
-        background-image: url('/src/assets/imgs/mobile/header/btn-menu.svg')
-      }
+      padding: 0;
+      background-repeat: no-repeat;
+      background-color: #F5F5F5;
+      background-image: url('/src/assets/imgs/mobile/header/btn-menu.svg');
+      background-size: 100%;
+      border: 0;
     }
 
     .logo-wrap {
@@ -52,8 +50,9 @@ header {
           padding: 0;
           background-repeat: no-repeat;
           background-color: #FEFEFE;
+          background-image: url('/src/assets/imgs/mobile/header/btn-close.svg');
+          background-size: 100%;
           border: 0;
-          background-image: url('/src/assets/imgs/mobile/header/btn-close.svg')
         }
       }
 
