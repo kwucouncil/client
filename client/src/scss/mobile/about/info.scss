@@ -1,0 +1,54 @@
+@import '@/scss/common/helpers/_mixins.scss';
+@import '@/scss/common/helpers/_variables.scss';
+
+.detail-banner-wrap {
+  img {
+    @include size(100%, 20.8vw);
+    object-fit: cover;
+  }
+}
+
+.info-wrap {
+  @include padding(2.93vw 4.27vw 13.33vw 4.27vw);
+
+  h2 {
+    font-size: 4.8vw;
+    font-weight: 700;
+    line-height: normal;
+    color: #191516;
+  }
+
+  .text-wrap {
+    margin-top: 2.93vw;
+    border-top: 0.27vw solid #F1F1F1;
+    padding-top: 3.47vw;
+    font-size: 3.52vw;
+    min-height: 106.67vw;
+
+    h3 {
+      font-weight: 700;
+      color: #712732;
+    }
+
+    .desc-wrap {
+      margin-top: 3.47vw;
+
+      div {
+        &:not(:first-child){
+          margin-top: 2.67vw;
+        }
+
+        b {
+          margin-right: 2.13vw;
+        }
+
+        a {
+          &:hover {
+            cursor: pointer;
+            text-decoration: underline;
+          }
+        }
+      }
+    }
+  }
+}

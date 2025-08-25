@@ -69,14 +69,11 @@ const w_routes = [
           {
             path: '/notice/:id',
             name: 'NoticeDetail',
-            meta: {
-              title: '공지사항'
-            },
             component: () => import('@/views/desktop/notice/NoticeDetail.vue'),
           },
         ]
       },
-            {
+      {
         path: '/document',
         name: 'document',
         component: {
@@ -92,24 +89,7 @@ const w_routes = [
             component: () => import('@/views/desktop/document/Document.vue'),
           },
         ]
-      },
-      {
-        path: '/contact',
-        name: 'contact',
-        component: {
-          render() {
-            return h(resolveComponent('router-view'))
-          },
-        },
-        redirect: '/contact',
-        children: [
-          {
-            path: '/contact',
-            name: 'Contact',
-            component: () => import('@/views/desktop/contact/Contact.vue'),
-          },
-        ]
-      },
+      }
     ]
   },
 ];
@@ -143,6 +123,77 @@ const m_routes = [
           },
         ]
       },
+      {
+        path: '/about',
+        name: 'about',
+        component: {
+          render() {
+            return h(resolveComponent('router-view'))
+          },
+        },
+        redirect: '/about/greeting',
+        children: [
+          {
+            path: '/about/greeting',
+            name: 'About',
+            component: () => import('@/views/mobile/about/Greeting.vue'),
+          },
+          {
+            path: '/about/organization',
+            name: 'Organization',
+            component: () => import('@/views/mobile/about/Organization.vue'),
+          },
+          {
+            path: '/about/info',
+            name: 'Info',
+            component: () => import('@/views/mobile/about/Info.vue'),
+          },
+          {
+            path: '/about/guide',
+            name: 'Guide',
+            component: () => import('@/views/mobile/about/Guide.vue'),
+          },
+        ]
+      },
+      {
+        path: '/notice',
+        name: 'notice',
+        component: {
+          render() {
+            return h(resolveComponent('router-view'))
+          },
+        },
+        redirect: '/notice',
+        children: [
+          {
+            path: '/notice',
+            name: 'Notice',
+            component: () => import('@/views/mobile/notice/Notice.vue'),
+          },
+          {
+            path: '/notice/:id',
+            name: 'NoticeDetail',
+            component: () => import('@/views/mobile/notice/NoticeDetail.vue'),
+          },
+        ]
+      },
+      {
+        path: '/document',
+        name: 'document',
+        component: {
+          render() {
+            return h(resolveComponent('router-view'))
+          },
+        },
+        redirect: '/document/meeting',
+        children: [
+          {
+            path: '/document/meeting',
+            name: 'Meeting',
+            component: () => import('@/views/mobile/document/Meeting.vue'),
+          },
+        ]
+      }
     ]
   },
 ];

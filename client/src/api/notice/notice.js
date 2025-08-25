@@ -3,7 +3,14 @@ import Send from '@/api/Send.js';
 export default {
   getNoticeList() {
     return Send({
-      url: 'https://kwu-hoempage-backend.onrender.com/announcements',
+      url: '/announcements',
+      method: 'get',
+    });
+  },
+
+  getNoticeDetail(id) {
+    return Send({
+      url: `/announcements/${id}`,
       method: 'get',
     });
   },

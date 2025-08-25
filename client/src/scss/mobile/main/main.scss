@@ -67,8 +67,57 @@
               font-size: 3.73vw;
               line-height: 10.67vw;
               box-shadow: 0.27vw 0.27vw 0.67vw 0vw rgba(0, 0, 0, 0.25);
-              
+
               b {
+                color: #712732;
+              }
+            }
+          }
+        }
+      }
+    }
+
+    .notice-wrap {
+      .title-wrap {
+        position: relative;
+        padding: 2.4vw 0;
+        background-color: #712732;
+        color: #F5F5F5;
+        font-size: 4.8vw;
+        font-weight: 700;
+        text-align: center;
+
+        a {
+          @include size(3.2vw, 3.2vw);
+          position: absolute;
+          top: 50%;
+          right: 3.2vw;
+          transform: translate(-50%, -50%);
+          background-image: url('/src/assets/imgs/mobile/common/btn_plus.svg');
+          background-size: 100%;
+          color: $white;
+        }
+      }
+
+      .table-wrap {
+        table {
+          background-color: $white;
+          @include padding(1.6vw 0);
+          font-size: 3.73vw;
+          width: 100%;
+          text-align: center;
+          tr {
+            &:first-child td, &:last-child td{
+              @include padding(3.2vw 4.27vw)
+            }
+
+            td {
+              @include padding(1.6vw 4.27vw)
+            }
+
+            .title {
+              &:hover {
+                font-weight: 700;
                 color: #712732;
               }
             }

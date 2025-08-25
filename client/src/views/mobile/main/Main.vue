@@ -22,22 +22,22 @@
             </div>
           </div>
         </div> -->
-        <!-- <div class="notice-wrap">
+        <div class="notice-wrap">
           <div class="title-wrap">
             <h3>공지사항</h3>
-            <router-link to="/notice">+</router-link>
+            <router-link to="/notice"></router-link>
           </div>
           <div class="table-wrap">
             <table>
               <tbody>
                 <tr v-for="notice in noticeList" v-bind:key="notice.id" @click="toDetail(notice.id)">
-                  <td class="title">{{ notice.title }}</td>
-                  <td class="date">{{ notice.date }}</td>
+                  <td class="title" width="70%">{{ notice.title }}</td>
+                  <td class="date">{{ $Helper.dateFormatYMD(notice.updated_at) }}</td>
                 </tr>
               </tbody>
             </table>
           </div>
-        </div> -->
+        </div>
         <!-- <div class="card-wrap">
           <div class="card-notice-wrap"></div>
           <div class="card-notice-wrap"></div>
@@ -69,9 +69,9 @@ const getNoticeList = () => {
   })
 };
 
+getNoticeList()
+
 const toDetail = (id) => {
   router.push(`notice/${id}`);
 }
-
-getNoticeList()
 </script>

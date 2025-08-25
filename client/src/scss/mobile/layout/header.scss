@@ -35,6 +35,7 @@ header {
       background-color: #FEFEFE;
       z-index: 1000;
       border-right: 1px solid #F1F1F1;
+      overflow-y: auto;
 
       .title-wrap {
         @include padding(8vw 6.13vw);

@@ -2,21 +2,9 @@
 	<div class="meeting-wrap">
 		<h2>회의록</h2>
 		<ul>
-			<li>
-				<a>
-					<span class="title">[중앙운영위원회] 2025년 3차 회의록</span>
-					<span class="btn-pdf">PDF</span>
-				</a>
-			</li>
-			<li>
-				<a>
-					<span class="title">[중앙운영위원회] 2025년 2차 회의록</span>
-					<span class="btn-pdf">PDF</span>
-				</a>
-			</li>
-			<li>
-				<a>
-					<span class="title">[중앙운영위원회] 2025년 3차 회의록</span>
+			<li v-for="meeting in meetingList" v-bind:key="meeting.id">
+				<a :href="meeting.file_url" target="_blank" rel="noopener noreferrer">
+					<span class="title">{{ meeting.title }}</span>
 					<span class="btn-pdf">PDF</span>
 				</a>
 			</li>
@@ -29,5 +17,17 @@
 </style>
 
 <script setup>
-</script>
+import Meeting from '@/api/document/meeting';
+import { ref } from 'vue';
+const meetingList = ref([])
 
+const getMeetingList = () => {
+  Meeting.getMeetingList().then((res) => {
+    meetingList.value = res.data.items
+  }).catch((err) => {
+    console.log(err)
+  })
+};
+
+getMeetingList()
+</script>

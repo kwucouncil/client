@@ -15,7 +15,7 @@
 </template>
 
 <style scoped lang="scss">
-@import "@/scss/desktop/contact/guide";
+@import "@/scss/desktop/about/guide";
 </style>
 
 <script setup>

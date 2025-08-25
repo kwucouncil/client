@@ -29,12 +29,11 @@
 import { ref, computed  } from 'vue';
 import Greeting from '@/views/desktop/about/component/Greeting.vue'
 import Organization from '@/views/desktop/about/component/Organization.vue'
-import Info from '@/views/desktop/contact/component/Info.vue'
-import Guide from '@/views/desktop/contact/component/Guide.vue'
-import Work from '@/views/desktop/about/component/Work.vue'
+import Info from '@/views/desktop/about/component/Info.vue'
+import Guide from '@/views/desktop/about/component/Guide.vue'
 
 const tab = ref('Greeting') // 문자열로 상태 관리
-const components = { Greeting, Organization, Info, Guide, Work }
+const components = { Greeting, Organization, Info, Guide }
 const current = computed(() => components[tab.value])
 </script>
 

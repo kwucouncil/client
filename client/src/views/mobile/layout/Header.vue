@@ -44,20 +44,44 @@
 </style>
 
 <script setup>
-  import { ref } from 'vue';
+import { ref, watch, onMounted } from "vue";
+import { useRoute } from "vue-router";
 
-  const isMenu = ref(false)
-  const menu = ref('')
+const isMenu = ref(false)
+const menu = ref('')
+const route = useRoute();
 
-  const ClickMenu = () => {
-    isMenu.value = !isMenu.value
+const ClickMenu = () => {
+  isMenu.value = !isMenu.value
+}
+
+const ClickMenuDetail = (value) => {
+  if(menu.value === value) {
+    menu.value = ''
+  } else {
+    menu.value = value
   }
+}
 
-  const ClickMenuDetail = (value) => {
-    if(menu.value === value) {
-      menu.value = ''
-    } else {
-      menu.value = value
-    }
+const setMenuByRoute = () => {
+  const path = route.path;
+  if (path.startsWith("/about")) {
+    menu.value = "about";
+  } else if (path.startsWith("/document")) {
+    menu.value = "document";
+  } else {
+    menu.value = "";
   }
+};
+
+onMounted(() => {
+  setMenuByRoute();
+});
+
+watch(
+  () => route.path,
+  () => {
+    setMenuByRoute();
+  }
+);
 </script>

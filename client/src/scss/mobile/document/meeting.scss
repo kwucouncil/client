@@ -1,0 +1,45 @@
+@import '@/scss/common/helpers/_mixins.scss';
+@import '@/scss/common/helpers/_variables.scss';
+
+.detail-banner-wrap {
+  img {
+    @include size(100%, 20.8vw);
+    object-fit: cover;
+  }
+}
+
+.meeting-wrap {
+  @include padding(2.93vw 4.27vw 13.33vw 4.27vw);
+
+  h2 {
+    font-size: 4.8vw;
+    font-weight: 700;
+    line-height: normal;
+  }
+
+  ul {
+    margin-top: 2.93vw;
+    border-top: 0.27vw solid #F1F1F1;
+    border-bottom: 0.27vw solid #F1F1F1;
+    min-height: 106.67vw;
+
+    li {
+      @include padding(11px 0);
+      color: #191516;
+      border-bottom: 0.27vw solid #F1F1F1;
+
+      &:hover {
+        cursor: pointer;
+        text-decoration: underline;
+
+        .title {
+          font-weight: 700;
+        }
+      }
+
+      .title {
+        color: #191516;
+      }
+    }
+  }
+}

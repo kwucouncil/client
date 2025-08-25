@@ -10,7 +10,7 @@
           <li v-for="notice in noticeList" v-bind:key="notice.id">
             <router-link :to="`/notice/${notice.id}`">
               {{ notice.title }}
-              <span>{{ notice.content }}</span>
+              <span>{{ $Helper.dateFormatYMD(notice.updated_at) }}</span>
             </router-link>
           </li>
         </ul>

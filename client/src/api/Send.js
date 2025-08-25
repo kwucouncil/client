@@ -4,6 +4,7 @@ const instance = axios.create({
   headers: {
     'X-Requested-With': 'XMLHttpRequest',
   },
+  baseURL: 'https://kwu-hoempage-backend.onrender.com/',
   contentType: 'application/json',
   accessControlAllowOrigin : '*',
   withCredentials: false
