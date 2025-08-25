@@ -37,7 +37,7 @@
   .form-wrap {
     @include flex-box(center, center, 5.33vw);
     flex-direction: column;
-    @include padding(10.67vw 0);
+    @include padding(1.33vw 0 5.33vw);
     position: relative;
     background: #F5F5F5;
 
