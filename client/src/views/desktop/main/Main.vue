@@ -64,11 +64,11 @@
                   </tr>
                   <tr>
                     <td class="title">2025 연촌체전 카드뉴스 공개</td>
-                    <td class="date">2025.08.24</td>
+                    <td class="date">2025.08.25</td>
                   </tr>
                   <tr>
                     <td class="title">2025 연촌체전 홈페이지 오픈</td>
-                    <td class="date">2025.09.07</td>
+                    <td class="date">2025.09.08</td>
                   </tr>
                 </tbody>
               </table>
