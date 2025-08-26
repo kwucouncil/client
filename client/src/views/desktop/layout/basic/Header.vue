@@ -7,7 +7,7 @@
       <div class="menu-wrap">
         <ul>
           <li @click="showAlert"><router-link to="/about" >총학생회</router-link></li>
-          <!-- <li @click="showAlert"><router-link to="/" >제휴사업</router-link></li> -->
+          <li @click="showAlert"><router-link to="/yeonchon" >연촌체전</router-link></li>
           <li @click="showAlert"><router-link to="/document" >자료실</router-link></li>
           <li @click="showAlert"><router-link to="/notice" >공지사항</router-link></li>
           <!-- <li @click="showAlert"><router-link to="/contact" >소통</router-link></li> -->
@@ -27,10 +27,8 @@
 </template>
 
 <style scoped lang="scss">
-  @import "@/scss/desktop/layout/header";
+  @import "@/scss/desktop/layout/basic/header";
 </style>
 
 <script setup>
-  import { ref } from 'vue';
-  // const is_login = ref(false);
 </script>

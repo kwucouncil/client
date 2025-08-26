@@ -40,7 +40,7 @@
 </template>
 
 <style scoped lang="scss">
-  @import "@/scss/mobile/layout/header";
+  @import "@/scss/mobile/layout/basic/header";
 </style>
 
 <script setup>

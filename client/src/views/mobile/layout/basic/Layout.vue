@@ -9,6 +9,6 @@
 </template>
 
 <script setup>
-import Header from '@/views/mobile/layout/Header.vue'
-import Footer from '@/views/mobile/layout/Footer.vue'
+import Header from '@/views/mobile/layout/basic/Header.vue'
+import Footer from '@/views/mobile/layout/basic/Footer.vue'
 </script>

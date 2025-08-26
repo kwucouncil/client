@@ -1,0 +1,36 @@
+@import '@/scss/common/helpers/_mixins.scss';
+@import '@/scss/common/helpers/_variables.scss';
+
+footer {
+  background: $page-color;
+
+  .footer-wrap {
+    @include padding(29px 0 10px);
+    @include flex-box(center, center);
+    flex-direction: column;
+    color: #F5F5F5;
+
+    .logo-wrap {
+      @include size(253.753px, 74.868px);
+    }
+
+    .intro {
+        margin-top: 25.13px;
+        font-size: 14px;
+        font-weight: 800;
+        letter-spacing: 2.8px;
+    }
+    .info {
+        margin-top: 45px;
+        font-size: 12px;
+        text-align: center;
+        letter-spacing: -0.36px;
+        line-height: 22px;
+    }
+    .copyright {
+        margin-top: 32px;
+        font-size: 12px;
+        line-height: 22px;
+    }
+  }
+}

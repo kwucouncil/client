@@ -2,8 +2,11 @@ import { h, resolveComponent } from 'vue'
 import { createRouter, createWebHistory } from 'vue-router';
 import MobileDetect from 'mobile-detect';
 
-import LayoutW from '@/views/desktop/layout/Layout'
-import LayoutM from '@/views/mobile/layout/Layout'
+import LayoutW from '@/views/desktop/layout/basic/Layout'
+import YeonChonW from '@/views/desktop/layout/yeonchon/Layout'
+
+import LayoutM from '@/views/mobile/layout/basic/Layout'
+// import YeonChonM from '@/views/mobile/layout/yeonchon/Layout'
 
 const w_routes = [
   {
@@ -29,7 +32,7 @@ const w_routes = [
         children: [
           {
             path: '/orientation/confirm',
-            name: 'Confirm',
+            name: 'OrientationConfirm',
             component: () => import('@/views/desktop/orientation/Confirm.vue'),
           },
         ]
@@ -89,9 +92,42 @@ const w_routes = [
             component: () => import('@/views/desktop/document/Document.vue'),
           },
         ]
-      }
+      },
     ]
   },
+  {
+    path: '/yeonchon',
+    name: 'yeonchon',
+    component: YeonChonW,
+    redirect: '/yeonchon',
+    children: [
+      {
+        path: '/yeonchon',
+        name: 'YeonchonMain',
+        component: () => import('@/views/desktop/yeonchon/Main.vue'),
+      },
+      {
+        path: '/yeonchon/schedule',
+        name: 'YeonchonSchedule',
+        component: () => import('@/views/desktop/yeonchon/Schedule.vue'),
+      },
+      // {
+      //   path: '/yeonchon/status',
+      //   name: 'YeonchonStatus',
+      //   component: () => import('@/views/desktop/yeonchon/Status.vue'),
+      // },
+      // {
+      //   path: '/yeonchon/team',
+      //   name: 'YeonchonTeam',
+      //   component: () => import('@/views/desktop/yeonchon/Team.vue'),
+      // },
+      // {
+      //   path: '/yeonchon/event',
+      //   name: 'YeonchonEvent',
+      //   component: () => import('@/views/desktop/yeonchon/Event.vue'),
+      // },
+    ]
+  }
 ];
 
 const m_routes = [

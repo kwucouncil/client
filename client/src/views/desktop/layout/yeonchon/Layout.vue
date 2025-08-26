@@ -9,6 +9,6 @@
 </template>
 
 <script setup>
-import Header from '@/views/desktop/layout/Header.vue'
-import Footer from '@/views/desktop/layout/Footer.vue'
+import Header from '@/views/desktop/layout/yeonchon/Header.vue'
+import Footer from '@/views/desktop/layout/yeonchon/Footer.vue'
 </script>
