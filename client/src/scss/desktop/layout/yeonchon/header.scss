@@ -25,7 +25,11 @@ header {
           font-size: 19px;
 
           a {
-            font-weight: 500;
+            font-weight: 700;
+
+            &:hover {
+              color: $yeonchon;
+            }
           }
         }
       }

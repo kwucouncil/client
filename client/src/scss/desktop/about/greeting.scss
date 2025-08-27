@@ -18,7 +18,7 @@
       flex-direction: column;
 
       .photo {
-        @include size(199px, 204px);
+        @include size(200px);
       }
 
       .sign {

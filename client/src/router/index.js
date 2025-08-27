@@ -117,6 +117,11 @@ const w_routes = [
       //   component: () => import('@/views/desktop/yeonchon/Status.vue'),
       // },
       // {
+      //   path: '/yeonchon/sport',
+      //   name: 'YeonchonSort',
+      //   component: () => import('@/views/desktop/yeonchon/Sport.vue'),
+      // },
+      // {
       //   path: '/yeonchon/team',
       //   name: 'YeonchonTeam',
       //   component: () => import('@/views/desktop/yeonchon/Team.vue'),

@@ -2,35 +2,39 @@
 @import '@/scss/common/helpers/_variables.scss';
 
 footer {
-  background: $page-color;
+  background: #F1F1F1;
 
   .footer-wrap {
-    @include padding(29px 0 10px);
     @include flex-box(center, center);
+    @include padding(55px 0);
     flex-direction: column;
-    color: #F5F5F5;
+    color: #989898;
 
     .logo-wrap {
-      @include size(253.753px, 74.868px);
+      @include size(170px, 50px);
     }
 
     .intro {
-        margin-top: 25.13px;
-        font-size: 14px;
-        font-weight: 800;
-        letter-spacing: 2.8px;
+        margin-top: 15px;
+        font-size: 16px;
+        font-weight: 500;
+        line-height: 20px;
     }
     .info {
-        margin-top: 45px;
-        font-size: 12px;
+        margin-top: 20px;
+        font-size: 14px;
         text-align: center;
-        letter-spacing: -0.36px;
-        line-height: 22px;
+        line-height: 26px;
+
+      .name-wrap {
+        display: block;
+        margin-top: 10px;
+      }
     }
     .copyright {
-        margin-top: 32px;
-        font-size: 12px;
-        line-height: 22px;
+        margin-top: 20px;
+        font-size: 13px;
+        line-height: 18px;
     }
   }
 }

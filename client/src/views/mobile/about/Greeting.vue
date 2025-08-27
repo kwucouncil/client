@@ -7,7 +7,7 @@
       <h2>총학생회 비상대책위원회 인사말</h2>
       <div class="seokhyeon-wrap">
         <div class="img-wrap">
-          <img class="photo" src="@/assets/imgs/mobile/about/jo.png">
+          <img class="photo" src="@/assets/imgs/mobile/about/jo2.png">
           <p>광운대학교<br/>제 52대 총학생회 비상대책위원장 조석현</p>
         </div>
         <div class="text-wrap">

@@ -1,9 +1,9 @@
 <template>
 	<div class="greeting-wrap">
-		<h2>총학생회 비상대책위원회 인사말</h2>
+		<h2>총학생회 비상대책위원회장 인사말</h2>
 		<div class="seokhyeon-wrap">
 			<div class="img-wrap">
-				<img class="photo" src="@/assets/imgs/desktop/about/jo.png">
+				<img class="photo" src="@/assets/imgs/desktop/about/jo2.png">
 				<img class="sign" src="@/assets/imgs/desktop/about/sign.png">
 			</div>
 			<div class="text-wrap">

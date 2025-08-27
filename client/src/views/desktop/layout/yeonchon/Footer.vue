@@ -2,13 +2,18 @@
 	<footer>
 		<div class="footer-wrap">
 			<div class="logo-wrap">
-				<img src="@/assets/imgs/desktop/common/logo_w.svg" alt="광운대학교">
+				<img src="@/assets/imgs/desktop/common/logo_gray.svg" alt="광운대학교">
 			</div>
 			<p class="intro">광운대학교 제52대 총학생회 비상대책위원회</p>
 			<p class="info">
 				주소 : 서울시 노원구 광운로 20 광운대학교 복지관 301호 총학생회실<br>
 				TEL : 02-940-5381<br>
 				E-Mail : kwustudent2025@gmail.com<br>
+				<span class="name-wrap">
+					PRODUCT DIRECTOR&emsp;소프트웨어학부 20 강현구<br>
+					DESIGNER&emsp;미디어커뮤니케이션학과 20 변지욱&emsp;|&emsp;미디어커뮤니케이션학과 22 이정우&emsp;|&emsp;정보융합학부 22 함유진<br>
+					DEVELOPER&emsp;소프트웨어학부 20 강현구&emsp;|&emsp;컴퓨터정보공학부 23 이제호<br>
+				</span>
 			</p>
 			<p class="copyright">COPYRIGHT <b>2025 Kwangwoon University Student Council.</b> ALL RIGHTS RESERVED.</p>
 		</div>

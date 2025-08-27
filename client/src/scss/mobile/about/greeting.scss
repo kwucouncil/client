@@ -27,7 +27,7 @@
       @include flex-box(normal, flex-end, 3.47vw);
 
       .photo {
-        @include size(29.6vw, 30.4vw);
+        @include size(29.6vw);
       }
 
       p {

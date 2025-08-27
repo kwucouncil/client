@@ -9,6 +9,11 @@
 				주소 : 서울시 노원구 광운로 20 광운대학교 복지관 301호 총학생회실<br>
 				TEL : 02-940-5381<br>
 				E-Mail : kwustudent2025@gmail.com<br>
+				<span class="name-wrap">
+					PRODUCT DIRECTOR&emsp;소프트웨어학부 20 강현구<br>
+					DESIGNER&emsp;미디어커뮤니케이션학과 20 변지욱<br>
+					DEVELOPER&emsp;소프트웨어학부 20 강현구&ensp;|&ensp;컴퓨터정보공학부 23 이제호<br>
+				</span>
 				<!-- 사업자등록번호 : 000-00-00000 -->
 			</p>
 			<p class="copyright">COPYRIGHT <b>2025 Kwangwoon University Student Council.</b> ALL RIGHTS RESERVED.</p>
