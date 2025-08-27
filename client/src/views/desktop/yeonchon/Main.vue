@@ -62,6 +62,32 @@
             </div>
           </div>
         </div>
+        <div class="result-wrap">
+          <div class="ranking-wrap">
+            <div class="title-wrap">
+              <div class="h2-wrap">
+                <h2>실시간 종합 순위</h2>
+                <span>TOP5 학과</span>
+              </div>
+              <router-link to="yeonchon/schedule">전체 순위 보러가기</router-link>
+            </div>
+            <div class="card-wrap">
+              <div class="card 1st">
+                <div class="spot">1<span>위</span></div>
+                <div class="team">미디어커뮤니케이션학부<br/>School~</div>
+                <div class="score">250점</div>
+                <img src="" alt="">
+              </div>
+            </div>
+          </div>
+          <div class="recent-wrap">
+            <div class="title-wrap">
+              <h2>최근 경기 결과</h2>
+              <router-link to="yeonchon/schedule">경기 결과 보러가기</router-link>
+            </div>
+            <div class="card-wrap"></div>
+          </div>
+        </div>
       </div>
     </div>
   </div>
