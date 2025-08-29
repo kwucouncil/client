@@ -2,12 +2,11 @@
 @import '@/scss/common/helpers/_variables.scss';
 
 .banner-wrap {
-  @include size(100%, 300px);
+  @include size(100%);
   position: relative;
 
   img {
-    @include size(100%, 300px);
-    // object-fit: fill;
+    @include size(100%);
   }
 
   .swiper-pagination {
@@ -16,7 +15,7 @@
     bottom: 18px;
 
     display: none;
-    
+
     .swiper-pagination-bullet {
       @include size(16px, 16px)
     }

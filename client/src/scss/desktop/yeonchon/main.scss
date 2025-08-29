@@ -6,8 +6,7 @@ $icons: all, foot, bask, dodg, tow, joku, ping, lol, fc;
 .main {
   .yeonchon-banner-wrap {
     img {
-      @include size(100%, 640px);
-      object-fit: cover;
+      @include size(100%);
     }
 
   }
