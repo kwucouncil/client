@@ -1,7 +1,7 @@
 <template>
   <div class="main">
     <div class="container">
-      <div class="banner-wrap">
+      <div class="yeonchon-banner-wrap">
         <img src="@/assets/imgs/desktop/yeonchon/banner.svg" alt="2025 광운대학교 연촌체전">
       </div>
       <div class="content-wrap">
@@ -15,13 +15,13 @@
           </div>
           <div class="navigation-wrap">
             <ul>
-              <li class="all">
+              <li
+                v-for="item in navItems"
+                :key="item.key"
+                :class="[item.key, { active: item.active }]"
+              >
                 <div class="icon"></div>
-                <div class="title">전체</div>
-              </li>
-              <li class="foot">
-                <div class="icon"></div>
-                <div class="title">풋살</div>
+                <div class="title">{{ item.label }}</div>
               </li>
             </ul>
           </div>
@@ -32,12 +32,12 @@
               <div class="match-wrap">
                 <div class="team">
                   <div class="team-name">미디어커뮤니케이션학부</div>
-                  <img src="" alt="">
+                  <img src="@/assets/imgs/desktop/common/kwangwoon.svg" alt="">
                 </div>
                 <div class="vs">VS</div>
                 <div class="team">
+                  <img src="@/assets/imgs/desktop/common/kwangwoon.svg" alt="">
                   <div class="team-name">미디어커뮤니케이션학부</div>
-                  <img src="" alt="">
                 </div>
               </div>
               <div class="place">풋살장</div>
@@ -48,13 +48,13 @@
               <div class="sport">풋살</div>
               <div class="match-wrap">
                 <div class="team">
-                  <div class="team-name">미디어커뮤니케이션학부</div>
-                  <img src="" alt="">
+                  <div class="team-name">소프트</div>
+                  <img src="@/assets/imgs/desktop/common/kwangwoon.svg" alt="">
                 </div>
                 <div class="vs">VS</div>
                 <div class="team">
-                  <div class="team-name">미디어커뮤니케이션학부</div>
-                  <img src="" alt="">
+                  <img src="@/assets/imgs/desktop/common/kwangwoon.svg" alt="">
+                  <div class="team-name">건공</div>
                 </div>
               </div>
               <div class="place">풋살장</div>
@@ -72,11 +72,23 @@
               <router-link to="yeonchon/schedule">전체 순위 보러가기</router-link>
             </div>
             <div class="card-wrap">
-              <div class="card 1st">
+              <div class="card first">
                 <div class="spot">1<span>위</span></div>
-                <div class="team">미디어커뮤니케이션학부<br/>School~</div>
+                <div class="team">미디어커뮤니케이션학부<br/>School of Media & Communication</div>
                 <div class="score">250점</div>
-                <img src="" alt="">
+                <img src="@/assets/imgs/desktop/common/kwangwoon.svg" alt="">
+              </div>
+              <div class="card second">
+                <div class="spot">2<span>위</span></div>
+                <div class="team">미디어커뮤니케이션학부<br/>School of Media & Communication</div>
+                <div class="score">240점</div>
+                <img src="@/assets/imgs/desktop/common/kwangwoon.svg" alt="">
+              </div>
+              <div class="card third">
+                <div class="spot">2<span>위</span></div>
+                <div class="team">미디어커뮤니케이션학부<br/>School of Media & Communication</div>
+                <div class="score">240점</div>
+                <img src="@/assets/imgs/desktop/common/kwangwoon.svg" alt="">
               </div>
             </div>
           </div>
@@ -85,7 +97,44 @@
               <h2>최근 경기 결과</h2>
               <router-link to="yeonchon/schedule">경기 결과 보러가기</router-link>
             </div>
-            <div class="card-wrap"></div>
+            <div class="card-wrap">
+              <swiper class="card-swiper" :pagination="{clickable: true}" :autoplay="{delay: 5000, disableOnInteraction: false}" :modules="modules">
+                <swiper-slide class="card">
+                  <div class="sport">풋살</div>
+                  <div class="team left win">
+                    <img src="@/assets/imgs/desktop/common/kwangwoon.svg" alt="">
+                    <div class="info-wrap">
+                      <div class="score">3</div>
+                      <div class="name">수학과</div>
+                    </div>
+                  </div>
+                  <div class="team right lose">
+                    <img src="@/assets/imgs/desktop/common/kwangwoon.svg" alt="">
+                    <div class="info-wrap">
+                      <div class="score">0</div>
+                      <div class="name">미디어커뮤니케이션학부</div>
+                    </div>
+                  </div>
+                </swiper-slide>
+                <swiper-slide class="card">
+                  <div class="sport">풋살</div>
+                  <div class="team left win">
+                    <img src="@/assets/imgs/desktop/common/kwangwoon.svg" alt="">
+                    <div class="info-wrap">
+                      <div class="score">3</div>
+                      <div class="name">수학과</div>
+                    </div>
+                  </div>
+                  <div class="team right lose">
+                    <img src="@/assets/imgs/desktop/common/kwangwoon.svg" alt="">
+                    <div class="info-wrap">
+                      <div class="score">0</div>
+                      <div class="name">미디어커뮤니케이션학부</div>
+                    </div>
+                  </div>
+                </swiper-slide>
+              </swiper>
+            </div>
           </div>
         </div>
       </div>
@@ -98,31 +147,27 @@
 </style>
 
 <script setup>
-import Notice from '@/api/notice/notice';
-import { ref } from 'vue';
-import { useRouter } from 'vue-router';
-const router = useRouter()
-const noticeList = ref([])
+import { Swiper, SwiperSlide } from 'swiper/vue'
 
-const getNoticeList = () => {
-  Notice.getNoticeList().then((res) => {
-    noticeList.value = res.data.items
-  }).catch((err) => {
-    console.log(err)
-  })
-};
+// Import Swiper styles
+import 'swiper/css'
+import 'swiper/css/pagination'
+import "@/scss/desktop/yeonchon/main.scss";
 
-const formatDate = (dateStr) => {
-  const date = new Date(dateStr);
-  const year = date.getFullYear();
-  const month = String(date.getMonth() + 1).padStart(2, "0");
-  const day = String(date.getDate()).padStart(2, "0");
-  return `${year}.${month}.${day}`;
-}
+// import required modules
+import { Pagination, Autoplay } from 'swiper/modules'
 
-const toDetail = (id) => {
-  router.push(`notice/${id}`);
-}
+const modules = [Pagination, Autoplay]
 
-getNoticeList()
+const navItems = [
+  { key: 'all',   label: '전체', active: true },
+  { key: 'foot',  label: '풋살' },
+  { key: 'bask',  label: '농구' },
+  { key: 'dodg',  label: '피수' },
+  { key: 'tow',   label: '줄다리기' },
+  { key: 'joku',  label: '족구' },
+  { key: 'ping',  label: '탁구' },
+  { key: 'lol',   label: 'LOL' },
+  { key: 'fc',    label: 'FC 온라인' }
+]
 </script>

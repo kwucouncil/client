@@ -21,27 +21,16 @@
   </swiper>
 </template>
 
-<script>
-  // Import Swiper Vue.js components
-  import { Swiper, SwiperSlide } from 'swiper/vue';
+<script setup>
+import { Swiper, SwiperSlide } from 'swiper/vue'
 
-  // Import Swiper styles
-  import 'swiper/css';
-  import 'swiper/css/pagination';
-  import '@/scss/desktop/main/banner.scss';
+// Import Swiper styles
+import 'swiper/css'
+import 'swiper/css/pagination'
+import '@/scss/desktop/main/banner.scss'
 
-  // import required modules
-  import { Pagination, Autoplay } from 'swiper/modules';
+// import required modules
+import { Pagination, Autoplay } from 'swiper/modules'
 
-  export default {
-    components: {
-      Swiper,
-      SwiperSlide,
-    },
-    setup() {
-      return {
-        modules: [Pagination, Autoplay],
-      };
-    },
-  };
+const modules = [Pagination, Autoplay]
 </script>

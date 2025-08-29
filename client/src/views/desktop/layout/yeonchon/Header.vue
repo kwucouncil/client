@@ -2,7 +2,7 @@
   <header>
     <div class="header-wrap">
       <div class="logo-wrap">
-        <a href="/" target="_blank"><img src="@/assets/imgs/desktop/common/kwangwoon.svg" alt="광운대학교"></a>
+        <router-link to="/yeonchon"><img src="@/assets/imgs/desktop/common/kwangwoon.svg" alt="광운대학교"></router-link>
       </div>
       <div class="menu-wrap">
         <ul>
