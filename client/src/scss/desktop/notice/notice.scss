@@ -2,9 +2,9 @@
 @import '@/scss/common/helpers/_variables.scss';
 
 .detail-banner-wrap {
-    img {
-      @include size(100%);
-    }
+  img {
+    @include size(100%);
+  }
 }
 
 .notice-wrap {

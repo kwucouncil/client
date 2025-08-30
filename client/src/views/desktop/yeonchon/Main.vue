@@ -2,14 +2,14 @@
   <div class="main">
     <div class="container">
       <div class="yeonchon-banner-wrap">
-        <img src="@/assets/imgs/desktop/yeonchon/banner.svg" alt="2025 광운대학교 연촌체전">
+        <img src="@/assets/imgs/desktop/yeonchon/banner/main.svg" alt="2025 광운대학교 연촌체전">
       </div>
       <div class="content-wrap">
         <div class="today-wrap">
           <div class="title-wrap">
             <div class="h2-wrap">
               <h2>오늘 경기 일정</h2>
-              <span>2024년 9월 16일(월)</span>
+              <span>{{ $Helper.dateFormatYMDW(today) }}</span>
             </div>
             <router-link to="yeonchon/schedule">모든 경기 일정 보러가기</router-link>
           </div>
@@ -98,7 +98,7 @@
               <router-link to="yeonchon/schedule">경기 결과 보러가기</router-link>
             </div>
             <div class="card-wrap">
-              <swiper class="card-swiper" :pagination="{clickable: true}" :autoplay="{delay: 5000, disableOnInteraction: false}" :modules="modules">
+              <swiper class="card-swiper" effect="fade" :fadeEffect="{crossFade: true}" :pagination="{clickable: true}" :autoplay="{delay: 5000, disableOnInteraction: false}" :modules="modules">
                 <swiper-slide class="card">
                   <div class="sport">풋살</div>
                   <div class="team left win">
@@ -117,7 +117,7 @@
                   </div>
                 </swiper-slide>
                 <swiper-slide class="card">
-                  <div class="sport">풋살</div>
+                  <div class="sport">농구</div>
                   <div class="team left win">
                     <img src="@/assets/imgs/desktop/common/kwangwoon.svg" alt="">
                     <div class="info-wrap">
@@ -152,12 +152,13 @@ import { Swiper, SwiperSlide } from 'swiper/vue'
 // Import Swiper styles
 import 'swiper/css'
 import 'swiper/css/pagination'
+import 'swiper/css/effect-fade';
 import "@/scss/desktop/yeonchon/main.scss";
 
 // import required modules
-import { Pagination, Autoplay } from 'swiper/modules'
+import { Pagination, Autoplay, EffectFade } from 'swiper/modules'
 
-const modules = [Pagination, Autoplay]
+const modules = [Pagination, Autoplay, EffectFade]
 
 const navItems = [
   { key: 'all',   label: '전체', active: true },
@@ -170,4 +171,6 @@ const navItems = [
   { key: 'lol',   label: 'LOL' },
   { key: 'fc',    label: 'FC 온라인' }
 ]
+
+const today = new Date()
 </script>

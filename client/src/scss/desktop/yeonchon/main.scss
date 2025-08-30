@@ -8,20 +8,19 @@ $icons: all, foot, bask, dodg, tow, joku, ping, lol, fc;
     img {
       @include size(100%);
     }
-
   }
 
   .content-wrap {
     @include size(1200px);
     @include margin(0 auto);
-    @include padding(85px 0);
+    @include padding(80px 0);
 
     .today-wrap {
       .title-wrap {
         @include flex-box(space-between, baseline);
 
         .h2-wrap {
-          @include flex-box(center, baseline, 22px);
+          @include flex-box(center, baseline, 18px);
           h2 {
             font-size: 36px;
             font-weight: bold;
@@ -159,14 +158,14 @@ $icons: all, foot, bask, dodg, tow, joku, ping, lol, fc;
 
     .result-wrap {
       @include flex-box(space-between, normal);
-      padding-top: 85px;
+      padding-top: 80px;
 
       .ranking-wrap {
         .title-wrap {
           @include flex-box(space-between, baseline);
 
           .h2-wrap {
-            @include flex-box(center, baseline, 22px);
+            @include flex-box(center, baseline, 18px);
             h2 {
               font-size: 36px;
               font-weight: bold;

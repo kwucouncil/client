@@ -16,11 +16,11 @@ export default {
     return `${year}.${month}.${day}`;
   },
 
-  dateFormatTMR(date) {
+  dateFormatYMDW(date) {
     date = new Date(date);
     const year = date.getFullYear();
     let month = date.getMonth() + 1;
-    let day = date.getDate() + 1;
+    let day = date.getDate();
 
     if (month < 10) {
       month = `0${month}`;
@@ -30,24 +30,10 @@ export default {
       day = `0${day}`;
     }
 
-    return `${year}.${month}.${day}`;
-  },
+    const weekdays = ["일", "월", "화", "수", "목", "금", "토"];
+    const weekday = weekdays[date.getDay()];
 
-  dateFormatYDA(date) {
-    date = new Date(date);
-    const year = date.getFullYear();
-    let month = date.getMonth() + 1;
-    let day = date.getDate() - 1;
-
-    if (month < 10) {
-      month = `0${month}`;
-    }
-
-    if (day < 10) {
-      day = `0${day}`;
-    }
-
-    return `${year}.${month}.${day}`;
+    return `${year}년 ${month}월 ${day}일(${weekday})`;
   },
 
   dateFormatYMDT(date) {
@@ -111,7 +97,7 @@ export default {
     if (day < 10) {
       day = `0${day}`;
     }
-    
+
     return `${day}`;
   },
 
@@ -194,9 +180,9 @@ export default {
     let day1 = date1.getDate();
     let month2 = date2.getMonth() + 1;
     let day2 = date2.getDate();
-    
+
     const week = ["일", "월", "화", "수", "목", "금", "토"];
-    
+
     const dayOfWeek1 = week[date1.getDay()];
     const dayOfWeek2 = week[date2.getDay()];
 

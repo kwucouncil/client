@@ -39,7 +39,7 @@
                 <tbody>
                   <tr v-for="notice in noticeList" v-bind:key="notice.id" @click="toDetail(notice.id)">
                     <td class="title">{{ notice.title }}</td>
-                    <td class="date">{{ formatDate(notice.updated_at) }}</td>
+                    <td class="date">{{ $Helper.dateFormatYMD(notice.updated_at) }}</td>
                   </tr>
                 </tbody>
               </table>
@@ -100,14 +100,6 @@ const getNoticeList = () => {
     console.log(err)
   })
 };
-
-const formatDate = (dateStr) => {
-  const date = new Date(dateStr);
-  const year = date.getFullYear();
-  const month = String(date.getMonth() + 1).padStart(2, "0");
-  const day = String(date.getDate()).padStart(2, "0");
-  return `${year}.${month}.${day}`;
-}
 
 const toDetail = (id) => {
   router.push(`notice/${id}`);
