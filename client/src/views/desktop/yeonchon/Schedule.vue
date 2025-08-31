@@ -4,103 +4,103 @@
       <img src="@/assets/imgs/desktop/yeonchon/banner/schedule.svg" alt="경기 일정" />
     </div>
     <div class="schedule-wrap">
-      <div class="today-wrap">
-        <div class="navigation-wrap">
-          <ul>
-            <li
-              v-for="item in navItems"
-              :key="item.key"
-              :class="[item.key, { active: item.active }]"
-            >
-              <div class="icon"></div>
-              <div class="title">{{ item.label }}</div>
-            </li>
-          </ul>
-          <div class="calender-wrap">
-            <div class="date-wrap">
-              <div class="eve">{{ $Helper.dateFormatYMDW(addDays(date, -1)) }}</div>
-              <div class="btn-wrap">
-                <button class="btn-left" type="button" @click="prevDay"></button>
-                <div class="today-wrap">
-                  {{ $Helper.dateFormatYMDW(date) }}
-                  <button class="btn-calender" type="button" @click="showPicker = !showPicker"></button>
-                </div>
-                <button class="btn-right" type="button" @click="nextDay"></button>
+      <div class="navigation-wrap">
+        <ul>
+          <li
+            v-for="item in navItems"
+            :key="item.key"
+            :class="[item.key, { active: item.active }]"
+          >
+            <div class="icon"></div>
+            <div class="title">{{ item.label }}</div>
+          </li>
+        </ul>
+        <div class="calender-wrap">
+          <div class="date-wrap">
+            <div class="eve">{{ $Helper.dateFormatYMDW(addDays(date, -1)) }}</div>
+            <div class="btn-wrap">
+              <button class="btn-left" type="button" @click="prevDay"></button>
+              <div class="today-wrap">
+                {{ $Helper.dateFormatYMDW(date) }}
+                <button class="btn-calender" type="button" @click="showPicker = !showPicker"></button>
               </div>
-              <div class="next">{{ $Helper.dateFormatYMDW(addDays(date, 1)) }}</div>
+              <button class="btn-right" type="button" @click="nextDay"></button>
             </div>
-            <div class="picker-wrap" v-show="showPicker" ref="pickerRef">
-              <VDatePicker @update:model-value="onDatePicked" mode="date" :select-attribute="selectAttr" :attributes="attr" class="date-picker" v-model="date" :min-date="MIN_DATE" :max-date="MAX_DATE" />
-            </div>
+            <div class="next">{{ $Helper.dateFormatYMDW(addDays(date, 1)) }}</div>
           </div>
-          <div class="option-wrap">
-            <div class="tip-wrap">
-              <div class="tip red">기권학과</div>
-              <div class="tip blue">승리학과</div>
-              <div class="tip gray">패배학과</div>
-            </div>
-            <div class="select-wrap">
-              <select v-model="colleage" @change="dept = 'all'">
-                <option value="all">단과 대학</option>
-                <option
-                  v-for="col in colleges"
-                  :key="col.value"
-                  :value="col.value"
-                >
-                  {{ col.label }}
-                </option>
-              </select>
-              <select
-                v-model="dept"
-                :disabled="filteredDepts.length === 0"
-              >
-                <option value="all">학과(부)</option>
-                <option
-                  v-for="dept in filteredDepts"
-                  :key="dept.value"
-                  :value="dept.value"
-                >
-                  {{ dept.label }}
-                </option>
-              </select>
-            </div>
+          <div class="picker-wrap" v-show="showPicker" ref="pickerRef">
+            <VDatePicker @update:model-value="onDatePicked" mode="date" :select-attribute="selectAttr" :attributes="attr" class="date-picker" v-model="date" :min-date="MIN_DATE" :max-date="MAX_DATE" />
           </div>
         </div>
-        <div class="game-wrap">
-          <div class="game">
-            <div class="time">1교시</div>
-            <div class="sport">풋살</div>
-            <div class="match-wrap">
-              <div class="team">
-                <div class="team-name">미디어커뮤니케이션학부</div>
-                <img src="@/assets/imgs/desktop/common/kwangwoon.svg" alt="">
-              </div>
-              <div class="vs">VS</div>
-              <div class="team">
-                <img src="@/assets/imgs/desktop/common/kwangwoon.svg" alt="">
-                <div class="team-name">미디어커뮤니케이션학부</div>
-              </div>
-            </div>
-            <div class="place">풋살장</div>
-            <div class="etc">우천취소</div>
+        <div class="option-wrap">
+          <div class="tip-wrap">
+            <div class="tip red">기권학과</div>
+            <div class="tip blue">승리학과</div>
+            <div class="tip gray">패배학과</div>
           </div>
-          <div class="game">
-            <div class="time">1교시</div>
-            <div class="sport">풋살</div>
-            <div class="match-wrap">
-              <div class="team">
-                <div class="team-name">소프트</div>
-                <img src="@/assets/imgs/desktop/common/kwangwoon.svg" alt="">
-              </div>
-              <div class="vs">VS</div>
-              <div class="team">
-                <img src="@/assets/imgs/desktop/common/kwangwoon.svg" alt="">
-                <div class="team-name">건공</div>
-              </div>
-            </div>
-            <div class="place">풋살장</div>
-            <div class="etc"></div>
+          <div class="select-wrap">
+            <select v-model="colleage" @change="dept = 'all'">
+              <option value="all">단과 대학</option>
+              <option
+                v-for="col in colleges"
+                :key="col.value"
+                :value="col.value"
+              >
+                {{ col.label }}
+              </option>
+            </select>
+            <select
+              v-model="dept"
+              :disabled="filteredDepts.length === 0"
+            >
+              <option value="all">학과(부)</option>
+              <option
+                v-for="dept in filteredDepts"
+                :key="dept.value"
+                :value="dept.value"
+              >
+                {{ dept.label }}
+              </option>
+            </select>
           </div>
+        </div>
+      </div>
+      <div class="game-wrap">
+        <div class="game">
+          <div class="time">1교시</div>
+          <div class="sport">풋살</div>
+          <div class="match-wrap">
+            <div class="team red">
+              <div class="team-name">미디어커뮤니케이션학부</div>
+              <img src="@/assets/imgs/desktop/common/kwangwoon.svg" alt="">
+            </div>
+            <div class="vs">VS</div>
+            <div class="team">
+              <img src="@/assets/imgs/desktop/common/kwangwoon.svg" alt="">
+              <div class="team-name">미디어커뮤니케이션학부</div>
+            </div>
+          </div>
+          <div class="place">풋살장</div>
+          <div class="etc">우천취소</div>
+        </div>
+        <div class="game">
+          <div class="time">1교시</div>
+          <div class="sport">풋살</div>
+          <div class="match-wrap">
+            <div class="team blue">
+              <div class="team-name">소프트</div>
+              <img src="@/assets/imgs/desktop/common/kwangwoon.svg" alt="">
+              <div class="score">3</div>
+            </div>
+            <div class="vs">VS</div>
+            <div class="team gray">
+              <div class="score">0</div>
+              <img src="@/assets/imgs/desktop/common/kwangwoon.svg" alt="">
+              <div class="team-name gray">건공</div>
+            </div>
+          </div>
+          <div class="place">풋살장</div>
+          <div class="etc"></div>
         </div>
       </div>
     </div>

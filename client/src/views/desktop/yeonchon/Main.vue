@@ -30,7 +30,7 @@
               <div class="time">1교시</div>
               <div class="sport">풋살</div>
               <div class="match-wrap">
-                <div class="team">
+                <div class="team red">
                   <div class="team-name">미디어커뮤니케이션학부</div>
                   <img src="@/assets/imgs/desktop/common/kwangwoon.svg" alt="">
                 </div>
@@ -47,14 +47,16 @@
               <div class="time">1교시</div>
               <div class="sport">풋살</div>
               <div class="match-wrap">
-                <div class="team">
+                <div class="team blue">
                   <div class="team-name">소프트</div>
                   <img src="@/assets/imgs/desktop/common/kwangwoon.svg" alt="">
+                  <div class="score">3</div>
                 </div>
                 <div class="vs">VS</div>
-                <div class="team">
+                <div class="team gray">
+                  <div class="score">0</div>
                   <img src="@/assets/imgs/desktop/common/kwangwoon.svg" alt="">
-                  <div class="team-name">건공</div>
+                  <div class="team-name gray">건공</div>
                 </div>
               </div>
               <div class="place">풋살장</div>

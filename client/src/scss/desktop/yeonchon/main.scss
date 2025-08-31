@@ -131,9 +131,21 @@ $icons: all, foot, bask, dodg, tow, joku, ping, lol, fc;
           .match-wrap {
             @include flex-box(center, center, 24px);
 
+            .red {
+              color: #F00;
+            }
+
+            .blue {
+              color: #0003FF;
+            }
+
+            .gray {
+              color: #6A6A6A;
+            }
+
             .team {
               @include flex-box(normal, center, 15px);
-              min-width: 210px;
+              min-width: 250px;
 
               img {
                 @include size(40px)
