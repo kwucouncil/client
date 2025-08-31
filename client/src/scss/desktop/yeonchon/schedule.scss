@@ -148,6 +148,54 @@ $icons: all, foot, bask, dodg, tow, joku, ping, lol, fc;
           bottom: 2px;
         }
       }
+
+      .option-wrap {
+        margin-top: 35px;
+        @include flex-box(space-between, center);
+
+        .tip-wrap {
+          @include flex-box(center, center, 20px);
+
+          .tip {
+            @include flex-box(center, center, 8px);
+            font-weight: 500;
+
+            &::before {
+              content: "";
+              display: block;
+              @include size(14px, 14px);
+              border-radius: 50%;
+            }
+
+          }
+          .red:before {
+            background-color: #F00;
+          }
+
+          .blue:before {
+            background-color: #0003FF;
+          }
+
+          .gray:before {
+            background-color: #6A6A6A;
+          }
+        }
+
+        .select-wrap {
+          @include flex-box(center, center, 8px);
+
+          select {
+            @include size(166px, 32px);
+            &:first-child {
+              @include size(138px, 32px);
+            }
+            @include box-sizing(border-box);
+            @include padding(0 16px 0 20px);
+            border-radius: 10px;
+            border: 1px solid #C6C6C6;
+          }
+        }
+      }
     }
 
     .game-wrap {

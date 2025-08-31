@@ -20,20 +20,51 @@
             <div class="date-wrap">
               <div class="eve">{{ $Helper.dateFormatYMDW(addDays(date, -1)) }}</div>
               <div class="btn-wrap">
-                <button class="btn-left" type="button" @click="showPicker = !showPicker"></button>
+                <button class="btn-left" type="button" @click="prevDay"></button>
                 <div class="today-wrap">
                   {{ $Helper.dateFormatYMDW(date) }}
                   <button class="btn-calender" type="button" @click="showPicker = !showPicker"></button>
                 </div>
-                <button class="btn-right" type="button" @click="showPicker = !showPicker"></button>
+                <button class="btn-right" type="button" @click="nextDay"></button>
               </div>
               <div class="next">{{ $Helper.dateFormatYMDW(addDays(date, 1)) }}</div>
             </div>
-            <div class="picker-wrap" v-show="showPicker">
-              <VDatePicker  @update:model-value="v => console.log($Helper.dateFormatYMD(v))" popover="true" mode="date" :select-attribute="selectAttr" :attributes="attr" class="date-picker" v-model="date" min-date="2025-09-08" max-date="2025-10-02" />
+            <div class="picker-wrap" v-show="showPicker" ref="pickerRef">
+              <VDatePicker @update:model-value="onDatePicked" mode="date" :select-attribute="selectAttr" :attributes="attr" class="date-picker" v-model="date" :min-date="MIN_DATE" :max-date="MAX_DATE" />
             </div>
           </div>
-          <div class="option-wrap"></div>
+          <div class="option-wrap">
+            <div class="tip-wrap">
+              <div class="tip red">기권학과</div>
+              <div class="tip blue">승리학과</div>
+              <div class="tip gray">패배학과</div>
+            </div>
+            <div class="select-wrap">
+              <select v-model="colleage" @change="dept = 'all'">
+                <option value="all">단과 대학</option>
+                <option
+                  v-for="col in colleges"
+                  :key="col.value"
+                  :value="col.value"
+                >
+                  {{ col.label }}
+                </option>
+              </select>
+              <select
+                v-model="dept"
+                :disabled="filteredDepts.length === 0"
+              >
+                <option value="all">학과(부)</option>
+                <option
+                  v-for="dept in filteredDepts"
+                  :key="dept.value"
+                  :value="dept.value"
+                >
+                  {{ dept.label }}
+                </option>
+              </select>
+            </div>
+          </div>
         </div>
         <div class="game-wrap">
           <div class="game">
@@ -84,9 +115,30 @@
 
 
 <script setup>
-import { ref } from 'vue';
+import { ref, onMounted, computed, onBeforeUnmount } from 'vue';
 
 const showPicker = ref(false)
+const pickerRef = ref(null);
+
+const onDatePicked = () => {
+  showPicker.value = false;
+};
+
+const handleClickOutside = (e) => {
+  if (pickerRef.value && pickerRef.value.contains(e.target)) return;
+  showPicker.value = false;
+};
+
+onMounted(() => {
+  document.addEventListener('mousedown', handleClickOutside);
+  document.addEventListener('keydown', (e) => {
+    if (e.key === 'Escape') showPicker.value = false;
+  });
+});
+
+onBeforeUnmount(() => {
+  document.removeEventListener('mousedown', handleClickOutside);
+});
 
 const navItems = [
   { key: 'all',   label: '전체', active: true },
@@ -100,13 +152,29 @@ const navItems = [
   { key: 'fc',    label: 'FC 온라인' }
 ]
 
-const date = ref(new Date());
+const MIN_DATE = new Date('2025-09-08');
+const MAX_DATE = new Date('2025-10-02');
+
+const date = ref(new Date('2025-09-01'));
 
 const addDays = (base, n) => {
   const d = new Date(base);
   d.setDate(d.getDate() + n);
   return d;
 }
+
+const clampDate = (d) => {
+  if (d < MIN_DATE) return new Date(MIN_DATE);
+  if (d > MAX_DATE) return new Date(MAX_DATE);
+  return d;
+};
+
+const prevDay = () => {
+  date.value = clampDate(addDays(date.value, -1));
+};
+const nextDay = () => {
+  date.value = clampDate(addDays(date.value, 1));
+};
 
 const attr = ref([
   {
@@ -125,4 +193,95 @@ const attr = ref([
 ])
 
 const selectAttr = ref({ highlight: { style: {backgroundColor: '#5317AB',}} });
+
+
+
+const colleges = [
+  {
+    value: '2.1',
+    label: '전자정보공과대학',
+    depts: [
+      { value: '2.1.1', label: '전자공학과' },
+      { value: '2.1.2', label: '전자통신공학과' },
+      { value: '2.1.3', label: '전자융합공학과' },
+      { value: '2.1.4', label: '전기공학과' },
+      { value: '2.1.5', label: '전자재료공학과' },
+      { value: '2.1.6', label: '반도체시스템공학부' },
+    ],
+  },
+  {
+    value: '2.2',
+    label: '인공지능융합대학',
+    depts: [
+      { value: '2.2.1', label: '컴퓨터정보공학부' },
+      { value: '2.2.2', label: '소프트웨어학부' },
+      { value: '2.2.3', label: '정보융합학부' },
+      { value: '2.2.4', label: '로봇학부' },
+    ],
+  },
+  {
+    value: '2.3',
+    label: '공과대학',
+    depts: [
+      { value: '2.3.1', label: '건축학과' },
+      { value: '2.3.2', label: '건축공학과' },
+      { value: '2.3.3', label: '화학공학과' },
+      { value: '2.3.4', label: '환경공학과' },
+    ],
+  },
+  {
+    value: '2.4',
+    label: '자연과학대학',
+    depts: [
+      { value: '2.4.1', label: '수학과' },
+      { value: '2.4.2', label: '전자바이오물리학과' },
+      { value: '2.4.3', label: '화학과' },
+      { value: '2.4.4', label: '스포츠융합과학과' },
+    ],
+  },
+  {
+    value: '2.5',
+    label: '인문사회과학대학',
+    depts: [
+      { value: '2.5.1', label: '국어국문학과' },
+      { value: '2.5.2', label: '영어산업학과' },
+      { value: '2.5.3', label: '미디어커뮤니케이션학부' },
+      { value: '2.5.4', label: '산업심리학과' },
+      { value: '2.5.5', label: '동북아문화산업학부' },
+    ],
+  },
+  {
+    value: '2.6',
+    label: '정책법학대학',
+    depts: [
+      { value: '2.6.1', label: '행정학과' },
+      { value: '2.6.2', label: '법학부' },
+      { value: '2.6.3', label: '국제학부' },
+    ],
+  },
+  {
+    value: '2.7',
+    label: '경영대학',
+    depts: [
+      { value: '2.7.1', label: '경영학부' },
+      { value: '2.7.2', label: '국제통상학부' },
+    ],
+  },
+  {
+    value: '2.9',
+    label: '인제니움대학',
+    depts: [{ value: '2.9.1', label: '자율전공학부' }],
+  },
+]
+
+const colleage = ref('all')
+const dept = ref('all')
+
+const currentCollege = computed(() =>
+  colleges.find(c => c.value === colleage.value) || null
+)
+
+const filteredDepts = computed(() =>
+  currentCollege.value ? currentCollege.value.depts : []
+)
 </script>

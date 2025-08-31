@@ -85,7 +85,7 @@
                 <img src="@/assets/imgs/desktop/common/kwangwoon.svg" alt="">
               </div>
               <div class="card third">
-                <div class="spot">2<span>위</span></div>
+                <div class="spot">3<span>위</span></div>
                 <div class="team">미디어커뮤니케이션학부<br/>School of Media & Communication</div>
                 <div class="score">240점</div>
                 <img src="@/assets/imgs/desktop/common/kwangwoon.svg" alt="">
