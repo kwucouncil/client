@@ -1,8 +1,6 @@
 @import '@/scss/common/helpers/_mixins.scss';
 @import '@/scss/common/helpers/_variables.scss';
 
-$icons: all, foot, bask, dodg, tow, joku, ping, lol, fc;
-
 .yeonchon-detail-banner-wrap {
   img {
     @include size(100%);

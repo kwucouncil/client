@@ -1,7 +1,7 @@
 <template>
   <div class="container">
     <div class="yeonchon-detail-banner-wrap">
-      <img src="@/assets/imgs/desktop/yeonchon/banner/schedule.svg" alt="경기 일정" />
+      <img src="@/assets/imgs/desktop/yeonchon/banner/sport.svg" alt="경기 일정" />
     </div>
     <div class="sport-wrap">
       <div class="tab-wrap">

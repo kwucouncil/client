@@ -1,0 +1,48 @@
+@import '@/scss/common/helpers/_mixins.scss';
+@import '@/scss/common/helpers/_variables.scss';
+
+.yeonchon-detail-banner-wrap {
+  img {
+    @include size(100%);
+  }
+}
+
+.status-wrap {
+  @include margin(0 auto);
+  @include padding(60px 0 150px);
+  @include size(1200px);
+
+  .tab-wrap {
+    @include flex-box(center, center);
+
+    div {
+      @include size(50%, 30px);
+      padding-bottom: 30px;
+      position: relative;
+      color: #C6C6C6;
+      font-size: 24px;
+      font-weight: 600;
+      text-align: center;
+      cursor: pointer;
+
+      &::after {
+        content: "";
+        position: absolute;
+        bottom: 0; left: 50%;
+        height: 3px; width: 0;
+        background-color: #C6C6C6;
+        transition: width .3s ease-out, left .3s ease-out, background-color .2s;
+      }
+
+      &:hover::after,
+      &.active::after {
+        width: 100%; left: 0;
+      }
+
+      &.active {
+        color: #5317AB;
+        &::after { background-color: #5317AB; }
+      }
+    }
+  }
+}
