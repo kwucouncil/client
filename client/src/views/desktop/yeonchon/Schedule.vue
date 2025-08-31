@@ -112,8 +112,6 @@
 @import "@/scss/desktop/yeonchon/schedule";
 </style>
 
-
-
 <script setup>
 import { ref, onMounted, computed, onBeforeUnmount } from 'vue';
 

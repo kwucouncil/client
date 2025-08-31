@@ -148,7 +148,11 @@ $icons: all, foot, bask, dodg, tow, joku, ping, lol, fc;
               min-width: 250px;
 
               img {
-                @include size(40px)
+                @include size(40px);
+              }
+
+              .score {
+                font-size: 25px;
               }
 
               &:first-child {

@@ -54,7 +54,6 @@ $icons: all, foot, bask, dodg, tow, joku, ping, lol, fc;
         }
       }
 
-
       @each $name in $icons {
         .#{$name} {
           .icon {
@@ -104,7 +103,6 @@ $icons: all, foot, bask, dodg, tow, joku, ping, lol, fc;
             @include size(7px, 16px);
             background-image: url('/src/assets/imgs/desktop/common/icon_left.svg');
           }
-
 
           .btn-right {
             @include size(7px, 16px);
