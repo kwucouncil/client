@@ -121,11 +121,11 @@ const w_routes = [
         name: 'YeonchonStatus',
         component: () => import('@/views/desktop/yeonchon/Status.vue'),
       },
-      // {
-      //   path: '/yeonchon/team',
-      //   name: 'YeonchonTeam',
-      //   component: () => import('@/views/desktop/yeonchon/Team.vue'),
-      // },
+      {
+        path: '/yeonchon/team',
+        name: 'YeonchonTeam',
+        component: () => import('@/views/desktop/yeonchon/Team.vue'),
+      },
       // {
       //   path: '/yeonchon/event',
       //   name: 'YeonchonEvent',

@@ -7,9 +7,9 @@
       <div class="menu-wrap">
         <ul>
           <li><router-link to="/yeonchon/schedule">경기 일정</router-link></li>
-          <li><router-link to="/yeonchon/sport">경기 종목</router-link></li>
           <li><router-link to="/yeonchon/status">경기 현황</router-link></li>
-          <li><router-link to="/yeonchon/team">팀</router-link></li>
+          <li><router-link to="/yeonchon/sport">경기 종목</router-link></li>
+          <li><router-link to="/yeonchon/team">Teams</router-link></li>
           <li><router-link to="/yeonchon/event">승부 예측</router-link></li>
         </ul>
       </div>

@@ -166,7 +166,7 @@ const navItems = [
   { key: 'all',   label: '전체', active: true },
   { key: 'foot',  label: '풋살' },
   { key: 'bask',  label: '농구' },
-  { key: 'dodg',  label: '피수' },
+  { key: 'dodg',  label: '피구' },
   { key: 'tow',   label: '줄다리기' },
   { key: 'joku',  label: '족구' },
   { key: 'ping',  label: '탁구' },

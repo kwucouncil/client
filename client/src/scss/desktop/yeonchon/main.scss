@@ -216,6 +216,7 @@ $icons: all, foot, bask, dodg, tow, joku, ping, lol, fc;
             border: 1px solid #F6F6F6;
             border-radius: 13px;
             color: $white;
+            font-weight: 500;
             overflow: hidden;
 
             &:not(:first-child) {
@@ -223,8 +224,8 @@ $icons: all, foot, bask, dodg, tow, joku, ping, lol, fc;
             }
 
             .spot {
+              @include flex-box(center, center);
               font-size: 46px;
-              font-weight: 500;
 
               span {
                 font-size: 20px;

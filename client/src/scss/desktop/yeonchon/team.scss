@@ -1,0 +1,53 @@
+@import '@/scss/common/helpers/_mixins.scss';
+@import '@/scss/common/helpers/_variables.scss';
+
+.yeonchon-detail-banner-wrap {
+  img {
+    @include size(100%);
+  }
+}
+
+.team-wrap {
+  @include margin(0 auto);
+  @include padding(60px 0 150px);
+  @include size(1200px);
+
+  .team {
+    border: 1px solid #DDD;
+    border-radius: 20px;
+
+    .college {
+      text-align: center;
+      padding: 11px 0;
+      font-size: 28px;
+      font-weight: 500;
+    }
+
+    .dep-wrap {
+      @include flex-box(normal, center);
+      gap: 40px 99px;
+      flex-wrap: wrap;
+      padding: 36px 100px;
+
+      .dep {
+        @include size(175px);
+        @include flex-box(center, center, 10px);
+        flex-direction: column;
+
+        img {
+          @include size(135px, 135px);
+        }
+
+        .title {
+          text-align: center;
+          font-size: 19px;
+          letter-spacing: -0.57px;
+        }
+      }
+    }
+
+    &:not(:first-child) {
+      margin-top: 40px;
+    }
+  }
+}
