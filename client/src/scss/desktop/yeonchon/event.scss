@@ -1,0 +1,139 @@
+@import '@/scss/common/helpers/_mixins.scss';
+@import '@/scss/common/helpers/_variables.scss';
+
+.yeonchon-detail-banner-wrap {
+  img {
+    @include size(100%);
+  }
+}
+
+.event-wrap {
+  @include margin(0 auto);
+  @include padding(0 0 150px);
+  @include size(1200px);
+  padding-top: 100px;
+
+  .info-wrap {
+    .info {
+      border-radius: 20px;
+      border: 1px solid #DDD;
+
+      .title {
+        text-align: center;
+        padding: 10px 0;
+        font-size: 24px;
+        font-weight: 500;
+      }
+
+      .content {
+        padding: 30px 0;
+        border-top: 1px solid #DDD;
+
+        .desc {
+          @include flex-box(center, center, 5px);
+          flex-direction: column;
+          font-size: 20px;
+          font-weight: 400;
+
+          span {
+            font-weight: 700;
+          }
+        }
+
+        .input-container {
+          @include flex-box(center, center, 17px);
+          flex-direction: column;
+          margin-top: 35px;
+
+          .input-wrap {
+            @include flex-box(normal, center, 28px);
+            font-size: 18px;
+
+            .label {
+              @include size(65px);
+            }
+
+            input {
+              @include size(330px, 43px);
+              @include box-sizing(border-box);
+              padding: 5px 10px;
+              border: 0;
+              border-radius: 5px;
+              font-size: 18px;
+              background-color: #F6F6F6;
+            }
+
+          }
+        }
+      }
+    }
+
+    .college {
+      margin-top: 40px;
+      border-radius: 20px;
+      border: 1px solid #DDD;
+
+      .title {
+        text-align: center;
+        padding: 10px 0;
+        font-size: 24px;
+        font-weight: 500;
+      }
+
+      .select-wrap {
+        @include flex-box(center, center, 8px);
+        padding: 38px 0;
+        border-top: 1px solid #DDD;
+
+        select {
+          font-size: 18px;
+          @include size(220px, 40px);
+          &:first-child {
+            @include size(180px, 40px);
+          }
+          @include box-sizing(border-box);
+          @include padding(0 16px 0 20px);
+          border-radius: 10px;
+          border: 1px solid #C6C6C6;
+
+          &:disabled {
+            background-color: #F6F6F6
+          }
+        }
+      }
+    }
+
+    button {
+      @include size(200px, 50px);
+      @include box-sizing(border-box);
+      display: block;
+      margin: 50px auto 0;
+      background-color: #5317AB;
+      color: $white;
+      font-weight: 500;
+      font-size: 18px;
+      line-height: 40px;
+      border-radius: 50px;
+      border: none;
+      cursor: pointer;
+
+      &:disabled {
+        background-color: #F1F1F1;
+        color: #989898;
+        cursor: not-allowed;
+      }
+    }
+  }
+
+  .done {
+    .info .content .input-container .input-wrap input{
+      background-color: $white;
+    }
+
+    b {
+      font-size: 28px;
+      color: #5317AB;
+      text-align: center;
+    }
+  }
+}

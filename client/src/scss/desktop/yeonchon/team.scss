@@ -24,6 +24,7 @@
     }
 
     .dep-wrap {
+      border-top: 1px solid #DDD;
       @include flex-box(normal, center);
       gap: 40px 99px;
       flex-wrap: wrap;

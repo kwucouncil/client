@@ -14,4 +14,34 @@ export default {
       method: 'get',
     });
   },
+
+  getSport() {
+    return Send({
+      url: '/sports2025/sports',
+      method: 'get',
+    });
+  },
+
+  getMatch(data) {
+    return Send({
+      url: '/sports2025/matches',
+      method: 'get',
+      data: data
+    });
+  },
+
+  getRank() {
+    return Send({
+      url: '/sports2025/standings',
+      method: 'get',
+    });
+  },
+
+  ApplyEvent(data) {
+    return Send({
+      url: '/predictions',
+      method: 'post',
+      data: data
+    });
+  },
 }
