@@ -2,7 +2,7 @@
 @import '@/scss/common/helpers/_variables.scss';
 
 .event-wrap {
-  padding: 30px 20px;
+  padding: 8vw 5.33vw;
 
   .desc {
     p {
@@ -11,16 +11,16 @@
 
     span {
       display: block;
-      margin-top: 2px;
-      font-size: 12px;
+      margin-top: 0.53vw;
+      font-size: 3.2vw;
       color: #C6C6C6;
     }
   }
 
   .input-container {
-    @include flex-box(center, center, 16px);
+    @include flex-box(center, center, 4.27vw);
     flex-direction: column;
-    margin-top: 16px;
+    margin-top: 4.27vw;
 
     .input-wrap {
       @include size(100%);
@@ -30,26 +30,26 @@
       }
 
       input {
-        @include size(100%, 48px);
+        @include size(100%, 12.8vw);
         @include box-sizing(border-box);
-        margin-top: 8px;
-        padding: 5px 10px;
+        margin-top: 2.13vw;
+        padding: 1.33vw 2.67vw;
         border: 0;
-        border-radius: 5px;
-        border: 1px solid #DDD;
+        border-radius: 1.33vw;
+        border: 0.27vw solid #DDD;
         font-weight: 500;
       }
 
       .select-wrap {
-        @include flex-box(center, center, 8px);
+        @include flex-box(center, center, 2.13vw);
 
         select {
-          @include size(50%, 48px);
-          margin-top: 8px;
+          @include size(50%, 12.8vw);
+          margin-top: 2.13vw;
           @include box-sizing(border-box);
-          @include padding(0 10px);
-          border-radius: 5px;
-          border: 1px solid #C6C6C6;
+          @include padding(0 2.67vw);
+          border-radius: 1.33vw;
+          border: 0.27vw solid #C6C6C6;
           font-weight: 500;
 
           &:disabled {
@@ -62,17 +62,17 @@
   }
 
   .btn-wrap {
-    margin-top: 40px;
+    margin-top: 10.67vw;
 
     button {
-      @include size(100%, 48px);
+      @include size(100%, 12.8vw);
       @include box-sizing(border-box);
       display: block;
       background-color: #5317AB;
       color: $white;
       font-weight: 500;
-      line-height: 48px;
-      border-radius: 5px;
+      line-height: 12.8vw;
+      border-radius: 1.33vw;
       border: none;
       cursor: pointer;
 
