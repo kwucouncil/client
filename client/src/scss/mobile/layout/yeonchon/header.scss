@@ -15,12 +15,19 @@ header {
         @include size(100%, 9.6vw);
       }
     }
+
+    h1 {
+      font-size: 5.33vw;
+      font-weight: 700;
+    }
   }
+
   .menu-wrap {
     @include size(100%);
     position: fixed;
     bottom: 0;
     background-color: $white;
+    z-index: 100;
 
     ul {
       @include flex-box(center, center);

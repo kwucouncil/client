@@ -1,44 +1,35 @@
 <template>
   <div class="container">
-    <div class="yeonchon-detail-banner-wrap">
-      <img src="@/assets/imgs/desktop/yeonchon/banner/event.svg" alt="승부 예측" />
-    </div>
     <div class="event-wrap">
-      <div v-show="step === 1" class="info-wrap">
-        <div class="info">
-          <div class="title">프로필</div>
-          <div class="content">
-            <div class="desc">
-              <p>상품 수령을 위해 이름 / 학번 / 전화번호를 입력해주세요.</p>
-              <span>* 잘못된 정보 기입은 상품 수령이 불가할 수 있으니 정확하게 입력해 주세요.</span>
-            </div>
-            <div class="input-container">
-              <div class="input-wrap">
-                <div class="label">이름</div>
-                <input type="text" v-model="name" placeholder="홍길동" maxlength="3"/>
-              </div>
-              <div class="input-wrap">
-                <div class="label">학번</div>
-                <input type="text" v-model="student_id" placeholder="2025010101" maxlength="10"/>
-              </div>
-              <div class="input-wrap">
-                <div class="label">전화번호</div>
-                <input type="text" v-model="phone" placeholder="010-0000-0000" maxlength="13"/>
-              </div>
-            </div>
-          </div>
+      <div v-show="step === 1">
+        <div class="desc">
+          <p>상품 수령을 위해<br/><b>이름/학번/전화번호</b>를 입력해주세요.</p>
+          <span>* 잘못된 정보 기입은 상품 수령이 불가할 수 있으니<br/>정확하게 입력해 주세요.</span>
         </div>
-        <div class="college">
-          <div class="title">1등 예상 학과(부)</div>
-          <div class="content">
+        <div class="input-container">
+          <div class="input-wrap">
+            <div class="label">이름</div>
+            <input type="text" name="name" v-model="name" placeholder="홍길동" maxlength="3"/>
+          </div>
+          <div class="input-wrap">
+            <div class="label">학번</div>
+            <input type="text" name="student_id" v-model="student_id" placeholder="2025010101" maxlength="10"/>
+          </div>
+          <div class="input-wrap">
+            <div class="label">전화번호</div>
+            <input type="text" name="phone" v-model="phone" placeholder="010-0000-0000" maxlength="13"/>
+          </div>
+          <div class="input-wrap">
+            <div class="label">1등 예상 학과(부)</div>
             <div class="select-wrap">
-              <select v-model="picks.first.college" @change="picks.first.dept = 'all'">
+              <select name="first-college" v-model="picks.first.college" @change="picks.first.dept = 'all'">
                 <option value="all">단과 대학</option>
                 <option v-for="col in colleges" :key="col.value" :value="col.value">
                   {{ col.label }}
                 </option>
               </select>
               <select
+                name="first-dept"
                 v-model="picks.first.dept"
                 :disabled="firstDepts.length === 0"
               >
@@ -49,99 +40,94 @@
               </select>
             </div>
           </div>
-        </div>
-        <div class="college">
-          <div class="title">2등 예상 학과(부)</div>
-          <div class="select-wrap">
-            <select v-model="picks.second.college" @change="picks.second.dept = 'all'">
-              <option value="all">단과 대학</option>
-              <option v-for="col in colleges" :key="col.value" :value="col.value">
-                {{ col.label }}
-              </option>
-            </select>
-            <select
-              v-model="picks.second.dept"
-              :disabled="secondDepts.length === 0"
-            >
-              <option value="all">학과(부)</option>
-              <option v-for="d in secondDepts" :key="d.value" :value="d.value">
-                {{ d.label }}
-              </option>
-            </select>
+          <div class="input-wrap">
+            <div class="label">2등 예상 학과(부)</div>
+            <div class="select-wrap">
+              <select name="second-college" v-model="picks.second.college" @change="picks.second.dept = 'all'">
+                <option value="all">단과 대학</option>
+                <option v-for="col in colleges" :key="col.value" :value="col.value">
+                  {{ col.label }}
+                </option>
+              </select>
+              <select
+                v-model="picks.second.dept"
+                name="second-dept"
+                :disabled="secondDepts.length === 0"
+              >
+                <option value="all">학과(부)</option>
+                <option v-for="d in secondDepts" :key="d.value" :value="d.value">
+                  {{ d.label }}
+                </option>
+              </select>
+            </div>
+          </div>
+          <div class="input-wrap">
+            <div class="label">3등 예상 학과(부)</div>
+            <div class="select-wrap">
+              <select name="third-college" v-model="picks.third.college" @change="picks.third.dept = 'all'">
+                <option value="all">단과 대학</option>
+                <option v-for="col in colleges" :key="col.value" :value="col.value">
+                  {{ col.label }}
+                </option>
+              </select>
+              <select
+                name="third-dept"
+                v-model="picks.third.dept"
+                :disabled="thirdDepts.length === 0"
+              >
+                <option value="all">학과(부)</option>
+                <option v-for="d in thirdDepts" :key="d.value" :value="d.value">
+                  {{ d.label }}
+                </option>
+              </select>
+            </div>
           </div>
         </div>
-        <div class="college">
-          <div class="title">3등 예상 학과(부)</div>
-          <div class="select-wrap">
-            <select v-model="picks.third.college" @change="picks.third.dept = 'all'">
-              <option value="all">단과 대학</option>
-              <option v-for="col in colleges" :key="col.value" :value="col.value">
-                {{ col.label }}
-              </option>
-            </select>
-            <select
-              v-model="picks.third.dept"
-              :disabled="thirdDepts.length === 0"
-            >
-              <option value="all">학과(부)</option>
-              <option v-for="d in thirdDepts" :key="d.value" :value="d.value">
-                {{ d.label }}
-              </option>
-            </select>
-          </div>
+        <div class="btn-wrap">
+          <button :disabled="!isFormValid" @click="step = 2">다음</button>
         </div>
-        <button :disabled="!isFormValid" @click="step = 2">다음</button>
       </div>
-      <div v-show="step === 2" class="info-wrap done">
-        <div class="info">
-          <div class="title">프로필</div>
-          <div class="content">
-            <div class="desc">
-              <p>상품 수령을 위해 이름 / 학번 / 전화번호를 입력해주세요.</p>
-              <span>* 잘못된 정보 기입은 상품 수령이 불가할 수 있으니 정확하게 입력해 주세요.</span>
-            </div>
-            <div class="input-container">
-              <div class="input-wrap">
-                <div class="label">이름</div>
-                <input type="text" v-model="name" disabled/>
-              </div>
-              <div class="input-wrap">
-                <div class="label">학번</div>
-                <input type="text" v-model="student_id" disabled/>
-              </div>
-              <div class="input-wrap">
-                <div class="label">전화번호</div>
-                <input type="text" v-model="phone" disabled/>
-              </div>
-            </div>
+      <div v-show="step === 2" class="done">
+        <div class="desc">
+          <p>상품 수령을 위해<br/><b>이름/학번/전화번호</b>를 입력해주세요.</p>
+          <span>* 잘못된 정보 기입은 상품 수령이 불가할 수 있으니<br/>정확하게 입력해 주세요.</span>
+        </div>
+        <div class="input-container">
+          <div class="input-wrap">
+            <div class="label">이름</div>
+            <input type="text" name="name" v-model="name" disabled/>
+          </div>
+          <div class="input-wrap">
+            <div class="label">학번</div>
+            <input type="text" name="student_id" v-model="student_id" disabled/>
+          </div>
+          <div class="input-wrap">
+            <div class="label">전화번호</div>
+            <input type="text" name="phone" v-model="phone" disabled/>
+          </div>
+          <div class="input-wrap">
+            <div class="label">1등 예상 학과(부)</div>
+            <input class="input-dep" type="text" name="first" v-model="firstLabel" disabled/>
+          </div>
+          <div class="input-wrap">
+            <div class="label">2등 예상 학과(부)</div>
+            <input class="input-dep" type="text" name="second" v-model="secondLabel" disabled/>
+          </div>
+          <div class="input-wrap">
+            <div class="label">3등 예상 학과(부)</div>
+            <input class="input-dep" type="text" name="second" v-model="thirdLabel" disabled/>
           </div>
         </div>
-        <div class="college">
-          <div class="title">1등 예상 학과(부)</div>
-          <div class="select-wrap">
-            <b>{{ firstLabel }}</b>
-          </div>
+        <div class="btn-wrap">
+          <button @click="apply">제출</button>
         </div>
-        <div class="college">
-          <div class="title">2등 예상 학과(부)</div>
-          <div class="select-wrap">
-            <b>{{ secondLabel }}</b>
-          </div>
-        </div>
-        <div class="college">
-          <div class="title">3등 예상 학과(부)</div>
-          <div class="select-wrap">
-            <b>{{ thirdLabel }}</b>
-          </div>
-        </div>
-        <button @click="apply">제출</button>
       </div>
     </div>
   </div>
 </template>
 
 <style scoped lang="scss">
-@import "@/scss/desktop/yeonchon/event";
+@import "@/scss/mobile/yeonchon/event";
 </style>
 
 <script setup>
@@ -281,13 +267,15 @@ const apply = () => {
   }
 
   let data = {
-    name: name,
-    student_id: student_id,
-    phone: phone,
+    name: name.value,
+    student_id: student_id.value,
+    phone: phone.value,
     first_place: first,
     second_place: second,
     third_place: third,
   }
+
+  console.log(data);
 
   Yeonchon.ApplyEvent(data).then((res) => {
   }).catch((err) => {

@@ -37,11 +37,9 @@
 
   .sport-wrap {
     @include padding(5.33vw 5.33vw 13.33vw);
-    // padding-top: 2.13vw;
 
     .card-wrap {
       h2 {
-        font-size: 4.27vw;
         font-weight: 700;
       }
 
@@ -92,7 +90,6 @@
       }
 
       h2 {
-        font-size: 4.27vw;
         font-weight: 700;
       }
 

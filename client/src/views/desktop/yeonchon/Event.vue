@@ -15,15 +15,15 @@
             <div class="input-container">
               <div class="input-wrap">
                 <div class="label">이름</div>
-                <input type="text" v-model="name" placeholder="홍길동" maxlength="3"/>
+                <input type="text" name="name" v-model="name" placeholder="홍길동" maxlength="3"/>
               </div>
               <div class="input-wrap">
                 <div class="label">학번</div>
-                <input type="text" v-model="student_id" placeholder="2025010101" maxlength="10"/>
+                <input type="text" name="student_id" v-model="student_id" placeholder="2025010101" maxlength="10"/>
               </div>
               <div class="input-wrap">
                 <div class="label">전화번호</div>
-                <input type="text" v-model="phone" placeholder="010-0000-0000" maxlength="13"/>
+                <input type="text" name="phone" v-model="phone" placeholder="010-0000-0000" maxlength="13"/>
               </div>
             </div>
           </div>
@@ -32,13 +32,14 @@
           <div class="title">1등 예상 학과(부)</div>
           <div class="content">
             <div class="select-wrap">
-              <select v-model="picks.first.college" @change="picks.first.dept = 'all'">
+              <select name="first-college" v-model="picks.first.college" @change="picks.first.dept = 'all'">
                 <option value="all">단과 대학</option>
                 <option v-for="col in colleges" :key="col.value" :value="col.value">
                   {{ col.label }}
                 </option>
               </select>
               <select
+                name="first-dept"
                 v-model="picks.first.dept"
                 :disabled="firstDepts.length === 0"
               >
@@ -53,13 +54,14 @@
         <div class="college">
           <div class="title">2등 예상 학과(부)</div>
           <div class="select-wrap">
-            <select v-model="picks.second.college" @change="picks.second.dept = 'all'">
+            <select name="second-college" v-model="picks.second.college" @change="picks.second.dept = 'all'">
               <option value="all">단과 대학</option>
               <option v-for="col in colleges" :key="col.value" :value="col.value">
                 {{ col.label }}
               </option>
             </select>
             <select
+              name="second-dept"
               v-model="picks.second.dept"
               :disabled="secondDepts.length === 0"
             >
@@ -73,13 +75,14 @@
         <div class="college">
           <div class="title">3등 예상 학과(부)</div>
           <div class="select-wrap">
-            <select v-model="picks.third.college" @change="picks.third.dept = 'all'">
+            <select name="third-college" v-model="picks.third.college" @change="picks.third.dept = 'all'">
               <option value="all">단과 대학</option>
               <option v-for="col in colleges" :key="col.value" :value="col.value">
                 {{ col.label }}
               </option>
             </select>
             <select
+              name="third-dept"
               v-model="picks.third.dept"
               :disabled="thirdDepts.length === 0"
             >
@@ -103,15 +106,15 @@
             <div class="input-container">
               <div class="input-wrap">
                 <div class="label">이름</div>
-                <input type="text" v-model="name" disabled/>
+                <input type="text" name="name" v-model="name" disabled/>
               </div>
               <div class="input-wrap">
                 <div class="label">학번</div>
-                <input type="text" v-model="student_id" disabled/>
+                <input type="text" name="student_id" v-model="student_id" disabled/>
               </div>
               <div class="input-wrap">
                 <div class="label">전화번호</div>
-                <input type="text" v-model="phone" disabled/>
+                <input type="text" name="phone" v-model="phone" disabled/>
               </div>
             </div>
           </div>
@@ -281,9 +284,9 @@ const apply = () => {
   }
 
   let data = {
-    name: name,
-    student_id: student_id,
-    phone: phone,
+    name: name.value,
+    student_id: student_id.value,
+    phone: phone.value,
     first_place: first,
     second_place: second,
     third_place: third,

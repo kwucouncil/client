@@ -1,9 +1,10 @@
 <template>
   <header>
     <div class="header-wrap">
-      <div class="logo-wrap">
+      <div class="logo-wrap" v-if="route.path === '/yeonchon'">
         <router-link to="/yeonchon"><img src="@/assets/imgs/mobile/common/logo_p.svg" alt="광운대학교"></router-link>
       </div>
+      <h1 v-else>{{ currentTitle }}</h1>
     </div>
     <div class="menu-wrap">
       <ul>
@@ -26,8 +27,8 @@
 </style>
 
 <script setup>
-import { useRoute } from 'vue-router'
-import { useRouter } from 'vue-router';
+import { computed } from 'vue'
+import { useRoute, useRouter } from 'vue-router'
 const route = useRoute()
 const router = useRouter()
 
@@ -47,4 +48,11 @@ const isActive = (item) => {
   if (item.key === 'home') return route.path === '/yeonchon'
   return route.path.startsWith(`/yeonchon/${item.key}`)
 }
+
+const currentTitle = computed(() => {
+  const segments = route.path.split('/').filter(Boolean)
+  const last = segments[segments.length - 1]
+  const match = navItems.find(item => item.key === last)
+  return match ? match.label : ''
+})
 </script>

@@ -268,11 +268,11 @@ const m_routes = [
       //   name: 'YeonchonTeam',
       //   component: () => import('@/views/desktop/yeonchon/Team.vue'),
       // },
-      // {
-      //   path: '/yeonchon/event',
-      //   name: 'YeonchonEvent',
-      //   component: () => import('@/views/desktop/yeonchon/Event.vue'),
-      // },
+      {
+        path: '/yeonchon/event',
+        name: 'YeonchonEvent',
+        component: () => import('@/views/mobile/yeonchon/Event.vue'),
+      },
     ]
   }
 ];
