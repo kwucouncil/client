@@ -6,7 +6,7 @@ import LayoutW from '@/views/desktop/layout/basic/Layout'
 import YeonChonW from '@/views/desktop/layout/yeonchon/Layout'
 
 import LayoutM from '@/views/mobile/layout/basic/Layout'
-// import YeonChonM from '@/views/mobile/layout/yeonchon/Layout'
+import YeonChonM from '@/views/mobile/layout/yeonchon/Layout'
 
 const w_routes = [
   {
@@ -237,6 +237,44 @@ const m_routes = [
       }
     ]
   },
+  {
+    path: '/yeonchon',
+    name: 'yeonchon',
+    component: YeonChonM,
+    redirect: '/yeonchon',
+    children: [
+      {
+        path: '/yeonchon',
+        name: 'YeonchonMain',
+        component: () => import('@/views/mobile/yeonchon/Main.vue'),
+      },
+      // {
+      //   path: '/yeonchon/schedule',
+      //   name: 'YeonchonSchedule',
+      //   component: () => import('@/views/desktop/yeonchon/Schedule.vue'),
+      // },
+      {
+        path: '/yeonchon/sport',
+        name: 'YeonchonSport',
+        component: () => import('@/views/mobile/yeonchon/Sport.vue'),
+      },
+      // {
+      //   path: '/yeonchon/status',
+      //   name: 'YeonchonStatus',
+      //   component: () => import('@/views/desktop/yeonchon/Status.vue'),
+      // },
+      // {
+      //   path: '/yeonchon/team',
+      //   name: 'YeonchonTeam',
+      //   component: () => import('@/views/desktop/yeonchon/Team.vue'),
+      // },
+      // {
+      //   path: '/yeonchon/event',
+      //   name: 'YeonchonEvent',
+      //   component: () => import('@/views/desktop/yeonchon/Event.vue'),
+      // },
+    ]
+  }
 ];
 
 const w_router = () => createRouter({

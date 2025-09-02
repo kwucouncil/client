@@ -1,40 +1,22 @@
 <template>
   <header>
     <div class="header-wrap">
-      <button @click="ClickMenu" class="btn-menu"></button>
       <div class="logo-wrap">
-        <router-link to="/"><img src="@/assets/imgs/mobile/common/logo.svg" alt="광운대학교"></router-link>
+        <router-link to="/yeonchon"><img src="@/assets/imgs/mobile/common/logo_p.svg" alt="광운대학교"></router-link>
       </div>
-      <div class="menu-detail" v-if="isMenu">
-        <div class="title-wrap">
-          <h3>광운대학교 제52대<br/>총학생회 비상대책위원회</h3>
-          <button @click="ClickMenu" class="btn-close"></button>
-        </div>
-        <ul class="menu-navigation">
-          <li class="menu">
-            <div class="menu-down" :class="[menu === 'about' ? 'down' : 'up']" @click="ClickMenuDetail('about')">총학생회</div>
-            <ul v-if="menu === 'about'">
-              <li><router-link to="/about/greeting" @click="isMenu = false">소개 및 인사말</router-link></li>
-              <li><router-link to="/about/organization" @click="isMenu = false">조직도</router-link></li>
-              <li><router-link to="/about/info" @click="isMenu = false">연락처</router-link></li>
-              <li><router-link to="/about/guide" @click="isMenu = false">오시는 길</router-link></li>
-            </ul>
-          </li>
-          <li class="menu">
-            <div class="menu-down" :class="[menu === 'document' ? 'down' : 'up']" @click="ClickMenuDetail('document')">자료실</div>
-            <ul v-if="menu === 'document'">
-              <li><router-link to="/document/meeting" @click="isMenu = false">회의록</router-link></li>
-            </ul>
-          </li>
-          <li class="menu">
-            <router-link to="/notice" class="menu-down" @click="isMenu = false">공지사항</router-link>
-          </li>
-          <li class="menu">
-            <router-link to="/orientation/confirm" class="menu-down" @click="isMenu = false">새로배움터</router-link>
-          </li>
-          <li class="menu"><a href="https://www.kw.ac.kr/ko/" target="_blank" class="menu-down">광운대학교</a></li>
-        </ul>
-      </div>
+    </div>
+    <div class="menu-wrap">
+      <ul>
+        <li
+          v-for="item in navItems"
+          :key="item.key"
+          :class="[item.key, { active: isActive(item) }]"
+          @click="toDetail(item.key)"
+        >
+        <div class="icon"></div>
+        <div class="title">{{ item.label }}</div>
+        </li>
+      </ul>
     </div>
   </header>
 </template>
@@ -44,44 +26,25 @@
 </style>
 
 <script setup>
-import { ref, watch, onMounted } from "vue";
-import { useRoute } from "vue-router";
+import { useRoute } from 'vue-router'
+import { useRouter } from 'vue-router';
+const route = useRoute()
+const router = useRouter()
 
-const isMenu = ref(false)
-const menu = ref('')
-const route = useRoute();
+const navItems = [
+  { id: 1, key: 'home',  label: '홈' },
+  { id: 2, key: 'schedule',  label: '일정' },
+  { id: 3, key: 'status',  label: '현황' },
+  { id: 4, key: 'sport',  label: '종목 및 팀' },
+  { id: 5, key: 'event',  label: '승부예측' },
+]
 
-const ClickMenu = () => {
-  isMenu.value = !isMenu.value
+const toDetail = (key) => {
+  router.push(key === 'home' ? '/yeonchon' : `/yeonchon/${key}`);
 }
 
-const ClickMenuDetail = (value) => {
-  if(menu.value === value) {
-    menu.value = ''
-  } else {
-    menu.value = value
-  }
+const isActive = (item) => {
+  if (item.key === 'home') return route.path === '/yeonchon'
+  return route.path.startsWith(`/yeonchon/${item.key}`)
 }
-
-const setMenuByRoute = () => {
-  const path = route.path;
-  if (path.startsWith("/about")) {
-    menu.value = "about";
-  } else if (path.startsWith("/document")) {
-    menu.value = "document";
-  } else {
-    menu.value = "";
-  }
-};
-
-onMounted(() => {
-  setMenuByRoute();
-});
-
-watch(
-  () => route.path,
-  () => {
-    setMenuByRoute();
-  }
-);
 </script>

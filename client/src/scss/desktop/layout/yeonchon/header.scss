@@ -2,8 +2,6 @@
 @import '@/scss/common/helpers/_variables.scss';
 
 header {
-  background: #F5F5F5;
-
   .header-wrap {
     @include size(100%, 90px);
     @include flex-box(center, center, 130px);

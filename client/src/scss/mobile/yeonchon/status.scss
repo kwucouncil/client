@@ -1,0 +1,166 @@
+@import '@/scss/common/helpers/_mixins.scss';
+@import '@/scss/common/helpers/_variables.scss';
+
+.yeonchon-detail-banner-wrap {
+  img {
+    @include size(100%);
+  }
+}
+
+.status-wrap {
+  @include margin(0 auto);
+  @include padding(60px 0 150px);
+  @include size(1200px);
+
+  .tab-wrap {
+    @include flex-box(center, center);
+
+    div {
+      @include size(50%, 30px);
+      padding-bottom: 30px;
+      position: relative;
+      color: #C6C6C6;
+      font-size: 24px;
+      font-weight: 600;
+      text-align: center;
+      cursor: pointer;
+
+      &::after {
+        content: "";
+        position: absolute;
+        bottom: 0; left: 50%;
+        height: 3px; width: 0;
+        background-color: #C6C6C6;
+        transition: width .3s ease-out, left .3s ease-out, background-color .2s;
+      }
+
+      &:hover::after,
+      &.active::after {
+        width: 100%; left: 0;
+      }
+
+      &.active {
+        color: #5317AB;
+        &::after { background-color: #5317AB; }
+      }
+    }
+  }
+
+  .rank-wrap {
+    padding-top: 38px;
+
+    .date {
+      font-size: 20px;
+      color: #C6C6C6;
+    }
+
+    .card-wrap {
+      margin-top: 30px;
+
+      .card {
+        @include size(100%, 110px);
+        padding-left: 40px;
+        position: relative;
+        @include box-sizing(border-box);
+        @include flex-box(normal, center);
+        background-color:#F6F6F6;
+        border-radius: 13px;
+        overflow: hidden;
+        font-weight: 500;
+
+        &:not(:first-child) {
+          margin-top: 25px;
+        }
+
+        .spot {
+          @include flex-box(normal, center);
+          font-size: 50px;
+          min-width: 80px;
+
+          span {
+            font-size: 24px;
+          }
+        }
+
+        .team {
+          font-size: 24px;
+          min-width: 450px;
+          padding-left: 60px;
+
+          span {
+            font-size: 18px;
+            color: #C6C6C6;
+          }
+        }
+
+        img {
+          position: absolute;
+          right: -15px;
+          @include size(205px, 205px);
+          // transform: translateX(20px);
+          opacity: 70%
+        }
+      }
+
+      .score {
+        @include flex-box(center, center, 10px);
+        padding-left: 30px;
+        font-size: 50px;
+
+        span {
+          font-size: 24px;
+        }
+      }
+
+      .first, .second, .third {
+        background-color: #5317AB;
+        height: 132px;
+        color: $white;
+
+        .spot {
+          @include flex-box(center, center);
+          font-size: 70px;
+
+          span {
+            font-size: 40px;
+          }
+        }
+
+        .team {
+          font-size: 30px;
+
+          span {
+            font-size: 20px;
+            color: #EDEFF1;
+          }
+        }
+
+        .score {
+          font-size: 80px;
+
+          span {
+            font-size: 30px;
+          }
+        }
+      }
+
+      .first {
+        height: 180px;
+      }
+
+      .second {
+        height: 160px;
+        background-color: #6833B5;
+      }
+
+      .third {
+        height: 140px;
+        background-color: #8156C2;
+      }
+    }
+  }
+
+  .sport-status-wrap {
+    padding-top: 25px;
+  }
+}

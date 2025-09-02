@@ -1,7 +1,9 @@
 <template>
 	<div class="desktop">
 		<Header />
-		<router-view />
+		<main class="yeonchon">
+			<router-view />
+		</main>
 		<Footer />
 	</div>
 </template>

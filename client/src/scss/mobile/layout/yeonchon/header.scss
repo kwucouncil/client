@@ -1,91 +1,63 @@
 @import '@/scss/common/helpers/_mixins.scss';
 @import '@/scss/common/helpers/_variables.scss';
 
-header {
-  background: #F5F5F5;
+$icons: home, schedule, status, sport, event;
 
+header {
   .header-wrap {
-    @include size(100%, 13.33vw);
+    @include size(100%, 14.67vw);
     @include flex-box(center, center);
     word-break: keep-all;
-
-    .btn-menu {
-      @include size(5.73vw, 4.53vw);
-      position: absolute;
-      left: 2.67vw;
-      padding: 0;
-      background-repeat: no-repeat;
-      background-color: #F5F5F5;
-      background-image: url('/src/assets/imgs/mobile/header/btn-menu.svg');
-      background-size: 100%;
-      border: 0;
-    }
+    border-bottom: 0.27vw solid #F6F6F6;
 
     .logo-wrap {
       img {
-        @include size(100%, 8vw);
+        @include size(100%, 9.6vw);
       }
     }
+  }
+  .menu-wrap {
+    @include size(100%);
+    position: fixed;
+    bottom: 0;
+    background-color: $white;
 
-    .menu-detail {
-      @include size(86.13vw, 100%);
-      position: fixed;
-      top: 0;
-      left: 0;
-      background-color: #FEFEFE;
-      z-index: 1000;
-      border-right: 1px solid #F1F1F1;
-      overflow-y: auto;
+    ul {
+      @include flex-box(center, center);
+      flex-grow: 1;
+      border-top: 0.27vw solid #F6F6F6;
 
-      .title-wrap {
-        @include padding(8vw 6.13vw);
-        @include flex-box(space-between, center);
+      li {
+        @include size(100%);
+        @include flex-box(center, center, 1.33vw);
+        padding: 2.4vw 0;
+        flex-direction: column;
+        font-size: 2.93vw;
+        font-weight: 500;
+        color: #C6C6C6;
 
-        h3 {
-          font-weight: 700;
-          color: #191516
-        }
+      }
 
-        button {
-          @include size(7.2vw, 7.2vw);
-          padding: 0;
-          background-repeat: no-repeat;
-          background-color: #FEFEFE;
-          background-image: url('/src/assets/imgs/mobile/header/btn-close.svg');
-          background-size: 100%;
-          border: 0;
+      @each $name in $icons {
+        .#{$name} {
+          .icon {
+            @include size(6.4vw, 6.4vw);
+            background-repeat: no-repeat;
+            background-image: url('/src/assets/imgs/mobile/yeonchon/icon/#{$name}/icon_#{$name}.svg');
+            background-size: 100%;
+          }
+
+          &.active {
+            color: #5317AB;
+            .icon {
+              background-image: url('/src/assets/imgs/mobile/yeonchon/icon/#{$name}/icon_#{$name}_active.svg');
+            }
+          }
         }
       }
 
-      .menu-navigation {
-        .menu {
-          .menu-down {
-            @include flex-box(space-between, center);
-            @include padding(5.33vw 7.47vw);
-            border-top: 1px solid #F1F1F1;
-            font-size: 4.8vw;
-            font-weight: bold;
-          }
-
-          ul {
-            @include padding(2.67vw 10.67vw 5.33vw);
-
-            li {
-              line-height: 5.33vw;
-
-              &:not(:first-child) {
-                @include margin(top 6.4vw);
-              }
-            }
-          }
-
-          .router-link-active,
-          a:hover {
-            color: #712732;
-            font-weight: bold;
-            text-decoration: underline;
-          }
-        }
+      .sport .icon, .event .icon {
+        @include size(5.33vw, 5.33vw);
       }
     }
 
