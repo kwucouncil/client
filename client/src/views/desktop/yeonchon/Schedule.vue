@@ -30,7 +30,7 @@
             <div class="next">{{ $Helper.dateFormatYMDW(addDays(date, 1)) }}</div>
           </div>
           <div class="picker-wrap" v-show="showPicker" ref="pickerRef">
-            <VDatePicker @update:model-value="onDatePicked" mode="date" :select-attribute="selectAttr" :attributes="attr" class="date-picker" v-model="date" :min-date="MIN_DATE" :max-date="MAX_DATE" />
+            <VDatePicker :is-required=true @update:model-value="onDatePicked" mode="date" :select-attribute="selectAttr" :attributes="attr" class="date-picker" v-model="date" :min-date="MIN_DATE" :max-date="MAX_DATE" />
           </div>
         </div>
         <div class="option-wrap">
@@ -100,7 +100,7 @@
 
 <script setup>
 import Yeonchon from '@/api/yeonchon/yeonchon';
-import { ref, onMounted, computed, onBeforeUnmount, getCurrentInstance } from 'vue';
+import { ref, watch, onMounted, computed, onBeforeUnmount, getCurrentInstance } from 'vue';
 const { proxy } = getCurrentInstance();
 const $Helper = proxy.$Helper;
 
@@ -111,7 +111,6 @@ const sportId = ref(0);
 
 const onDatePicked = () => {
   showPicker.value = false;
-  getMatch()
 };
 
 const handleClickOutside = (e) => {
@@ -285,6 +284,13 @@ const currentCollege = computed(() =>
 const filteredDepts = computed(() =>
   currentCollege.value ? currentCollege.value.depts : []
 )
+
+watch(date, (v) => {
+  if (!v) return;
+  const d = new Date(v);
+  d.setHours(0, 0, 0, 0);
+  getMatch(d);
+}, { flush: 'post' });
 
 const matchList = ref([])
 
