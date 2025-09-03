@@ -5,6 +5,7 @@
         <div class="desc">
           <p>상품 수령을 위해<br/><b>이름/학번/전화번호</b>를 입력해주세요.</p>
           <span>* 잘못된 정보 기입은 상품 수령이 불가할 수 있으니<br/>정확하게 입력해 주세요.</span>
+          <span>* 신청이 완료되면 수정 및 취소는 불가합니다.</span>
         </div>
         <div class="input-container">
           <div class="input-wrap">

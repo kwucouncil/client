@@ -22,11 +22,11 @@ export default {
     });
   },
 
-  getMatch(data) {
+  getMatch(params) {
     return Send({
       url: '/sports2025/matches',
       method: 'get',
-      data: data
+      params: params
     });
   },
 

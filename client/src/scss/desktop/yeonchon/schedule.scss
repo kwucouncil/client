@@ -170,7 +170,7 @@ $icons: all, foot, bask, dodg, tow, joku, ping, lol, fc;
         }
 
         .blue:before {
-          background-color: #0003FF;
+          background-color: $yeonchon;
         }
 
         .gray:before {
@@ -219,7 +219,16 @@ $icons: all, foot, bask, dodg, tow, joku, ping, lol, fc;
         color: #C6C6C6;
       }
 
+      .sport {
+        min-width: 65px;
+      }
+
+      .place {
+        min-width: 120px;
+      }
+
       .etc {
+        max-width: 1px;
         color: #F00;
       }
 
@@ -231,7 +240,7 @@ $icons: all, foot, bask, dodg, tow, joku, ping, lol, fc;
         }
 
         .blue {
-          color: #0003FF;
+          color: $yeonchon;
         }
 
         .gray {
@@ -263,6 +272,13 @@ $icons: all, foot, bask, dodg, tow, joku, ping, lol, fc;
       .etc {
         width: 60px;
       }
+    }
+
+    p {
+      margin-top: 70px;
+      text-align: center;
+      font-weight: 600;
+      font-size: 20px;
     }
   }
 }

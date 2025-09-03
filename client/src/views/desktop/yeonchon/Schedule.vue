@@ -9,7 +9,8 @@
           <li
             v-for="item in navItems"
             :key="item.key"
-            :class="[item.key, { active: item.active }]"
+            :class="[item.key, { active: sportId === item.id }]"
+            @click="() => {sportId = item.id, getMatch()}"
           >
             <div class="icon"></div>
             <div class="title">{{ item.label }}</div>
@@ -34,9 +35,9 @@
         </div>
         <div class="option-wrap">
           <div class="tip-wrap">
-            <div class="tip red">기권학과</div>
             <div class="tip blue">승리학과</div>
             <div class="tip gray">패배학과</div>
+            <div class="tip red">기권학과</div>
           </div>
           <div class="select-wrap">
             <select v-model="colleage" @change="dept = 'all'">
@@ -52,6 +53,7 @@
             <select
               v-model="dept"
               :disabled="filteredDepts.length === 0"
+              @change="getMatch()"
             >
               <option value="all">학과(부)</option>
               <option
@@ -66,42 +68,26 @@
         </div>
       </div>
       <div class="game-wrap">
-        <div class="game">
-          <div class="time">1교시</div>
-          <div class="sport">풋살</div>
+        <div class="game" v-if="matchList.length" v-for="match, id in matchList" :key="id">
+          <div class="time">{{ match.start }}교시</div>
+          <div class="sport">{{ match.sport }}</div>
           <div class="match-wrap">
-            <div class="team red">
-              <div class="team-name">미디어커뮤니케이션학부</div>
+            <div :class="['team', match.win === 'team1' ? 'blue' : 'red']">
+              <div class="team-name">{{ match.team1.name }}</div>
               <img src="@/assets/imgs/desktop/common/kwangwoon.svg" alt="">
+              <div class="score" v-if="!match.rain">{{ match.team1.score }}</div>
             </div>
             <div class="vs">VS</div>
-            <div class="team">
+            <div :class="['team', match.win === 'team2' ? 'blue' : 'red']">
+              <div class="score" v-if="!match.rain">{{ match.team2.score }}</div>
               <img src="@/assets/imgs/desktop/common/kwangwoon.svg" alt="">
-              <div class="team-name">미디어커뮤니케이션학부</div>
+              <div class="team-name">{{ match.team2.name }}</div>
             </div>
           </div>
-          <div class="place">풋살장</div>
-          <div class="etc">우천취소</div>
+          <div class="place">{{ match.place }}</div>
+          <div class="etc">{{ match.rain ? '우천취소' : '' }}</div>
         </div>
-        <div class="game">
-          <div class="time">1교시</div>
-          <div class="sport">풋살</div>
-          <div class="match-wrap">
-            <div class="team blue">
-              <div class="team-name">소프트</div>
-              <img src="@/assets/imgs/desktop/common/kwangwoon.svg" alt="">
-              <div class="score">3</div>
-            </div>
-            <div class="vs">VS</div>
-            <div class="team gray">
-              <div class="score">0</div>
-              <img src="@/assets/imgs/desktop/common/kwangwoon.svg" alt="">
-              <div class="team-name gray">건공</div>
-            </div>
-          </div>
-          <div class="place">풋살장</div>
-          <div class="etc"></div>
-        </div>
+        <p v-else>일치하는 경기 일정이 없습니다.</p>
       </div>
     </div>
   </div>
@@ -121,8 +107,11 @@ const $Helper = proxy.$Helper;
 const showPicker = ref(false)
 const pickerRef = ref(null);
 
+const sportId = ref(0);
+
 const onDatePicked = () => {
   showPicker.value = false;
+  getMatch()
 };
 
 const handleClickOutside = (e) => {
@@ -142,7 +131,7 @@ onBeforeUnmount(() => {
 });
 
 const navItems = [
-  { key: 'all',   label: '전체', active: true },
+  { id: 0, key: 'all', label: '전체' },
   { id: 1, key: 'foot',  label: '풋살' },
   { id: 2, key: 'bask',  label: '농구' },
   { id: 3, key: 'dodg',  label: '피구' },
@@ -300,12 +289,13 @@ const filteredDepts = computed(() =>
 const matchList = ref([])
 
 const getMatch = () => {
-  let data = {
-    match_date: $Helper.dateFormatYMDAPI(date.value)
+  let params = {
+    date: $Helper.dateFormatYMDAPI(date.value),
+    ...(sportId.value !== 0 ? { sport_id: sportId.value } : {}),
+    ...(dept.value !== 'all' ? { department_id: dept.value } : {}),
   }
-  console.log(data)
-  Yeonchon.getMatch(data).then((res) => {
-    matchList.value = res.data.matches
+  Yeonchon.getMatch(params).then((res) => {
+    matchList.value = res.data.items
   }).catch((err) => {
     console.log(err)
   })

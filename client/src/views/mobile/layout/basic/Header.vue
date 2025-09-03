@@ -20,6 +20,7 @@
               <li><router-link to="/about/guide" @click="isMenu = false">오시는 길</router-link></li>
             </ul>
           </li>
+          <li class="menu"><a href="/#/yeonchon" target="_blank" class="menu-down">연촌체전</a></li>
           <li class="menu">
             <div class="menu-down" :class="[menu === 'document' ? 'down' : 'up']" @click="ClickMenuDetail('document')">자료실</div>
             <ul v-if="menu === 'document'">

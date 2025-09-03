@@ -18,7 +18,8 @@
               <li
                 v-for="item in navItems"
                 :key="item.key"
-                :class="[item.key, { active: item.active }]"
+                :class="[item.key, { active: sportId === item.id }]"
+                @click="() => {sportId = item.id, getMatch()}"
               >
                 <div class="icon"></div>
                 <div class="title">{{ item.label }}</div>
@@ -26,42 +27,26 @@
             </ul>
           </div>
           <div class="game-wrap">
-            <div class="game">
-              <div class="time">1교시</div>
-              <div class="sport">풋살</div>
+            <div class="game" v-if="matchList.length" v-for="match, id in matchList" :key="id">
+              <div class="time">{{ match.start }}교시</div>
+              <div class="sport">{{ match.sport }}</div>
               <div class="match-wrap">
-                <div class="team red">
-                  <div class="team-name">미디어커뮤니케이션학부</div>
+                <div :class="['team', match.win === 'team1' ? 'blue' : 'red']">
+                  <div class="team-name">{{ match.team1.name }}</div>
                   <img src="@/assets/imgs/desktop/common/kwangwoon.svg" alt="">
+                  <div class="score" v-if="!match.rain">{{ match.team1.score }}</div>
                 </div>
                 <div class="vs">VS</div>
-                <div class="team">
+                <div :class="['team', match.win === 'team2' ? 'blue' : 'red']">
+                  <div class="score" v-if="!match.rain">{{ match.team2.score }}</div>
                   <img src="@/assets/imgs/desktop/common/kwangwoon.svg" alt="">
-                  <div class="team-name">미디어커뮤니케이션학부</div>
+                  <div class="team-name">{{ match.team2.name }}</div>
                 </div>
               </div>
-              <div class="place">풋살장</div>
-              <div class="etc">우천취소</div>
+              <div class="place">{{ match.place }}</div>
+              <div class="etc">{{ match.rain ? '우천취소' : '' }}</div>
             </div>
-            <div class="game">
-              <div class="time">1교시</div>
-              <div class="sport">풋살</div>
-              <div class="match-wrap">
-                <div class="team blue">
-                  <div class="team-name">소프트</div>
-                  <img src="@/assets/imgs/desktop/common/kwangwoon.svg" alt="">
-                  <div class="score">3</div>
-                </div>
-                <div class="vs">VS</div>
-                <div class="team gray">
-                  <div class="score">0</div>
-                  <img src="@/assets/imgs/desktop/common/kwangwoon.svg" alt="">
-                  <div class="team-name gray">건공</div>
-                </div>
-              </div>
-              <div class="place">풋살장</div>
-              <div class="etc"></div>
-            </div>
+            <p v-else>일치하는 경기 일정이 없습니다.</p>
           </div>
         </div>
         <div class="result-wrap">
@@ -71,7 +56,7 @@
                 <h2>실시간 종합 순위</h2>
                 <span>TOP5 학과</span>
               </div>
-              <router-link to="yeonchon/schedule">전체 순위 보러가기</router-link>
+              <router-link to="yeonchon/status">전체 순위 보러가기</router-link>
             </div>
             <div class="card-wrap">
               <div class="card first">
@@ -149,6 +134,8 @@
 </style>
 
 <script setup>
+import Yeonchon from '@/api/yeonchon/yeonchon';
+import { ref, getCurrentInstance } from 'vue';
 import { Swiper, SwiperSlide } from 'swiper/vue'
 
 // Import Swiper styles
@@ -160,19 +147,38 @@ import "@/scss/desktop/yeonchon/main.scss";
 // import required modules
 import { Pagination, Autoplay, EffectFade } from 'swiper/modules'
 
+const { proxy } = getCurrentInstance();
+const $Helper = proxy.$Helper;
+
 const modules = [Pagination, Autoplay, EffectFade]
 
 const navItems = [
-  { key: 'all',   label: '전체', active: true },
-  { key: 'foot',  label: '풋살' },
-  { key: 'bask',  label: '농구' },
-  { key: 'dodg',  label: '피구' },
-  { key: 'tow',   label: '줄다리기' },
-  { key: 'joku',  label: '족구' },
-  { key: 'ping',  label: '탁구' },
-  { key: 'lol',   label: 'LOL' },
-  { key: 'fc',    label: 'FC 온라인' }
+  { id: 0, key: 'all', label: '전체' },
+  { id: 1, key: 'foot',  label: '풋살' },
+  { id: 2, key: 'bask',  label: '농구' },
+  { id: 3, key: 'dodg',  label: '피구' },
+  { id: 4, key: 'joku',  label: '족구' },
+  { id: 5, key: 'ping',  label: '탁구' },
+  { id: 6, key: 'tow',   label: '줄다리기' },
+  { id: 7, key: 'lol',   label: 'LOL' },
+  { id: 8, key: 'fc',    label: 'FC 온라인' }
 ]
 
+const matchList = ref([])
 const today = new Date()
+const sportId = ref(0);
+
+const getMatch = () => {
+  let params = {
+    date: $Helper.dateFormatYMDAPI(today),
+    ...(sportId.value !== 0 ? { sport_id: sportId.value } : {}),
+  }
+  Yeonchon.getMatch(params).then((res) => {
+    matchList.value = res.data.items
+  }).catch((err) => {
+    console.log(err)
+  })
+};
+
+getMatch()
 </script>
