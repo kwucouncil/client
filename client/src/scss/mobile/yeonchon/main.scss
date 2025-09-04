@@ -1,135 +1,75 @@
 @import '@/scss/common/helpers/_mixins.scss';
 @import '@/scss/common/helpers/_variables.scss';
 
-$icons: all, foot, bask, dodg, tow, joku, ping, lol, fc;
-
 .main {
-  .yeonchon-banner-wrap {
-    img {
-      @include size(100%);
-    }
-  }
-
   .content-wrap {
-    @include size(1200px);
-    @include margin(0 auto);
-    @include padding(80px 0);
-
     .today-wrap {
-      .title-wrap {
-        @include flex-box(space-between, baseline);
+      .navigation-wrap {
+        ul {
+          @include flex-box(normal, center, 1.07vw);
+          flex-wrap: nowrap;
+          overflow-x: auto;
+          -ms-overflow-style: none;
+          padding: 5.33vw;
 
-        .h2-wrap {
-          @include flex-box(center, baseline, 18px);
-          h2 {
-            font-size: 36px;
-            font-weight: bold;
+          &::-webkit-scrollbar{
+            display:none;
           }
 
-          span {
-            font-weight: 500;
+          li {
+            flex: 0 0 auto;
+            padding: 1.6vw 3.73vw;
+            flex-grow: 1;
+            border-radius: 1.33vw;
+            border: 0.27vw solid #C6C6C6;
+            font-size: 3.73vw;
             color: #C6C6C6;
-          }
-        }
+            text-align: center;
+            font-weight: 500;
+            cursor: pointer;
 
-        a {
-          color: #C6C6C6;
-          font-size: 14px;
-          font-weight: 500;
-          &:hover {
-            text-decoration-line: underline;
+            &.active {
+              border: 0.27vw solid var(--Violet-violet-13, #5317AB);
+              font-weight: 800;
+              color: #5317AB;
+            }
           }
         }
       }
 
-      .navigation-wrap {
-        margin-top: 17px;
+      .title-wrap {
+        @include flex-box(space-between, baseline);
+        font-size: 3.73vw;
+        font-weight: 700;
+        padding: 0 5.33vw;
 
-        ul {
-          @include flex-box(center, center);
-
-          li {
-            @include size(100%, 102px);
-            padding-top: 7px;
-            @include flex-box(normal, center, 14px);
-            flex-grow: 1;
-            flex-direction: column;
-            position: relative;
-            cursor: pointer;
-
-            .title {
-              font-weight: 500;
-              color: #C6C6C6;
-            }
-
-            &::after {
-              content: "";
-              position: absolute;
-              bottom: 0; left: 50%;
-              height: 3px; width: 0;
-              background-color: #C6C6C6;
-              transition: width .3s ease-out, left .3s ease-out, background-color .2s;
-            }
-
-            &:hover::after,
-            &.active::after {
-              width: 100%; left: 0;
-            }
-
-            &.active {
-              .title { color: #5317AB; }
-              &::after { background-color: #5317AB; }
-            }
-          }
-
-
-          @each $name in $icons {
-            .#{$name} {
-              .icon {
-                @include size(52px, 52px);
-                background-repeat: no-repeat;
-                background-image: url('/src/assets/imgs/desktop/yeonchon/icon/#{$name}/#{$name}.svg');
-                background-size: 100%;
-              }
-
-              &:hover .icon{
-                background-image: url('/src/assets/imgs/desktop/yeonchon/icon/#{$name}/#{$name}_hover.svg');
-              }
-
-              &.active .icon{
-                background-image: url('/src/assets/imgs/desktop/yeonchon/icon/#{$name}/#{$name}_active.svg');
-              }
-            }
-
-          }
+        a {
+          color: #C6C6C6;
+          font-size: 3.2vw;
+          font-weight: 400;
         }
       }
 
       .game-wrap {
-        padding-top: 32px;
+        padding: 2.13vw 5.33vw 5.33vw;
 
         .game {
-          @include flex-box(space-around, center, 14px);
-          @include padding(15px 0);
-          border: 1px solid #F6F6F6;
-          border-radius: 13px;
-          text-align: center;
-          font-weight: 500;
+          @include padding(2.13vw 2.67vw);
+          border: 0.27vw solid #F6F6F6;
+          border-radius: 1.33vw;
 
-          &:not(:first-child){
-            margin-top: 15px;
-          }
-
-          .sport, .vs, .place {
-            color: #C6C6C6;
-          }
-
-          .etc {
-            color: #F00;
+          .info {
+            @include flex-box(normal, center, 1.07vw);
+            font-size: 2.13vw;
+            font-weight: 106.67vw;
+            color: #989898;
           }
 
           .match-wrap {
-            @include flex-box(center, center, 24px);
+            @include flex-box(center, center, 1.07vw);
+            margin-top: 1.07vw;
+            font-weight: 500;
+            font-size: 2.93vw;
 
             .red {
               color: #F00;
@@ -144,261 +84,111 @@ $icons: all, foot, bask, dodg, tow, joku, ping, lol, fc;
             }
 
             .team {
-              @include flex-box(normal, center, 15px);
-              min-width: 250px;
+              @include flex-box(normal, center, 1.07vw);
+              min-width: 40vw;
 
               img {
-                @include size(40px);
+                @include size(5.33vw, 5.33vw);
               }
 
               .score {
-                font-size: 25px;
+                font-size: 3.2vw;
               }
 
               &:first-child {
                 justify-content: flex-end;
               }
-
-              &:last-child {
-                justify-content: normal;
-              }
             }
           }
 
-          .etc {
-            width: 60px;
+          &:not(:first-child){
+            margin-top: 1.07vw;
           }
         }
+      }
+
+      p {
+        font-size: 3.2vw;
+        font-weight: 700;
+        padding: 0 5.33vw;
       }
     }
 
-    .result-wrap {
-      @include flex-box(space-between, normal);
-      padding-top: 80px;
+    .bar {
+      @include size(100%, 2.13vw);
+      background-color: #F6F6F6;
+    }
 
-      .ranking-wrap {
-        .title-wrap {
-          @include flex-box(space-between, baseline);
+    .ranking-wrap {
+      padding: 5.33vw;
 
-          .h2-wrap {
-            @include flex-box(center, baseline, 18px);
-            h2 {
-              font-size: 36px;
-              font-weight: bold;
-            }
+      .title-wrap {
+        @include flex-box(space-between, baseline);
+        font-size: 3.73vw;
+        font-weight: 700;
 
-            span {
-              font-weight: 500;
-              color: #C6C6C6;
-            }
-          }
-
-          a {
-            color: #C6C6C6;
-            font-size: 14px;
-            font-weight: 500;
-            &:hover {
-              text-decoration-line: underline;
-            }
-          }
-        }
-
-        .card-wrap {
-          margin-top: 10px;
-
-          .card {
-            @include size(795px);
-            padding-left: 30px;
-            position: relative;
-            @include box-sizing(border-box);
-            @include flex-box(normal, center, 30px);
-            // @include padding(15px 0);
-            border: 1px solid #F6F6F6;
-            border-radius: 13px;
-            color: $white;
-            font-weight: 500;
-            overflow: hidden;
-
-            &:not(:first-child) {
-              margin-top: 6px;
-            }
-
-            .spot {
-              @include flex-box(center, center);
-              font-size: 46px;
-
-              span {
-                font-size: 20px;
-              }
-            }
-
-            .team {
-              font-size: 20px;
-              min-width: 307px;
-            }
-
-            img {
-              position: absolute;
-              right: -15px;
-              @include size(205px, 205px);
-              // transform: translateX(20px);
-              opacity: 70%
-            }
-          }
-
-          .first {
-            background-color: #5317AB;
-            height: 132px;
-
-            .score {
-              font-size: 55px;
-            }
-          }
-
-          .second {
-            background-color: #6833B5;
-            height: 112px;
-
-            .score {
-              font-size: 50px;
-            }
-          }
-
-          .third {
-            background-color: #8156C2;
-            height: 92px;
-
-            .score {
-              font-size: 46px;
-            }
-          }
+        a {
+          color: #C6C6C6;
+          font-size: 3.2vw;
+          font-weight: 400;
         }
       }
 
-      .recent-wrap {
-        .title-wrap {
-          @include flex-box(space-between, baseline);
+      .card-wrap {
+        margin-top: 2.67vw;
 
-          h2 {
-            font-size: 36px;
-            font-weight: bold;
+        .card {
+          @include size(100%, 10.67vw);
+          @include flex-box(space-evenly, center, 2.67vw);
+          border-radius: 2.13vw;
+          font-weight: 700;
+          color: #C6C6C6;
+          background-color: #F1F1F1;
+
+          &:not(:first-child) {
+            margin-top: 1.07vw;
           }
 
-          a {
-            color: #C6C6C6;
-            font-size: 14px;
-            font-weight: 500;
-            &:hover {
-              text-decoration-line: underline;
+          .spot {
+            @include flex-box(center, center);
+            font-size: 3.73vw;
+
+            span {
+              font-size: 2.67vw;
+            }
+          }
+
+          .team {
+            @include flex-box(center, normal);
+            flex-direction: column;
+            font-size: 2.93vw;
+            min-width: 44vw;
+            font-weight: 700;
+
+            span {
+              font-size: 2.13vw;
+              font-weight: 106.67vw;
             }
           }
         }
 
-        .card-wrap {
-          @include size(380px);
+        .first {
+          background-color: #5317AB;
+          color: $white;
+        }
 
-          .card {
-            @include size(380px, 348px);
-            display: flex;
-            position: relative;
-            margin-top: 10px;
-            overflow: hidden;
+        .second {
+          background-color: #6833B5;
+          color: $white;
+        }
 
-            .sport {
-              @include size(52px, 25px);
-              border-radius: 0 0 5px 5px;
-              background: #C6C6C6;
-              box-shadow: 0 0 2px 0 rgba(0, 0, 0, 0.25);
-              position: absolute;
-              left: 50%;
-              transform: translate(-50%);
-              text-align: center;
-              color: $white;
-              line-height: 25px;
-              z-index: 10;
-            }
+        .third {
+          background-color: #8156C2;
+          color: $white;
+        }
 
-            .team {
-              width: 50%;
-              position: relative;
-
-              .info-wrap {
-                position: absolute;
-                bottom: 33px;
-                font-weight: 800;
-                color: #6833B5;
-
-                .score {
-                  font-size: 48px;
-                }
-
-                .team {
-                 margin-top: 7px;
-                }
-              }
-
-              img {
-                @include size(240px, 240px);
-                position: absolute;
-                top: 12px;
-              }
-            }
-
-            .left {
-              .info-wrap {
-                right: 12px;
-              }
-
-              img {
-                left: -80px;
-              }
-            }
-
-            .right {
-              .info-wrap {
-                left: 12px;
-              }
-
-              img {
-                right: -80px;
-              }
-            }
-
-            .win {
-              .info-wrap {
-                text-align: right;
-              }
-            }
-
-            .lose {
-              background-color: #F6F6F6;
-
-              img {
-                opacity: 40%;
-              }
-
-              .info-wrap {
-                font-weight: 400;
-                color: #C6C6C6;
-              }
-            }
-          }
-
-          .swiper-pagination {
-            @include flex-box(center, center, 5px);
-            position: absolute;
-            left: auto;
-            width: auto;
-            bottom: 10px;
-            right: 20px;
-
-            .swiper-pagination-bullet {
-              @include size(8px, 8px)
-            }
-            .swiper-pagination-bullet-active {
-              background: #6A6A6A;
-            }
-          }
+        .card {
+          font-size: 4.8vw;
         }
       }
     }

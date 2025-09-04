@@ -73,7 +73,7 @@
         }
 
         .spot {
-          @include flex-box(normal, center);
+          @include flex-box(normal, center, 2px);
           font-size: 50px;
           min-width: 80px;
 

@@ -9,7 +9,7 @@
         <div :class="{ active: tab === 'status' }" @click="tab = 'status'">종목별 현황</div>
       </div>
       <div v-show="tab === 'rank'" class="rank-wrap">
-        <div class="date">24년 10월 23일 오후 10시 기준</div>
+        <div class="date">{{ updatedAt }}</div>
         <div class="card-wrap" v-if="rankList.length">
           <div
             v-for="item in rankList"

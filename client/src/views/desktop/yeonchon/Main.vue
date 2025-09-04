@@ -27,25 +27,38 @@
             </ul>
           </div>
           <div class="game-wrap">
-            <div class="game" v-if="matchList.length" v-for="match, id in matchList" :key="id">
-              <div class="time">{{ match.start }}교시</div>
-              <div class="sport">{{ match.sport }}</div>
-              <div class="match-wrap">
-                <div :class="['team', match.win === 'team1' ? 'blue' : 'red']">
+            <template v-if="matchList.length">
+              <div class="game" v-for="match, id in matchList" :key="id">
+                <div class="time">{{ match.start }}교시</div>
+                <div class="sport">{{ match.sport }}</div>
+                <div class="match-wrap" v-if="match.result">
+                  <div :class="['team', match.win === 'team1' ? 'blue' : 'red']">
+                    <div class="team-name">{{ match.team1.name }}</div>
+                    <img src="@/assets/imgs/desktop/common/kwangwoon.svg" alt="">
+                    <div class="score" v-if="!match.rain">{{ match.team1.score }}</div>
+                  </div>
+                  <div class="vs">VS</div>
+                  <div :class="['team', match.win === 'team2' ? 'blue' : 'red']">
+                    <div class="score" v-if="!match.rain">{{ match.team2.score }}</div>
+                    <img src="@/assets/imgs/desktop/common/kwangwoon.svg" alt="">
+                    <div class="team-name">{{ match.team2.name }}</div>
+                  </div>
+                </div>
+              <div class="match-wrap" v-else>
+                <div class="team">
                   <div class="team-name">{{ match.team1.name }}</div>
                   <img src="@/assets/imgs/desktop/common/kwangwoon.svg" alt="">
-                  <div class="score" v-if="!match.rain">{{ match.team1.score }}</div>
                 </div>
                 <div class="vs">VS</div>
-                <div :class="['team', match.win === 'team2' ? 'blue' : 'red']">
-                  <div class="score" v-if="!match.rain">{{ match.team2.score }}</div>
+                <div class="team">
                   <img src="@/assets/imgs/desktop/common/kwangwoon.svg" alt="">
                   <div class="team-name">{{ match.team2.name }}</div>
                 </div>
               </div>
-              <div class="place">{{ match.place }}</div>
-              <div class="etc">{{ match.rain ? '우천취소' : '' }}</div>
-            </div>
+                <div class="place">{{ match.place }}</div>
+                <div class="etc">{{ match.rain ? '우천취소' : '' }}</div>
+              </div>
+            </template>
             <p v-else>일치하는 경기 일정이 없습니다.</p>
           </div>
         </div>

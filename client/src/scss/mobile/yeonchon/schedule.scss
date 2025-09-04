@@ -1,131 +1,93 @@
 @import '@/scss/common/helpers/_mixins.scss';
 @import '@/scss/common/helpers/_variables.scss';
 
-$icons: all, foot, bask, dodg, tow, joku, ping, lol, fc;
-
-.yeonchon-detail-banner-wrap {
-  img {
-    @include size(100%);
-  }
-}
-
 .schedule-wrap {
-  @include margin(0 auto);
-  @include padding(60px 0 150px);
-  @include size(1200px);
-
   .navigation-wrap {
-    margin-top: 17px;
-
     ul {
-      @include flex-box(center, center);
+      @include flex-box(normal, center, 1.07vw);
+      flex-wrap: nowrap;
+      overflow-x: auto;
+      -ms-overflow-style: none;
+      padding: 5.33vw;
 
-      li {
-        @include size(100%, 102px);
-        padding-top: 7px;
-        @include flex-box(normal, center, 14px);
-        flex-grow: 1;
-        flex-direction: column;
-        position: relative;
-        cursor: pointer;
-
-        .title {
-          font-weight: 500;
-          color: #C6C6C6;
-        }
-
-        &::after {
-          content: "";
-          position: absolute;
-          bottom: 0; left: 50%;
-          height: 3px; width: 0;
-          background-color: #C6C6C6;
-          transition: width .3s ease-out, left .3s ease-out, background-color .2s;
-        }
-
-        &:hover::after,
-        &.active::after {
-          width: 100%; left: 0;
-        }
-
-        &.active {
-          .title { color: #5317AB; }
-          &::after { background-color: #5317AB; }
-        }
+      &::-webkit-scrollbar{
+        display:none;
       }
 
-      @each $name in $icons {
-        .#{$name} {
-          .icon {
-            @include size(52px, 52px);
-            background-repeat: no-repeat;
-            background-image: url('/src/assets/imgs/desktop/yeonchon/icon/#{$name}/#{$name}.svg');
-            background-size: 100%;
-          }
+      li {
+        flex: 0 0 auto;
+        padding: 1.6vw 3.73vw;
+        flex-grow: 1;
+        border-radius: 1.33vw;
+        border: 0.27vw solid #C6C6C6;
+        font-size: 3.73vw;
+        color: #C6C6C6;
+        text-align: center;
+        font-weight: 500;
+        cursor: pointer;
 
-          &:hover .icon{
-            background-image: url('/src/assets/imgs/desktop/yeonchon/icon/#{$name}/#{$name}_hover.svg');
-          }
-
-          &.active .icon{
-            background-image: url('/src/assets/imgs/desktop/yeonchon/icon/#{$name}/#{$name}_active.svg');
-          }
+        &.active {
+          border: 0.27vw solid var(--Violet-violet-13, #5317AB);
+          font-weight: 800;
+          color: #5317AB;
         }
-
       }
     }
 
     .calender-wrap {
-      margin-top: 40px;
-      position: relative;
-
       .date-wrap {
-        @include flex-box(center, center, 30px);
-        font-size: 20px;
+        @include flex-box(center, center, 5.33vw);
+        font-size: 4.27vw;
+        font-weight: 700;
+        color: #C6C6C6;
 
-        .eve, .next {
-          color: #989898;
+        .today-wrap {
+          @include flex-box(center, center, 1.33vw);
+
+          .btn-calender {
+            @include size(5.87vw, 5.07vw);
+            background-image: url('/src/assets/imgs/desktop/common/icon_calender.svg');
+          }
         }
 
-        .btn-wrap {
-          @include flex-box(center, center, 34px);
+        .btn-left {
+          @include size(1.87vw, 4.27vw);
+          background-image: url('/src/assets/imgs/desktop/common/icon_left.svg');
+        }
 
-          .today-wrap {
-            @include flex-box(center, center, 12px);
+        .btn-right {
+          @include size(1.87vw, 4.27vw);
+          background-image: url('/src/assets/imgs/desktop/common/icon_right.svg');
+        }
 
-            .btn-calender {
-              @include size(21px, 18px);
-              background-image: url('/src/assets/imgs/desktop/common/icon_calender.svg');
-            }
-          }
+        button {
+          padding: 0;
+          background-repeat: no-repeat;
+          background-color: $white;
+          background-size: 100%;
+          background-position: center;
+          border: 0;
+          cursor: pointer;
+        }
+      }
 
-          .btn-left {
-            @include size(7px, 16px);
-            background-image: url('/src/assets/imgs/desktop/common/icon_left.svg');
-          }
-
-          .btn-right {
-            @include size(7px, 16px);
-            background-image: url('/src/assets/imgs/desktop/common/icon_right.svg');
-          }
-
-          button {
-            padding: 0;
-            background-repeat: no-repeat;
-            background-color: $white;
-            background-size: 100%;
-            background-position: center;
-            border: 0;
-            cursor: pointer;
-          }
+      .picker-wrap {
+        .bg {
+          @include size(100%, 100%);
+          position: absolute;
+          top: 0;
+          background-color: $black;
+          opacity: 0.15;
         }
       }
 
       :deep(.date-picker) {
+        width: 100%;
         position: absolute;
-        top: 40px;
-        left: 50%;
-        transform: translate(-50%);
+        bottom: 0;
+        z-index: 1000;
+        border: 0;
+        border-radius: 2.67vw 2.67vw 0 0;
       }
 
       :deep(.vc-header button) {
@@ -135,96 +97,64 @@ $icons: all, foot, bask, dodg, tow, joku, ping, lol, fc;
       :deep(.vc-header button) {
         background-color: $white;
       }
-
-      // :deep(.vc-day-layer), :deep(.vc-day) {
-      //   height: 38px
-      // }
 
       :deep(.vc-dots) {
         position: absolute;
-        bottom: 2px;
+        bottom: 0.53vw;
       }
     }
 
-    .option-wrap {
-      @include flex-box(space-between, center);
-      margin-top: 35px;
+    .tip-wrap {
+      @include flex-box(flex-end, center, 2.13vw);
+      padding: 5.33vw;
 
-      .tip-wrap {
-        @include flex-box(center, center, 20px);
+      .tip {
+        @include flex-box(center, center, 1.07vw);
+        font-weight: 500;
+        font-size: 3.2vw;
 
-        .tip {
-          @include flex-box(center, center, 8px);
-          font-weight: 500;
-
-          &::before {
-            content: "";
-            display: block;
-            @include size(14px, 14px);
-            border-radius: 50%;
-          }
-        }
-
-        .red:before {
-          background-color: #F00;
-        }
-
-        .blue:before {
-          background-color: #0003FF;
-        }
-
-        .gray:before {
-          background-color: #6A6A6A;
+        &::before {
+          content: "";
+          display: block;
+          @include size(2.13vw, 2.13vw);
+          border-radius: 50%;
         }
       }
 
-      .select-wrap {
-        @include flex-box(center, center, 8px);
+      .red:before {
+        background-color: #F00;
+      }
 
-        select {
-          @include size(166px, 32px);
-          &:first-child {
-            @include size(138px, 32px);
-          }
-          @include box-sizing(border-box);
-          @include padding(0 16px 0 20px);
-          border-radius: 10px;
-          border: 1px solid #C6C6C6;
+      .blue:before {
+        background-color: $yeonchon;
+      }
 
-          &:disabled {
-            color: #989898;
-            background-color: #F1F1F1;
-          }
-        }
+      .gray:before {
+        background-color: #6A6A6A;
       }
     }
   }
 
   .game-wrap {
-    padding-top: 32px;
+    padding: 0 5.33vw 5.33vw;
 
     .game {
-      @include flex-box(space-around, center, 14px);
-      @include padding(15px 0);
-      border: 1px solid #F6F6F6;
-      border-radius: 13px;
-      text-align: center;
-      font-weight: 500;
+      @include padding(2.13vw 2.67vw);
+      border: 0.27vw solid #F6F6F6;
+      border-radius: 1.33vw;
 
-      &:not(:first-child){
-        margin-top: 15px;
-      }
-
-      .sport, .vs, .place {
-        color: #C6C6C6;
-      }
-
-      .etc {
-        color: #F00;
+      .info {
+        @include flex-box(normal, center, 1.07vw);
+        font-size: 2.13vw;
+        font-weight: 106.67vw;
+        color: #989898;
       }
 
       .match-wrap {
-        @include flex-box(center, center, 24px);
+        @include flex-box(center, center, 1.07vw);
+        margin-top: 1.07vw;
+        font-weight: 500;
+        font-size: 2.93vw;
 
         .red {
           color: #F00;
@@ -239,30 +169,32 @@ $icons: all, foot, bask, dodg, tow, joku, ping, lol, fc;
         }
 
         .team {
-          @include flex-box(normal, center, 15px);
-          min-width: 250px;
+          @include flex-box(normal, center, 1.07vw);
+          min-width: 40vw;
 
           img {
-            @include size(40px)
+            @include size(5.33vw, 5.33vw);
           }
 
           .score {
-            font-size: 25px;
+            font-size: 3.2vw;
           }
 
           &:first-child {
             justify-content: flex-end;
           }
-
-          &:last-child {
-            justify-content: normal;
-          }
         }
       }
 
-      .etc {
-        width: 60px;
+      &:not(:first-child){
+        margin-top: 1.07vw;
       }
     }
+  }
+
+  p {
+    font-size: 3.2vw;
+    font-weight: 700;
+    padding: 0 5.33vw;
   }
 }

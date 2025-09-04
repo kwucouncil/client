@@ -248,26 +248,21 @@ const m_routes = [
         name: 'YeonchonMain',
         component: () => import('@/views/mobile/yeonchon/Main.vue'),
       },
-      // {
-      //   path: '/yeonchon/schedule',
-      //   name: 'YeonchonSchedule',
-      //   component: () => import('@/views/desktop/yeonchon/Schedule.vue'),
-      // },
+      {
+        path: '/yeonchon/schedule',
+        name: 'YeonchonSchedule',
+        component: () => import('@/views/mobile/yeonchon/Schedule.vue'),
+      },
       {
         path: '/yeonchon/sport',
         name: 'YeonchonSport',
         component: () => import('@/views/mobile/yeonchon/Sport.vue'),
       },
-      // {
-      //   path: '/yeonchon/status',
-      //   name: 'YeonchonStatus',
-      //   component: () => import('@/views/desktop/yeonchon/Status.vue'),
-      // },
-      // {
-      //   path: '/yeonchon/team',
-      //   name: 'YeonchonTeam',
-      //   component: () => import('@/views/desktop/yeonchon/Team.vue'),
-      // },
+      {
+        path: '/yeonchon/status',
+        name: 'YeonchonStatus',
+        component: () => import('@/views/mobile/yeonchon/Status.vue'),
+      },
       {
         path: '/yeonchon/event',
         name: 'YeonchonEvent',
