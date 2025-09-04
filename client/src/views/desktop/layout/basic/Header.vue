@@ -7,7 +7,7 @@
       <div class="menu-wrap">
         <ul>
           <li @click="showAlert"><router-link to="/about" >총학생회</router-link></li>
-          <li @click="showAlert"><a href="/#/yeonchon" target="_blank">연촌체전</a></li>
+          <!-- <li @click="showAlert"><a href="/#/yeonchon" target="_blank">연촌체전</a></li> -->
           <li @click="showAlert"><router-link to="/document" >자료실</router-link></li>
           <li @click="showAlert"><router-link to="/notice" >공지사항</router-link></li>
           <!-- <li @click="showAlert"><router-link to="/contact" >소통</router-link></li> -->
