@@ -1,6 +1,8 @@
 @import '@/scss/common/helpers/_mixins.scss';
 @import '@/scss/common/helpers/_variables.scss';
 
+$icons: all, foot, bask, dodg, tow, joku, ping, lol, fc;
+
 .yeonchon-detail-banner-wrap {
   img {
     @include size(100%);
@@ -162,5 +164,143 @@
 
   .sport-status-wrap {
     padding-top: 25px;
+
+    .navigation-wrap {
+      ul {
+        @include flex-box(center, center);
+
+        li {
+          @include size(100%, 102px);
+          padding-top: 7px;
+          @include flex-box(normal, center, 14px);
+          flex-grow: 1;
+          flex-direction: column;
+          position: relative;
+          cursor: pointer;
+
+          .title {
+            font-weight: 500;
+            color: #C6C6C6;
+          }
+
+          &::after {
+            content: "";
+            position: absolute;
+            bottom: 0; left: 50%;
+            height: 3px; width: 0;
+            background-color: #C6C6C6;
+            transition: width .3s ease-out, left .3s ease-out, background-color .2s;
+          }
+
+          &:hover::after,
+          &.active::after {
+            width: 100%; left: 0;
+          }
+
+          &.active {
+            .title { color: #5317AB; }
+            &::after { background-color: #5317AB; }
+          }
+        }
+
+        @each $name in $icons {
+          .#{$name} {
+            .icon {
+              @include size(52px, 52px);
+              background-repeat: no-repeat;
+              background-image: url('/src/assets/imgs/desktop/yeonchon/icon/#{$name}/#{$name}.svg');
+              background-size: 100%;
+            }
+
+            &:hover .icon{
+              background-image: url('/src/assets/imgs/desktop/yeonchon/icon/#{$name}/#{$name}_hover.svg');
+            }
+
+            &.active .icon{
+              background-image: url('/src/assets/imgs/desktop/yeonchon/icon/#{$name}/#{$name}_active.svg');
+            }
+          }
+
+        }
+      }
+    }
+
+    .foot-wrap {
+      margin-top: 35px;
+
+      .league-wrap {
+        @include flex-box(space-between, center);
+        flex-wrap: wrap;
+        gap: 40px 0;
+
+        .league {
+          border: 1px solid #C6C6C6;
+          border-radius: 20px;
+          overflow: hidden;
+
+          table {
+            @include size(588px);
+            @include box-sizing(border-box);
+            text-align: center;
+            font-weight: 500;
+
+            thead {
+              tr {
+                th:first-child{
+                  padding: 15px 0 15px 20px;
+                  text-align: left;
+                  font-size: 20px;
+                }
+
+                th:nth-child(n+2) {
+                  width: 50px;
+                }
+
+                th {
+                  padding: 15px 0;
+                  vertical-align: middle;
+                }
+              }
+            }
+
+            tbody {
+              color: $white;
+
+              tr {
+                background-color: #8156C2;
+                color: $white;
+
+                td {
+                  padding: 8px 0;
+                  vertical-align: middle;
+
+                  &:first-child{
+                    width: 67px;
+                  }
+
+                  &:nth-child(2) {
+                    @include flex-box(normal, center, 10px);
+                    img {
+                      @include size(39px, 39px);
+                      border: 50%;
+                    }
+                  }
+
+                }
+
+                &:nth-child(n+3) {
+                  background-color: $white;
+                  color: #989898;
+                }
+              }
+
+              .wild {
+                background-color: #B297D9;
+              }
+            }
+          }
+        }
+      }
+    }
   }
 }

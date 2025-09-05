@@ -37,6 +37,13 @@ export default {
     });
   },
 
+  getLeague() {
+    return Send({
+      url: '/sports2025/futsal-standings',
+      method: 'get',
+    });
+  },
+
   ApplyEvent(data) {
     return Send({
       url: '/predictions',

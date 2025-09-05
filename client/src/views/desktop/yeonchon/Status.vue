@@ -32,7 +32,50 @@
         <div v-else class="empty">집계된 순위가 없습니다.</div>
       </div>
       <div v-show="tab === 'status'" class="sport-status-wrap">
-        준비중입니다.
+        <div class="navigation-wrap">
+          <ul>
+            <li
+              v-for="item in navItems"
+              :key="item.key"
+              :class="[item.key, { active: sportId === item.id }]"
+              @click="() => {sportId = item.id, getMatch()}"
+            >
+              <div class="icon"></div>
+              <div class="title">{{ item.label }}</div>
+            </li>
+          </ul>
+        </div>
+        <div class="foot-wrap">
+          <div class="league-wrap">
+            <div class="league" v-for="(teams, groupName) in leagueList" :key="groupName">
+              <table>
+                <thead>
+                  <tr>
+                    <th colspan="2">{{ groupName }}</th>
+                    <th>경기</th>
+                    <th>승</th>
+                    <th>무</th>
+                    <th>패</th>
+                    <th>득실</th>
+                    <th>승점</th>
+                  </tr>
+                </thead>
+                <tbody>
+                  <tr v-for="team in teams" :key="team.name">
+                    <td>{{ team.rank }}</td>
+                    <td><img src="" alt="">{{ team.name }}</td>
+                    <td>{{ team.matches }}</td>
+                    <td>{{ team.wins }}</td>
+                    <td>{{ team.draws }}</td>
+                    <td>{{ team.losses }}</td>
+                    <td>{{ team.goal_difference }}</td>
+                    <td>{{ team.points }}</td>
+                  </tr>
+                </tbody>
+              </table>
+            </div>
+          </div>
+        </div>
       </div>
     </div>
   </div>
@@ -46,9 +89,24 @@
 import Yeonchon from '@/api/yeonchon/yeonchon';
 import { ref } from 'vue';
 
-const tab = ref('rank')
+const tab = ref('status')
 const rankList = ref([])
 const updatedAt = ref('')
+
+const sportId = ref(0);
+const leagueList = ref([])
+
+const navItems = [
+  { id: 0, key: 'all', label: '전체' },
+  { id: 1, key: 'foot',  label: '풋살' },
+  { id: 2, key: 'bask',  label: '농구' },
+  { id: 3, key: 'dodg',  label: '피구' },
+  { id: 4, key: 'joku',  label: '족구' },
+  { id: 5, key: 'ping',  label: '탁구' },
+  { id: 6, key: 'tow',   label: '줄다리기' },
+  { id: 7, key: 'lol',   label: 'LOL' },
+  { id: 8, key: 'fc',    label: 'FC 온라인' }
+]
 
 const rankClass = (r) => {
   if (r === 1) return 'first'
@@ -66,5 +124,14 @@ const getRank = () => {
   })
 };
 
+const getLeague = () => {
+  Yeonchon.getLeague().then((res) => {
+    leagueList.value = res.data.standings
+  }).catch((err) => {
+    console.log(err)
+  })
+};
+
 getRank()
+getLeague()
 </script>
