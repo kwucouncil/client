@@ -73,13 +73,13 @@
             <div class="time">{{ match.start }}교시</div>
             <div class="sport">{{ match.sport }}</div>
             <div class="match-wrap" v-if="match.result">
-              <div :class="['team', match.win === 'team1' ? 'blue' : 'red']">
+              <div :class="['team', match.win === 'team1' && 'blue']">
                 <div class="team-name">{{ match.team1.name }}</div>
                 <img src="@/assets/imgs/desktop/common/kwangwoon.svg" alt="">
                 <div class="score" v-if="!match.rain">{{ match.team1.score }}</div>
               </div>
               <div class="vs">VS</div>
-              <div :class="['team', match.win === 'team2' ? 'blue' : 'red']">
+              <div :class="['team', match.win === 'team2' && 'blue']">
                 <div class="score" v-if="!match.rain">{{ match.team2.score }}</div>
                 <img src="@/assets/imgs/desktop/common/kwangwoon.svg" alt="">
                 <div class="team-name">{{ match.team2.name }}</div>

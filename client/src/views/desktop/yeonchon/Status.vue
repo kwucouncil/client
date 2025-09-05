@@ -12,21 +12,21 @@
         <div class="date">{{ updatedAt }}</div>
         <div class="card-wrap" v-if="rankList.length">
           <div
-            v-for="item in rankList"
-            :key="item.department_id"
+            v-for="item, i in rankList"
+            :key="i"
             :class="['card', rankClass(item.rank)]"
           >
             <div class="spot">
               {{ item.rank }}<span>위</span>
             </div>
             <div class="team">
-              {{ item.department_name }}<br />
-              <span>{{ item.college_name }}</span>
+              {{ item.name }}<br />
+              <span>{{ item.name_eng }}</span>
             </div>
             <div class="score">
-              <span>총점</span>{{ item.total_score }}점
+              <span>총점</span>{{ item.score }}점
             </div>
-            <img src="@/assets/imgs/desktop/common/kwangwoon.svg" alt="" />
+            <img :src="item.logo" :alt="item.name" />
           </div>
         </div>
         <div v-else class="empty">집계된 순위가 없습니다.</div>
@@ -89,7 +89,7 @@
 import Yeonchon from '@/api/yeonchon/yeonchon';
 import { ref } from 'vue';
 
-const tab = ref('status')
+const tab = ref('rank')
 const rankList = ref([])
 const updatedAt = ref('')
 
