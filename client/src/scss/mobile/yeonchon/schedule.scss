@@ -36,7 +36,7 @@
 
     .calender-wrap {
       .date-wrap {
-        @include flex-box(center, center, 5.33vw);
+        @include flex-box(center, center, 4.8vw);
         font-size: 4.27vw;
         font-weight: 700;
         color: #C6C6C6;
@@ -52,12 +52,12 @@
 
         .btn-left {
           @include size(1.87vw, 4.27vw);
-          background-image: url('/src/assets/imgs/desktop/common/icon_left.svg');
+          background-image: url('/src/assets/imgs/mobile/common/btn_left.svg');
         }
 
         .btn-right {
           @include size(1.87vw, 4.27vw);
-          background-image: url('/src/assets/imgs/desktop/common/icon_right.svg');
+          background-image: url('/src/assets/imgs/mobile/common/btn_right.svg');
         }
 
         button {

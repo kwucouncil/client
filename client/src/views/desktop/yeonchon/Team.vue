@@ -8,7 +8,7 @@
         <div class="college">{{ college.name }}</div>
         <div class="dep-wrap">
           <div class="dep" v-for="dep in deparmentsList.filter(d => d.college_id === college.id)" :key="dep.id">
-            <img src="@/assets/imgs/desktop/common/kwangwoon.svg" alt="">
+            <img :src="dep.logo_url_embed" :alt="dep.name">
             <div class="title">{{ dep.name }}</div>
           </div>
         </div>

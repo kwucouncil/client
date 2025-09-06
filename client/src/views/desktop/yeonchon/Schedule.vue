@@ -73,26 +73,26 @@
             <div class="time">{{ match.start }}교시</div>
             <div class="sport">{{ match.sport }}</div>
             <div class="match-wrap" v-if="match.result">
-              <div :class="['team', match.win === 'team1' && 'blue']">
+              <div :class="['team', { blue: match.win === 'team1' }]">
                 <div class="team-name">{{ match.team1.name }}</div>
-                <img src="@/assets/imgs/desktop/common/kwangwoon.svg" alt="">
+                <img :src="match.team1.logo" alt="">
                 <div class="score" v-if="!match.rain">{{ match.team1.score }}</div>
               </div>
               <div class="vs">VS</div>
-              <div :class="['team', match.win === 'team2' && 'blue']">
+              <div :class="['team', { blue: match.win === 'team2' }]">
                 <div class="score" v-if="!match.rain">{{ match.team2.score }}</div>
-                <img src="@/assets/imgs/desktop/common/kwangwoon.svg" alt="">
+                <img :src="match.team2.logo" alt="">
                 <div class="team-name">{{ match.team2.name }}</div>
               </div>
             </div>
             <div class="match-wrap" v-else>
               <div class="team">
                 <div class="team-name">{{ match.team1.name }}</div>
-                <img src="@/assets/imgs/desktop/common/kwangwoon.svg" alt="">
+                <img :src="match.team1.logo" alt="">
               </div>
               <div class="vs">VS</div>
               <div class="team">
-                <img src="@/assets/imgs/desktop/common/kwangwoon.svg" alt="">
+                <img :src="match.team2.logo" alt="">
                 <div class="team-name">{{ match.team2.name }}</div>
               </div>
             </div>
@@ -157,7 +157,7 @@ const navItems = [
 const MIN_DATE = new Date('2025-09-08');
 const MAX_DATE = new Date('2025-10-02');
 
-const date = ref(new Date('2025-09-01'));
+const date = ref(new Date());
 
 const addDays = (base, n) => {
   const d = new Date(base);

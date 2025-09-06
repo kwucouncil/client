@@ -151,6 +151,8 @@
 <script setup>
 import Yeonchon from '@/api/yeonchon/yeonchon';
 import { ref, reactive, computed } from 'vue';
+import { useRouter } from 'vue-router';
+const router = useRouter()
 
 const step = ref(1)
 
@@ -294,7 +296,8 @@ const apply = () => {
   }
 
   Yeonchon.ApplyEvent(data).then((res) => {
-    alert("승부예측 신청이 완료되었습니다.")
+    alert("승부예측 신청이 완료되었습니다.");
+    router.push('/');
   }).catch((err) => {
     console.log(err)
   })
