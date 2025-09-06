@@ -7,31 +7,21 @@
       </div>
       <div v-show="tab === 'rank'" class="rank-wrap">
         <div class="date">{{ updatedAt }}</div>
-        <div class="card-wrap">
-          <div class="card first">
-            <div class="spot">1<span>위</span></div>
-            <div class="team">미디어커뮤니케이션학부<span>School of Media & Communication</span></div>
-            <div class="score">250점</div>
-          </div>
-          <div class="card second">
-            <div class="spot">2<span>위</span></div>
-            <div class="team">미디어커뮤니케이션학부<span>School of Media & Communication</span></div>
-            <div class="score">240점</div>
-          </div>
-          <div class="card third">
-            <div class="spot">3<span>위</span></div>
-            <div class="team">미디어커뮤니케이션학부<span>School of Media & Communication</span></div>
-            <div class="score">240점</div>
-          </div>
-          <div class="card">
-            <div class="spot">4<span>위</span></div>
-            <div class="team">소프트<span>software</span></div>
-            <div class="score">240점</div>
+        <div class="card-wrap" v-if="rankList.length">
+          <div
+            v-for="item, i in rankList"
+            :key="i"
+            :class="['card', rankClass(item.rank)]"
+          >
+            <div class="spot">
+              {{ item.rank }}<span>위</span>
+            </div>
+            <div class="team">
+              {{ item.name }}<span>{{ item.name_eng }}</span>
+            </div>
+            <div class="score">{{ item.score }}점</div>
           </div>
         </div>
-      </div>
-      <div v-show="tab === 'status'" class="sport-status-wrap">
-        준비중입니다.
       </div>
     </div>
   </div>

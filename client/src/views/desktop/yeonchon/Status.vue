@@ -26,7 +26,7 @@
             <div class="score">
               <span>총점</span>{{ item.score }}점
             </div>
-            <img :src="item.logo_raw" :alt="item.name" />
+            <img :src="item.logo" :alt="item.name" />
           </div>
         </div>
         <div v-else class="empty">집계된 순위가 없습니다.</div>
@@ -63,7 +63,7 @@
                 <tbody>
                   <tr v-for="team in teams" :key="team.name">
                     <td>{{ team.rank }}</td>
-                    <td><img src="" alt="">{{ team.name }}</td>
+                    <td><img :src="team.logo" :alt="team.name">{{ team.name }}</td>
                     <td>{{ team.matches }}</td>
                     <td>{{ team.wins }}</td>
                     <td>{{ team.draws }}</td>

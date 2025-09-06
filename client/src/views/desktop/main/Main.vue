@@ -37,7 +37,7 @@
                   </tr>
                 </thead>
                 <tbody>
-                  <tr v-for="notice in noticeList" v-bind:key="notice.id" @click="toDetail(notice.id)">
+                  <tr v-for="notice in noticeList.slice(0, 5)" v-bind:key="notice.id" @click="toDetail(notice.id)">
                     <td class="title">{{ notice.title }}</td>
                     <td class="date">{{ $Helper.dateFormatYMD(notice.updated_at) }}</td>
                   </tr>
@@ -67,7 +67,15 @@
                     <td class="date">2025.08.25</td>
                   </tr>
                   <tr>
+                    <td class="title">2025학년도 2학기 개강</td>
+                    <td class="date">2025.09.01</td>
+                  </tr>
+                  <tr>
                     <td class="title">2025 연촌체전 홈페이지 오픈</td>
+                    <td class="date">2025.09.07</td>
+                  </tr>
+                  <tr>
+                    <td class="title">2025 연촌체전 개최</td>
                     <td class="date">2025.09.08</td>
                   </tr>
                 </tbody>

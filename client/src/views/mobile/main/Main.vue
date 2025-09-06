@@ -30,7 +30,7 @@
           <div class="table-wrap">
             <table>
               <tbody>
-                <tr v-for="notice in noticeList" v-bind:key="notice.id" @click="toDetail(notice.id)">
+                <tr v-for="notice in noticeList.slice(0, 5)" v-bind:key="notice.id" @click="toDetail(notice.id)">
                   <td class="title" width="70%">{{ notice.title }}</td>
                   <td class="date">{{ $Helper.dateFormatYMD(notice.updated_at) }}</td>
                 </tr>

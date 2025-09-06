@@ -65,26 +65,19 @@
             <h2>실시간 종합 순위</h2>
             <router-link to="yeonchon/status">+ 더보기</router-link>
           </div>
-          <div class="card-wrap">
-            <div class="card first">
-              <div class="spot">1<span>위</span></div>
-              <div class="team">미디어커뮤니케이션학부<span>School of Media & Communication</span></div>
-              <div class="score">250점</div>
-            </div>
-            <div class="card second">
-              <div class="spot">2<span>위</span></div>
-              <div class="team">미디어커뮤니케이션학부<span>School of Media & Communication</span></div>
-              <div class="score">240점</div>
-            </div>
-            <div class="card third">
-              <div class="spot">3<span>위</span></div>
-              <div class="team">미디어커뮤니케이션학부<span>School of Media & Communication</span></div>
-              <div class="score">240점</div>
-            </div>
-            <div class="card">
-              <div class="spot">4<span>위</span></div>
-              <div class="team">소프트<span>software</span></div>
-              <div class="score">240점</div>
+          <div class="card-wrap" v-if="rankList.length">
+            <div
+              v-for="item, i in rankList.slice(0,5)"
+              :key="i"
+              :class="['card', rankClass(item.rank)]"
+            >
+              <div class="spot">
+                {{ item.rank }}<span>위</span>
+              </div>
+              <div class="team">
+                {{ item.name }}<span>{{ item.name_eng }}</span>
+              </div>
+              <div class="score">{{ item.score }}점</div>
             </div>
           </div>
         </div>
@@ -133,5 +126,23 @@ const getMatch = () => {
   })
 };
 
+const rankList = ref([])
+
+const rankClass = (r) => {
+  if (r === 1) return 'first'
+  if (r === 2) return 'second'
+  if (r === 3) return 'third'
+  return ''
+}
+
+const getRank = () => {
+  Yeonchon.getRank().then((res) => {
+    rankList.value = res.data.standings
+  }).catch((err) => {
+    console.log(err)
+  })
+};
+
 getMatch()
+getRank()
 </script>

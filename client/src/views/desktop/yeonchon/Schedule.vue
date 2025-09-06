@@ -40,7 +40,7 @@
             <div class="tip red">기권학과</div>
           </div>
           <div class="select-wrap">
-            <select v-model="colleage" @change="dept = 'all'">
+            <select v-model="colleage" @change="() => {dept = 'all'; if(colleage === 'all') {getMatch()}}">
               <option value="all">단과 대학</option>
               <option
                 v-for="col in colleges"
@@ -75,24 +75,24 @@
             <div class="match-wrap" v-if="match.result">
               <div :class="['team', { blue: match.win === 'team1' }]">
                 <div class="team-name">{{ match.team1.name }}</div>
-                <img :src="match.team1.logo" alt="">
+                <img :src="match.team1.logo" :alt="match.team1.name">
                 <div class="score" v-if="!match.rain">{{ match.team1.score }}</div>
               </div>
               <div class="vs">VS</div>
               <div :class="['team', { blue: match.win === 'team2' }]">
                 <div class="score" v-if="!match.rain">{{ match.team2.score }}</div>
-                <img :src="match.team2.logo" alt="">
+                <img :src="match.team2.logo" :alt="match.team2.name">
                 <div class="team-name">{{ match.team2.name }}</div>
               </div>
             </div>
             <div class="match-wrap" v-else>
               <div class="team">
                 <div class="team-name">{{ match.team1.name }}</div>
-                <img :src="match.team1.logo" alt="">
+                <img :src="match.team1.logo" :alt="match.team1.name">
               </div>
               <div class="vs">VS</div>
               <div class="team">
-                <img :src="match.team2.logo" alt="">
+                <img :src="match.team2.logo" :alt="match.team2.name">
                 <div class="team-name">{{ match.team2.name }}</div>
               </div>
             </div>

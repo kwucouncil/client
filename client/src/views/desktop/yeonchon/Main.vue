@@ -71,24 +71,21 @@
               </div>
               <router-link to="yeonchon/status">전체 순위 보러가기</router-link>
             </div>
-            <div class="card-wrap">
-              <div class="card first">
-                <div class="spot">1<span>위</span></div>
-                <div class="team">미디어커뮤니케이션학부<br/>School of Media & Communication</div>
-                <div class="score">250점</div>
-                <img src="@/assets/imgs/desktop/common/kwangwoon.svg" alt="">
-              </div>
-              <div class="card second">
-                <div class="spot">2<span>위</span></div>
-                <div class="team">미디어커뮤니케이션학부<br/>School of Media & Communication</div>
-                <div class="score">240점</div>
-                <img src="@/assets/imgs/desktop/common/kwangwoon.svg" alt="">
-              </div>
-              <div class="card third">
-                <div class="spot">3<span>위</span></div>
-                <div class="team">미디어커뮤니케이션학부<br/>School of Media & Communication</div>
-                <div class="score">240점</div>
-                <img src="@/assets/imgs/desktop/common/kwangwoon.svg" alt="">
+            <div class="card-wrap" v-if="rankList.length">
+              <div
+                v-for="item, i in rankList.slice(0, 3)"
+                :key="i"
+                :class="['card', rankClass(item.rank)]"
+              >
+                <div class="spot">
+                  {{ item.rank }}<span>위</span>
+                </div>
+                <div class="team">
+                  {{ item.name }}<br />
+                  <span>{{ item.name_eng }}</span>
+                </div>
+                <div class="score">{{ item.score }}점</div>
+                <img :src="item.logo" :alt="item.name" />
               </div>
             </div>
           </div>
@@ -193,5 +190,23 @@ const getMatch = () => {
   })
 };
 
+const rankList = ref([])
+
+const rankClass = (r) => {
+  if (r === 1) return 'first'
+  if (r === 2) return 'second'
+  if (r === 3) return 'third'
+  return ''
+}
+
+const getRank = () => {
+  Yeonchon.getRank().then((res) => {
+    rankList.value = res.data.standings
+  }).catch((err) => {
+    console.log(err)
+  })
+};
+
+getRank()
 getMatch()
 </script>

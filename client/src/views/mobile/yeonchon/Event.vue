@@ -3,6 +3,7 @@
     <div class="event-wrap">
       <div v-show="step === 1">
         <div class="desc">
+          <p>기간 : 9/7(일) ~ 21(일)</p>
           <p>상품 수령을 위해<br/><b>이름/학번/전화번호</b>를 입력해주세요.</p>
           <span>* 잘못된 정보 기입은 상품 수령이 불가할 수 있으니<br/>정확하게 입력해 주세요.</span>
           <span>* 신청이 완료되면 수정 및 취소는 불가합니다.</span>
@@ -256,7 +257,57 @@ const firstLabel  = computed(() => getDeptLabelById(picks.first.dept));
 const secondLabel = computed(() => getDeptLabelById(picks.second.dept));
 const thirdLabel  = computed(() => getDeptLabelById(picks.third.dept));
 
+const isDigits = (s) => {
+  if (!s) return false;
+  for (const ch of s) { if (ch < '0' || ch > '9') return false; }
+  return true;
+};
+
+const isHangul = (ch) => {
+  const cp = ch.codePointAt(0);
+  return (cp >= 0xAC00 && cp <= 0xD7A3) || (cp >= 0x1100 && cp <= 0x11FF) || (cp >= 0x3130 && cp <= 0x318F);
+};
+
+const isEnglishLetter = (ch) => {
+  const cp = ch.codePointAt(0);
+  return (cp >= 65 && cp <= 90) || (cp >= 97 && cp <= 122);
+};
+
+const isValidName = (s) => {
+  if (!s) return false;
+  const t = s.trim();
+  if (!t.length) return false;
+  for (const ch of t) {
+    if (!(isHangul(ch) || isEnglishLetter(ch))) return false;
+  }
+  return true;
+};
+
+const isValidPhone = (s) => {
+  if (!s || s.length !== 13) return false;
+  if (!(s.startsWith('010') && s[3] === '-' && s[8] === '-')) return false;
+  const a = s.slice(0, 3), b = s.slice(4, 8), c = s.slice(9, 13);
+  return isDigits(a) && isDigits(b) && isDigits(c);
+};
+
 const apply = () => {
+  const n = name.value.trim();
+  const sid = student_id.value.trim();
+  const ph = phone.value.trim();
+
+  if (!isValidName(n)) {
+    alert('이름은 한글/영문 문자만 입력해주세요.');
+    return step.value = 1;
+  }
+  if (!(sid.length === 10 && isDigits(sid))) {
+    alert('학번은 숫자 10자리여야 합니다.');
+    return step.value = 1;
+  }
+  if (!isValidPhone(ph)) {
+    alert('전화번호는 010-0000-0000 형식으로 입력해주세요.');
+    return step.value = 1;
+  }
+
   const first  = picks.first.dept  !== 'all' ? Number(picks.first.dept)   : null;
   const second = picks.second.dept !== 'all' ? Number(picks.second.dept)  : null;
   const third  = picks.third.dept  !== 'all' ? Number(picks.third.dept)   : null;
@@ -264,7 +315,7 @@ const apply = () => {
   const chosen = [first, second, third];
   if (new Set(chosen).size !== chosen.length) {
     alert('같은 학과(부)를 중복으로 선택할 수 없습니다.');
-    return;
+    return step.value = 1;
   }
 
   let data = {
@@ -276,11 +327,12 @@ const apply = () => {
     third_place: third,
   }
 
-  console.log(data);
-
   Yeonchon.ApplyEvent(data).then((res) => {
+    alert("승부예측 신청이 완료되었습니다.");
+    router.push('/yeonchon');
   }).catch((err) => {
-    console.log(err)
+    alert(err.response.data.message)
+    step.value = 1;
   })
 }
 </script>
