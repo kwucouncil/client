@@ -21,9 +21,9 @@
             <div class="eve">{{ $Helper.dateFormatYMDW(addDays(date, -1)) }}</div>
             <div class="btn-wrap">
               <button class="btn-left" type="button" @click="prevDay"></button>
-              <div class="today-wrap">
+              <div class="today-wrap" @click="showPicker = !showPicker">
                 {{ $Helper.dateFormatYMDW(date) }}
-                <button class="btn-calender" type="button" @click="showPicker = !showPicker"></button>
+                <button class="btn-calender" type="button"></button>
               </div>
               <button class="btn-right" type="button" @click="nextDay"></button>
             </div>

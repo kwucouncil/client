@@ -74,7 +74,7 @@
       .picker-wrap {
         .bg {
           @include size(100%, 100%);
-          position: absolute;
+          position: fixed;
           top: 0;
           background-color: $black;
           opacity: 0.15;
@@ -83,7 +83,7 @@
 
       :deep(.date-picker) {
         width: 100%;
-        position: absolute;
+        position: fixed;
         bottom: 0;
         z-index: 1000;
         border: 0;

@@ -92,6 +92,7 @@ $icons: all, foot, bask, dodg, tow, joku, ping, lol, fc;
 
           .today-wrap {
             @include flex-box(center, center, 12px);
+            cursor: pointer;
 
             .btn-calender {
               @include size(21px, 18px);

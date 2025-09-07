@@ -15,8 +15,8 @@
         <div class="calender-wrap">
           <div class="date-wrap">
             <button class="btn-left" type="button" @click="prevDay"></button>
-            <div class="today-wrap">
-              <button class="btn-calender" type="button" @click="showPicker = !showPicker"></button>
+            <div class="today-wrap" @click="showPicker = !showPicker">
+              <button class="btn-calender" type="button"></button>
               {{ $Helper.dateFormatYMD(date) }}
             </div>
             <button class="btn-right" type="button" @click="nextDay"></button>

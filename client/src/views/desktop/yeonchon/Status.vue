@@ -38,14 +38,14 @@
               v-for="item in navItems"
               :key="item.key"
               :class="[item.key, { active: sportId === item.id }]"
-              @click="() => {sportId = item.id, getMatch()}"
+              @click="sportId = item.id"
             >
               <div class="icon"></div>
               <div class="title">{{ item.label }}</div>
             </li>
           </ul>
         </div>
-        <div class="foot-wrap">
+        <div class="foot-wrap" v-show="sportId === 1">
           <div class="league-wrap">
             <div class="league" v-for="(teams, groupName) in leagueList" :key="groupName">
               <table>
@@ -76,6 +76,13 @@
             </div>
           </div>
         </div>
+        <div class="foot-wrap" v-show="sportId === 2">준비 중입니다.</div>
+        <div class="foot-wrap" v-show="sportId === 3">준비 중입니다.</div>
+        <div class="foot-wrap" v-show="sportId === 4">준비 중입니다.</div>
+        <div class="foot-wrap" v-show="sportId === 5">준비 중입니다.</div>
+        <div class="foot-wrap" v-show="sportId === 6">준비 중입니다.</div>
+        <div class="foot-wrap" v-show="sportId === 7">준비 중입니다.</div>
+        <div class="foot-wrap" v-show="sportId === 8">준비 중입니다.</div>
       </div>
     </div>
   </div>
@@ -93,11 +100,10 @@ const tab = ref('rank')
 const rankList = ref([])
 const updatedAt = ref('')
 
-const sportId = ref(0);
+const sportId = ref(1);
 const leagueList = ref([])
 
 const navItems = [
-  { id: 0, key: 'all', label: '전체' },
   { id: 1, key: 'foot',  label: '풋살' },
   { id: 2, key: 'bask',  label: '농구' },
   { id: 3, key: 'dodg',  label: '피구' },
