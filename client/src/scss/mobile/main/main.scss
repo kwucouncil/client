@@ -7,7 +7,6 @@
       @include size(100%, 64vw);
       object-fit: cover;
     }
-
   }
 
   .middle-content-wrap {
@@ -42,6 +41,7 @@
 
     .orientation-register-wrap {
       text-align: center;
+
       .register-wrap {
         @include flex-box(center, center, 8.53vw);
         flex-direction: column;

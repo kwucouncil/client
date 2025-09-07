@@ -56,7 +56,7 @@
                 </div>
               </div>
             </template>
-            <p v-else>일치하는 경기 일정이 없습니다.</p>
+            <p v-else>경기 일정이 없습니다.</p>
           </div>
         </div>
         <div class="bar"></div>
