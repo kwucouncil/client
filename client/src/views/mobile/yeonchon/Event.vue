@@ -135,6 +135,8 @@
 <script setup>
 import Yeonchon from '@/api/yeonchon/yeonchon';
 import { ref, reactive, computed } from 'vue';
+import { useRouter } from 'vue-router';
+const router = useRouter()
 
 const step = ref(1)
 

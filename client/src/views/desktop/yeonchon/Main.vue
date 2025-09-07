@@ -95,20 +95,20 @@
               <router-link to="yeonchon/schedule">경기 결과 보러가기</router-link>
             </div>
             <div class="card-wrap">
-              <swiper class="card-swiper" effect="fade" :fadeEffect="{crossFade: true}" :pagination="{clickable: true}" :autoplay="{delay: 5000, disableOnInteraction: false}" :modules="modules">
+              <swiper class="card-swiper" effect="fade" :fadeEffect="{crossFade: true}" :pagination="{clickable: true}" :autoplay="{delay: 1500, disableOnInteraction: false}" :modules="modules">
                 <swiper-slide class="card">
                   <div class="sport">풋살</div>
                   <div class="team left win">
                     <img src="@/assets/imgs/desktop/common/kwangwoon.svg" alt="">
                     <div class="info-wrap">
-                      <div class="score">0</div>
+                      <div class="score">25</div>
                       <div class="name">연촌체전</div>
                     </div>
                   </div>
                   <div class="team right lose">
                     <img src="@/assets/imgs/desktop/common/kwangwoon.svg" alt="">
                     <div class="info-wrap">
-                      <div class="score">0</div>
+                      <div class="score">25</div>
                       <div class="name">많은 관심</div>
                     </div>
                   </div>
@@ -118,14 +118,14 @@
                   <div class="team left win">
                     <img src="@/assets/imgs/desktop/common/kwangwoon.svg" alt="">
                     <div class="info-wrap">
-                      <div class="score">0</div>
+                      <div class="score">09</div>
                       <div class="name">부탁</div>
                     </div>
                   </div>
                   <div class="team right lose">
                     <img src="@/assets/imgs/desktop/common/kwangwoon.svg" alt="">
                     <div class="info-wrap">
-                      <div class="score">0</div>
+                      <div class="score">08</div>
                       <div class="name">드립니다 :)</div>
                     </div>
                   </div>
