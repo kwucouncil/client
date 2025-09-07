@@ -11,7 +11,7 @@
 				E-Mail : kwustudent2025@gmail.com<br>
 				<span class="name-wrap">
 					PRODUCT DIRECTOR&emsp;소프트웨어학부 20 강현구<br>
-					DESIGNER&emsp;미디어커뮤니케이션학과 20 변지욱&emsp;|&emsp;미디어커뮤니케이션학과 22 이정우&emsp;|&emsp;정보융합학부 22 함유진<br>
+					DESIGNER&emsp;미디어커뮤니케이션학부 20 변지욱&emsp;|&emsp;미디어커뮤니케이션학부 22 이정우&emsp;|&emsp;정보융합학부 22 함유진<br>
 					DEVELOPER&emsp;소프트웨어학부 20 강현구&emsp;|&emsp;컴퓨터정보공학부 23 이제호<br>
 				</span>
 			</p>
