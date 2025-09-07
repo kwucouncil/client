@@ -37,6 +37,14 @@ export default {
     });
   },
 
+  getRecent(params) {
+    return Send({
+      url: '/sports2025/recent-results',
+      method: 'get',
+      params: params
+    });
+  },
+
   getLeague() {
     return Send({
       url: '/sports2025/futsal-standings',

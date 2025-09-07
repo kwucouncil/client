@@ -34,24 +34,24 @@
                 <div class="match-wrap" v-if="match.result">
                   <div :class="['team', match.win === 'team1' ? 'blue' : 'red']">
                     <div class="team-name">{{ match.team1.name }}</div>
-                    <img src="@/assets/imgs/desktop/common/kwangwoon.svg" alt="">
+                    <img :src="match.team1.logo" :alt="match.team1.name">
                     <div class="score" v-if="!match.rain">{{ match.team1.score }}</div>
                   </div>
                   <div class="vs">VS</div>
                   <div :class="['team', match.win === 'team2' ? 'blue' : 'red']">
                     <div class="score" v-if="!match.rain">{{ match.team2.score }}</div>
-                    <img src="@/assets/imgs/desktop/common/kwangwoon.svg" alt="">
+                    <img :src="match.team2.logo" :alt="match.team2.name">
                     <div class="team-name">{{ match.team2.name }}</div>
                   </div>
                 </div>
               <div class="match-wrap" v-else>
                 <div class="team">
                   <div class="team-name">{{ match.team1.name }}</div>
-                  <img src="@/assets/imgs/desktop/common/kwangwoon.svg" alt="">
+                  <img :src="match.team1.logo" :alt="match.team1.name">
                 </div>
                 <div class="vs">VS</div>
                 <div class="team">
-                  <img src="@/assets/imgs/desktop/common/kwangwoon.svg" alt="">
+                  <img :src="match.team2.logo" :alt="match.team2.name">
                   <div class="team-name">{{ match.team2.name }}</div>
                 </div>
               </div>
@@ -101,15 +101,15 @@
                   <div class="team left win">
                     <img src="@/assets/imgs/desktop/common/kwangwoon.svg" alt="">
                     <div class="info-wrap">
-                      <div class="score">3</div>
-                      <div class="name">수학과</div>
+                      <div class="score">0</div>
+                      <div class="name">연촌체전</div>
                     </div>
                   </div>
                   <div class="team right lose">
                     <img src="@/assets/imgs/desktop/common/kwangwoon.svg" alt="">
                     <div class="info-wrap">
                       <div class="score">0</div>
-                      <div class="name">미디어커뮤니케이션학부</div>
+                      <div class="name">많은 관심</div>
                     </div>
                   </div>
                 </swiper-slide>
@@ -118,15 +118,15 @@
                   <div class="team left win">
                     <img src="@/assets/imgs/desktop/common/kwangwoon.svg" alt="">
                     <div class="info-wrap">
-                      <div class="score">3</div>
-                      <div class="name">수학과</div>
+                      <div class="score">0</div>
+                      <div class="name">부탁</div>
                     </div>
                   </div>
                   <div class="team right lose">
                     <img src="@/assets/imgs/desktop/common/kwangwoon.svg" alt="">
                     <div class="info-wrap">
                       <div class="score">0</div>
-                      <div class="name">미디어커뮤니케이션학부</div>
+                      <div class="name">드립니다 :)</div>
                     </div>
                   </div>
                 </swiper-slide>
@@ -207,6 +207,17 @@ const getRank = () => {
   })
 };
 
+const getRecent = () => {
+  let params = {
+    limit: 5
+  }
+  Yeonchon.getRecent(params).then((res) => {
+  }).catch((err) => {
+    console.log(err)
+  })
+};
+
 getRank()
 getMatch()
+getRecent()
 </script>

@@ -6,7 +6,7 @@
 			<div class="desc-wrap">
 				<div><b>연락처</b><span><a href="tel:02-940-5381">02-940-5381</a></span></div>
 				<div><b>이메일</b><span><a href="mailto:kwstudent2025@gmail.com">kwstudent2025@gmail.com</a></span></div>
-				<div><b>장소</b><span>서울시 노원구 광운로20 복지관 301호</span></div>
+				<div><b>장소</b><span>서울특별시 노원구 광운로20 복지관 301호</span></div>
 				<div><b>홈페이지</b><span><a href="https://kwu-studentcouncil52.com" target="_blank">https://kwu-studentcouncil52.com</a></span></div>
 				<div><b>인스타그램</b><span><a href="https://instagram.com/kwu_studentcouncil" target="_blank">https://instagram.com/kwu_studentcouncil</a></span></div>
 				<div><b>카카오톡 오픈채팅</b><span><a href="https://open.kakao.com/me/kwuec2025" target="_blank">https://open.kakao.com/me/kwuec2025</a></span></div>

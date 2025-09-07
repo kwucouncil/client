@@ -33,24 +33,24 @@
                 <div class="match-wrap" v-if="match.result">
                   <div :class="['team', match.win === 'team1' ? 'blue' : 'red']">
                     <div class="team-name">{{ match.team1.name }}</div>
-                    <img src="@/assets/imgs/desktop/common/kwangwoon.svg" alt="">
+                    <img :src="match.team1.logo" :alt="match.team1.name">
                     <div class="score" v-if="!match.rain">{{ match.team1.score }}</div>
                   </div>
                   <div class="vs">VS</div>
                   <div :class="['team', match.win === 'team2' ? 'blue' : 'red']">
                     <div class="score" v-if="!match.rain">{{ match.team2.score }}</div>
-                    <img src="@/assets/imgs/desktop/common/kwangwoon.svg" alt="">
+                    <img :src="match.team2.logo" :alt="match.team2.name">
                     <div class="team-name">{{ match.team2.name }}</div>
                   </div>
                 </div>
                 <div class="match-wrap" v-else>
                   <div class="team">
                     <div class="team-name">{{ match.team1.name }}</div>
-                    <img src="@/assets/imgs/desktop/common/kwangwoon.svg" alt="">
+                    <img :src="match.team1.logo" :alt="match.team1.name">
                   </div>
                   <div class="vs">VS</div>
                   <div class="team">
-                    <img src="@/assets/imgs/desktop/common/kwangwoon.svg" alt="">
+                    <img :src="match.team2.logo" :alt="match.team2.name">
                     <div class="team-name">{{ match.team2.name }}</div>
                   </div>
                 </div>
