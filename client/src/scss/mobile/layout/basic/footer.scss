@@ -28,7 +28,12 @@ footer {
         letter-spacing: -0.06vw;
         line-height: normal;
         font-weight: 400;
-        text-decoration: none;
+
+        a {
+          display: block;
+          margin-top: 0.8vw;
+          color: $white;
+        }
       }
 
       .copyright {
