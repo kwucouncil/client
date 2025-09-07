@@ -7,8 +7,8 @@
 			<p class="intro">광운대학교 제52대 총학생회 비상대책위원회</p>
 			<p class="info">
 				주소 : 서울특별시 노원구 광운로 20 광운대학교 복지관 301호 총학생회실<br>
-				TEL : 02-940-5381<br>
-				E-Mail : kwustudent2025@gmail.com<br>
+				<a href="tel:02-940-5381">TEL : 02-940-5381</a><br>
+				<a href="mailto:kwstudent2025@gmail.com">E-Mail : kwstudent2025@gmail.com</a><br>
 				<span class="name-wrap">
 					PRODUCT DIRECTOR&emsp;소프트웨어학부 20 강현구<br>
 					DESIGNER&emsp;미디어커뮤니케이션학과 20 변지욱<br>
