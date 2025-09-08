@@ -38,7 +38,7 @@
               v-for="item in navItems"
               :key="item.key"
               :class="[item.key, { active: sportId === item.id }]"
-              @click="sportId = item.id"
+              @click="() => {sportId = item.id, getMatch(item.id)}"
             >
               <div class="icon"></div>
               <div class="title">{{ item.label }}</div>
@@ -61,7 +61,7 @@
                   </tr>
                 </thead>
                 <tbody>
-                  <tr v-for="team in teams" :key="team.name">
+                  <tr v-for="team in teams" :key="team.name" :class="{ wild: groupName === 'G조' && team.rank === 3 }">
                     <td>{{ team.rank }}</td>
                     <td><img :src="team.logo" :alt="team.name">{{ team.name }}</td>
                     <td>{{ team.matches }}</td>
@@ -76,7 +76,28 @@
             </div>
           </div>
         </div>
-        <div class="foot-wrap" v-show="sportId === 2">준비 중입니다.</div>
+        <div class="bask-wrap" v-show="sportId === 2">
+          <div class="round-one-wrap" v-if="baskList.length">
+            <div class="match-wrap">
+              <div class="match" v-for="(bask, i) in baskList.slice(0, 7)" :key="i">
+                <div :class="['team left', bask.win === 'team1' ? 'win' : bask.win === null ? 'draw' : 'lose' ]">
+                  <img :src="bask.team1.logo" :alt="bask.team1.name">
+                  <div class="info-wrap">
+                    <div class="score">{{ bask.team1.score }}</div>
+                    <div class="name">{{ bask.team1.name }}</div>
+                  </div>
+                </div>
+                <div :class="['team right', bask.win === 'team2' ? 'win' : bask.win === null ? 'draw' : 'lose' ]">
+                  <img :src="bask.team2.logo" :alt="bask.team2.name">
+                  <div class="info-wrap">
+                    <div class="score">{{ bask.team2.score }}</div>
+                    <div class="name">{{ bask.team2.name }}</div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
         <div class="foot-wrap" v-show="sportId === 3">준비 중입니다.</div>
         <div class="foot-wrap" v-show="sportId === 4">준비 중입니다.</div>
         <div class="foot-wrap" v-show="sportId === 5">준비 중입니다.</div>
@@ -138,6 +159,17 @@ const getLeague = () => {
   })
 };
 
+const baskList = ref([])
+
+const getMatch = (id) => {
+  Yeonchon.getMatch({ sport_id: id }).then((res) => {
+    baskList.value = res.data.items;
+  }).catch((err) => {
+    console.log(err)
+  })
+};
+
 getRank()
 getLeague()
+getMatch()
 </script>

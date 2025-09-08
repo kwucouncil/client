@@ -213,7 +213,10 @@
               }
 
               .wild {
-                background-color: #B297D9;
+                &:nth-child(3) {
+                  background-color: #B297D9;
+                  color: $white;
+                }
               }
             }
           }

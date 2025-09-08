@@ -295,11 +295,20 @@ $icons: all, foot, bask, dodg, tow, joku, ping, lol, fc;
               }
 
               .wild {
-                background-color: #B297D9;
+                &:nth-child(3) {
+                  background-color: #B297D9;
+                  color: $white;
+                }
               }
             }
           }
         }
+      }
+    }
+
+    .bask-wrap {
+      .round-wrap {
+        @include flex-box(center, center,)
       }
     }
   }
