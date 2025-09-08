@@ -32,13 +32,13 @@
                 <div class="time">{{ match.start }}교시</div>
                 <div class="sport">{{ match.sport }}</div>
                 <div class="match-wrap" v-if="match.result">
-                  <div :class="['team', match.win === 'team1' ? 'blue' : 'red']">
+                  <div :class="['team', match.win === 'team1' ? 'win' : match.win === null ? 'draw' : 'lose' ]">
                     <div class="team-name">{{ match.team1.name }}</div>
                     <img :src="match.team1.logo" :alt="match.team1.name">
                     <div class="score" v-if="!match.rain">{{ match.team1.score }}</div>
                   </div>
                   <div class="vs">VS</div>
-                  <div :class="['team', match.win === 'team2' ? 'blue' : 'red']">
+                  <div :class="['team', match.win === 'team2' ? 'win' : match.win === null ? 'draw' : 'lose' ]">
                     <div class="score" v-if="!match.rain">{{ match.team2.score }}</div>
                     <img :src="match.team2.logo" :alt="match.team2.name">
                     <div class="team-name">{{ match.team2.name }}</div>
@@ -95,8 +95,25 @@
               <router-link to="yeonchon/schedule">경기 결과 보러가기</router-link>
             </div>
             <div class="card-wrap">
-              <swiper class="card-swiper" effect="fade" :fadeEffect="{crossFade: true}" :pagination="{clickable: true}" :autoplay="{delay: 1500, disableOnInteraction: false}" :modules="modules">
-                <swiper-slide class="card">
+              <swiper class="card-swiper" :loop="true" effect="fade" :fadeEffect="{crossFade: true}" :pagination="{clickable: true}" :autoplay="{delay: 3000, disableOnInteraction: false}" :modules="modules">
+                <swiper-slide class="card" v-for="recent, id in recentList" :key="id">
+                  <div class="sport">{{ recent.sport }}</div>
+                  <div :class="['team left', recent.win === 'team1' ? 'win' : recent.win === null ? 'draw' : 'lose' ]">
+                    <img :src="recent.team1.logo" :alt="recent.team1.name">
+                    <div class="info-wrap">
+                      <div class="score">{{ recent.team1.score }}</div>
+                      <div class="name">{{ recent.team1.name }}</div>
+                    </div>
+                  </div>
+                  <div :class="['team right', recent.win === 'team2' ? 'win' : recent.win === null ? 'draw' : 'lose' ]">
+                    <img :src="recent.team2.logo" :alt="recent.team2.name">
+                    <div class="info-wrap">
+                      <div class="score">{{ recent.team2.score }}</div>
+                      <div class="name">{{ recent.team2.name }}</div>
+                    </div>
+                  </div>
+                </swiper-slide>
+                <!-- <swiper-slide class="card">
                   <div class="sport">풋살</div>
                   <div class="team left win">
                     <img src="@/assets/imgs/desktop/common/kwangwoon.svg" alt="">
@@ -129,7 +146,7 @@
                       <div class="name">드립니다 :)</div>
                     </div>
                   </div>
-                </swiper-slide>
+                </swiper-slide> -->
               </swiper>
             </div>
           </div>
@@ -207,11 +224,14 @@ const getRank = () => {
   })
 };
 
+const recentList = ref([])
+
 const getRecent = () => {
   let params = {
     limit: 5
   }
   Yeonchon.getRecent(params).then((res) => {
+    recentList.value = res.data.items
   }).catch((err) => {
     console.log(err)
   })

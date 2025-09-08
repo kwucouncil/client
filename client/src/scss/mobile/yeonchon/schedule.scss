@@ -130,7 +130,7 @@
       }
 
       .gray:before {
-        background-color: #6A6A6A;
+        background-color: #C6C6C6;
       }
     }
   }
@@ -156,18 +156,6 @@
         font-weight: 500;
         font-size: 2.93vw;
 
-        .red {
-          color: #F00;
-        }
-
-        .blue {
-          color: #0003FF;
-        }
-
-        .gray {
-          color: #6A6A6A;
-        }
-
         .team {
           @include flex-box(normal, center, 1.07vw);
           min-width: 40vw;
@@ -183,6 +171,22 @@
           &:first-child {
             justify-content: flex-end;
           }
+        }
+
+        .red {
+          color: #F00;
+        }
+
+        .win {
+          color: $yeonchon;
+        }
+
+        .lose {
+          color: #c6c6c6;
+        }
+
+        .draw {
+          color: #6A6A6A;
         }
       }
 

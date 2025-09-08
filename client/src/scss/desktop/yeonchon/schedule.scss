@@ -175,7 +175,7 @@ $icons: all, foot, bask, dodg, tow, joku, ping, lol, fc;
         }
 
         .gray:before {
-          background-color: #6A6A6A;
+          background-color: #C6C6C6;
         }
       }
 
@@ -236,18 +236,6 @@ $icons: all, foot, bask, dodg, tow, joku, ping, lol, fc;
       .match-wrap {
         @include flex-box(center, center, 24px);
 
-        .red {
-          color: #F00;
-        }
-
-        .blue {
-          color: $yeonchon;
-        }
-
-        .gray {
-          color: #6A6A6A;
-        }
-
         .team {
           @include flex-box(normal, center, 15px);
           min-width: 250px;
@@ -267,6 +255,22 @@ $icons: all, foot, bask, dodg, tow, joku, ping, lol, fc;
           &:last-child {
             justify-content: normal;
           }
+        }
+
+        .red {
+          color: #F00;
+        }
+
+        .win {
+          color: $yeonchon;
+        }
+
+        .lose {
+          color: #c6c6c6;
+        }
+
+        .draw {
+          color: #6A6A6A;
         }
       }
 

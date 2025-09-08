@@ -140,24 +140,12 @@ $icons: all, foot, bask, dodg, tow, joku, ping, lol, fc;
           .match-wrap {
             @include flex-box(center, center, 24px);
 
-            .red {
-              color: #F00;
-            }
-
-            .blue {
-              color: $yeonchon;
-            }
-
-            .gray {
-              color: #6A6A6A;
-            }
-
             .team {
               @include flex-box(normal, center, 15px);
               min-width: 250px;
 
               img {
-                @include size(40px)
+                @include size(40px);
               }
 
               .score {
@@ -171,6 +159,22 @@ $icons: all, foot, bask, dodg, tow, joku, ping, lol, fc;
               &:last-child {
                 justify-content: normal;
               }
+            }
+
+            .red {
+              color: #F00;
+            }
+
+            .win {
+              color: $yeonchon;
+            }
+
+            .lose {
+              color: #c6c6c6;
+            }
+
+            .draw {
+              color: #6A6A6A;
             }
           }
 
@@ -380,7 +384,7 @@ $icons: all, foot, bask, dodg, tow, joku, ping, lol, fc;
               }
             }
 
-            .win {
+            .left {
               .info-wrap {
                 text-align: right;
               }
@@ -397,6 +401,23 @@ $icons: all, foot, bask, dodg, tow, joku, ping, lol, fc;
                 font-weight: 400;
                 color: #C6C6C6;
               }
+            }
+
+            .draw {
+              background-color: #F6F6F6;
+
+              img {
+                opacity: 80%;
+              }
+
+              .info-wrap {
+                font-weight: 600;
+                color: #6A6A6A;
+              }
+            }
+
+            .draw.left {
+              border-right: 2px solid $white
             }
           }
 
