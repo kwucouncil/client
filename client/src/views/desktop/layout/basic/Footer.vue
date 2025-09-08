@@ -11,7 +11,7 @@
 				<a href="mailto:kwstudent2025@gmail.com">E-Mail : kwstudent2025@gmail.com</a><br>
 				<span class="name-wrap">
 					PRODUCT DIRECTOR&emsp;소프트웨어학부 20 강현구<br>
-					DESIGNER&emsp;미디어커뮤니케이션학과 20 변지욱<br>
+					DESIGNER&emsp;미디어커뮤니케이션학부 20 변지욱<br>
 					DEVELOPER&emsp;소프트웨어학부 20 강현구&ensp;|&ensp;컴퓨터정보공학부 23 이제호<br>
 				</span>
 				<!-- 사업자등록번호 : 000-00-00000 -->
