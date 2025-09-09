@@ -56,7 +56,7 @@
                 </div>
               </div>
                 <div class="place">{{ match.place }}</div>
-                <div class="etc">{{ match.rain ? '우천취소' : '' }}</div>
+                <div class="etc">{{ match.rain ? '경기취소' : '' }}</div>
               </div>
             </template>
             <p v-else>경기 일정이 없습니다.</p>

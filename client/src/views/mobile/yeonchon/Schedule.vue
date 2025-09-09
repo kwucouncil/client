@@ -44,7 +44,7 @@
               <span>|</span>
               <div class="time">{{ match.start }}교시</div>
             </div>
-            <div class="info red" v-else>우천취소</div>
+            <div class="info red" v-else>경기취소</div>
             <div class="match-wrap" v-if="match.result">
               <div :class="['team', match.win === 'team1' ? 'win' : match.win === null ? 'draw' : 'lose' ]">
                 <div class="team-name">{{ match.team1.name }}</div>
