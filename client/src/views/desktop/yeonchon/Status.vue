@@ -76,7 +76,7 @@
             </div>
           </div>
         </div>
-        <div class="bask-wrap" v-show="sportId === 2">
+        <div class="bask-wrap" v-show="false">
           <div class="round-one-wrap" v-if="baskList.length">
             <div class="match-wrap">
               <div class="match" v-for="(bask, i) in baskList.slice(0, 7)" :key="i">
@@ -98,6 +98,7 @@
             </div>
           </div>
         </div>
+        <div class="foot-wrap" v-show="sportId === 2">준비 중입니다.</div>
         <div class="foot-wrap" v-show="sportId === 3">준비 중입니다.</div>
         <div class="foot-wrap" v-show="sportId === 4">준비 중입니다.</div>
         <div class="foot-wrap" v-show="sportId === 5">준비 중입니다.</div>
