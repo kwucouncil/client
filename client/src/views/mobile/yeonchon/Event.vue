@@ -11,7 +11,7 @@
         <div class="input-container">
           <div class="input-wrap">
             <div class="label">이름</div>
-            <input type="text" name="name" v-model="name" placeholder="홍길동" maxlength="3"/>
+            <input type="text" name="name" v-model="name" placeholder="홍길동"/>
           </div>
           <div class="input-wrap">
             <div class="label">학번</div>
