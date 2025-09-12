@@ -31,13 +31,13 @@
                 </div>
                 <div class="info red" v-else>경기취소</div>
                 <div class="match-wrap" v-if="match.result">
-                  <div :class="['team', match.win === 'team1' ? 'win' : match.win === null ? 'draw' : 'lose' ]">
+                  <div :class="['team', match.win === 'team1' ? 'win' : match.win === null ? 'draw' : match.team1.abstention ? 'red' : 'lose' ]">
                     <div class="team-name">{{ match.team1.name }}</div>
                     <img :src="match.team1.logo" :alt="match.team1.name">
                     <div class="score" v-if="!match.rain">{{ match.team1.score }}</div>
                   </div>
                   <div class="vs">VS</div>
-                  <div :class="['team', match.win === 'team2' ? 'win' : match.win === null ? 'draw' : 'lose' ]">
+                  <div :class="['team', match.win === 'team2' ? 'win' : match.win === null ? 'draw' : match.team2.abstention ? 'red' : 'lose' ]">
                     <div class="score" v-if="!match.rain">{{ match.team2.score }}</div>
                     <img :src="match.team2.logo" :alt="match.team2.name">
                     <div class="team-name">{{ match.team2.name }}</div>
