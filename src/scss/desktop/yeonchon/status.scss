@@ -307,8 +307,115 @@ $icons: all, foot, bask, dodg, tow, joku, ping, lol, fc;
     }
 
     .bask-wrap {
-      .round-wrap {
-        @include flex-box(center, center,)
+      padding-top: 110px;
+
+      .match-wrap {
+        @include size(100%, 1450px);
+        position: relative;
+        background-repeat: no-repeat;
+        background-image: url('/src/assets/imgs/desktop/common/status_line.svg');
+        background-position: center;
+
+        .match {
+          @include size(248px, 87px);
+          @include flex-box(center, center, 18px);
+          position: absolute;
+          border-radius: 15.39px;
+          background-color: #F1F1F1;
+          overflow: hidden;
+
+          .team {
+            @include size(50%);
+            text-align: right;
+
+            img {
+              @include size(87.716px, 87.716px);
+              position: absolute;
+              top: 0;
+              opacity: 40%;
+            }
+
+            .score {
+              font-size: 25px;
+              font-weight: 500;
+            }
+
+            .name {
+              margin-top: 3px;
+              font-size: 10px;
+              font-weight: 500;
+            }
+          }
+
+          .left {
+            img {
+              left: -40px;
+            }
+          }
+
+          .right {
+            text-align: left;
+            img {
+              right: -40px;
+            }
+          }
+
+          .win {
+            color: #5317AB;
+          }
+
+          .lose {
+            color: #989898;
+            img {
+              filter: grayscale(1);
+            }
+          }
+
+          .red {
+            color: #FF0000;
+          }
+
+        }
+
+        .cancel {
+          img {
+            filter: grayscale(1);
+          }
+          color: #FF0000;
+          .team .name {
+            font-size: 12px;
+          }
+
+        }
+
+        .one, .two, .three, .four, .eight, .nine, .ten {
+          left: 0;
+        }
+
+        .five, .six, .seven, .eleven, .twelve, .thirteen {
+          right: 0;
+        }
+        .one, .five {
+          top: -40px;
+        }
+        .two, .six {
+          top: 60px;
+        }
+        .three, .seven {
+          top: 260px;
+        }
+        .four {
+          top: 360px;
+        }
+        .eight, .eleven {
+          top: 1000px;
+        }
+        .nine, .twelve {
+          top: 1100px;
+        }
+        .ten, .thirteen {
+          top: 1300px;
+        }
       }
     }
   }
