@@ -306,7 +306,7 @@ $icons: all, foot, bask, dodg, tow, joku, ping, lol, fc;
       }
     }
 
-    .bask-wrap {
+    .bask-wrap, .dodg-wrap {
       padding-top: 110px;
 
       .match-wrap {
@@ -324,6 +324,24 @@ $icons: all, foot, bask, dodg, tow, joku, ping, lol, fc;
           background-color: #F1F1F1;
           overflow: hidden;
 
+          .unearned-wrap {
+            @include flex-box(center, center, 30px);
+
+            img {
+              @include size(70px, 70px);
+              position: absolute;
+              opacity: 20%;
+              transform: -50% 50%;
+            }
+
+            .name {
+              position: relative;
+              font-size: 14px;
+              font-weight: 600;
+              color: #5317AB;
+            }
+          }
+
           .team {
             @include size(50%);
             text-align: right;
@@ -337,13 +355,14 @@ $icons: all, foot, bask, dodg, tow, joku, ping, lol, fc;
 
             .score {
               font-size: 25px;
-              font-weight: 500;
+              font-weight: 600;
             }
 
             .name {
+              position: relative;
               margin-top: 3px;
               font-size: 10px;
-              font-weight: 500;
+              font-weight: 600;
             }
           }
 
@@ -388,33 +407,100 @@ $icons: all, foot, bask, dodg, tow, joku, ping, lol, fc;
 
         }
 
-        .one, .two, .three, .four, .eight, .nine, .ten {
+        .one, .two, .three, .four, .nine, .ten, .eleven, .twelve {
           left: 0;
         }
 
-        .five, .six, .seven, .eleven, .twelve, .thirteen {
+        .seventeen, .eighteen, .twenty-one, .twenty-two {
+          left: 264px;
+        }
+
+        .twenty-five, .twenty-seven {
+          left: 327px;
+        }
+
+        .twenty-nine, .thirty, .thirty-one {
+          left: 473px;
+        }
+        
+        .five, .six, .seven, .eight, .thirteen, .fourteen, .fifteen, .sixteen {
           right: 0;
         }
+        
+        .nineteen, .twenty, .twenty-three, .twenty-four {
+          right: 263px;
+        }
+
+        .twenty-six, .twenty-eight {
+          right: 327px;
+        }
+
         .one, .five {
           top: -40px;
         }
+
+        .seventeen, .nine-teen {
+          top: 10px;
+        }
+
+        .twenty-five, .twenty-six {
+          top: 162px;
+        }
+
+        .eighteen, .twenty {
+          top: 310px;
+        }
+
         .two, .six {
           top: 60px;
         }
+
         .three, .seven {
           top: 260px;
         }
-        .four {
+
+        .four, .eight {
           top: 360px;
         }
-        .eight, .eleven {
+
+        .twenty-nine {
+          top: 450px;
+        }
+
+        .thirty-one {
+          top: 680px;
+        }
+
+        .thirty {
+          top: 910px;
+        }
+
+        .nine, .thirteen {
           top: 1000px;
         }
-        .nine, .twelve {
+
+        .twenty-one, .twenty-three {
+          top: 1053px;
+        }
+        
+        .ten, .fourteen {
           top: 1100px;
         }
-        .ten, .thirteen {
+
+        .twenty-seven, .twenty-eight {
+          top: 1204px;
+        }
+
+        .eleven, .fifteen {
           top: 1300px;
+        }
+
+        .twenty-two, .twenty-four {
+          top: 1353px;
+        }
+
+        .twelve, .sixteen {
+          top: 1400px;
         }
       }
     }

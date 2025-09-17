@@ -76,28 +76,64 @@
             </div>
           </div>
         </div>
-        <!-- <div class="bask-wrap"  v-show="sportId === 2">
+        <div class="bask-wrap"  v-show="sportId === 2">
           <div class="match-wrap" v-if="baskList.length">
-            <div :class="['match', indexClass(i), { cancel: bask.rain }]" v-for="(bask, i) in baskList.slice(0, 13)" :key="i">
-              <div :class="['team left', bask.win === 'team1' ? 'win' : bask.win === null ? 'draw' : bask.team1.abstention ? 'red' : 'lose' ]">
-                <img :src="bask.team1.logo" :alt="bask.team1.name">
-                <div class="info-wrap">
-                  <div class="score" v-if="!bask.rain">{{ bask.team1.score }}</div>
-                  <div class="name">{{ bask.team1.name }}</div>
+            <div :class="['match', indexClass(i), { cancel: bask.rain }]" v-for="(bask, i) in baskList" :key="i">
+              <template v-if="bask.bye">
+                <div class="unearned-wrap" v-if="bask.unearned">
+                  <img :src="bask.logo" :alt="bask.name">
+                  <div class="name">{{ bask.name }}</div>
                 </div>
-              </div>
-              <div :class="['team right', bask.win === 'team2' ? 'win' : bask.win === null ? 'draw' : bask.team2.abstention ? 'red' : 'lose' ]">
-                <img :src="bask.team2.logo" :alt="bask.team2.name">
-                <div class="info-wrap">
-                  <div class="score" v-if="!bask.rain">{{ bask.team2.score }}</div>
-                  <div class="name">{{ bask.team2.name }}</div>
+                <div v-else></div>
+              </template>
+              <template v-else>
+                <div :class="['team left', bask.win === 'team1' ? 'win' : bask.win === null ? 'draw' : bask.team1.abstention ? 'red' : 'lose' ]">
+                  <img :src="bask.team1.logo" :alt="bask.team1.name">
+                  <div class="info-wrap">
+                    <div class="score" v-if="!bask.rain">{{ bask.team1.score }}</div>
+                    <div class="name">{{ bask.team1.name }}</div>
+                  </div>
                 </div>
-              </div>
+                <div :class="['team right', bask.win === 'team2' ? 'win' : bask.win === null ? 'draw' : bask.team2.abstention ? 'red' : 'lose' ]">
+                  <img :src="bask.team2.logo" :alt="bask.team2.name">
+                  <div class="info-wrap">
+                    <div class="score" v-if="!bask.rain">{{ bask.team2.score }}</div>
+                    <div class="name">{{ bask.team2.name }}</div>
+                  </div>
+                </div>
+              </template>
             </div>
           </div>
-        </div> -->
-        <div class="foot-wrap" v-show="sportId === 2">준비 중입니다.</div>
-        <div class="foot-wrap" v-show="sportId === 3">준비 중입니다.</div>
+        </div>
+        <div class="dodg-wrap"  v-show="sportId === 3">
+          <div class="match-wrap" v-if="dodgList.length">
+            <div :class="['match', indexClass(i), { cancel: dodg.rain }]" v-for="(dodg, i) in dodgList" :key="i">
+              <template v-if="dodg.bye">
+                <div class="unearned-wrap" v-if="dodg.unearned">
+                  <img :src="dodg.logo" :alt="dodg.name">
+                  <div class="name">{{ dodg.name }}</div>
+                </div>
+                <div v-else></div>
+              </template>
+              <template v-else>
+                <div :class="['team left', dodg.win === 'team1' ? 'win' : dodg.win === null ? 'draw' : dodg.team1.abstention ? 'red' : 'lose' ]">
+                  <img :src="dodg.team1.logo" :alt="dodg.team1.name">
+                  <div class="info-wrap">
+                    <div class="score" v-if="!dodg.rain">{{ dodg.team1.score }}</div>
+                    <div class="name">{{ dodg.team1.name }}</div>
+                  </div>
+                </div>
+                <div :class="['team right', dodg.win === 'team2' ? 'win' : dodg.win === null ? 'draw' : dodg.team2.abstention ? 'red' : 'lose' ]">
+                  <img :src="dodg.team2.logo" :alt="dodg.team2.name">
+                  <div class="info-wrap">
+                    <div class="score" v-if="!dodg.rain">{{ dodg.team2.score }}</div>
+                    <div class="name">{{ dodg.team2.name }}</div>
+                  </div>
+                </div>
+              </template>
+            </div>
+          </div>
+        </div>
         <div class="foot-wrap" v-show="sportId === 4">준비 중입니다.</div>
         <div class="foot-wrap" v-show="sportId === 5">준비 중입니다.</div>
         <div class="foot-wrap" v-show="sportId === 6">준비 중입니다.</div>
@@ -116,7 +152,7 @@
 import Yeonchon from '@/api/yeonchon/yeonchon';
 import { ref } from 'vue';
 
-const tab = ref('rank')
+const tab = ref('status')
 const rankList = ref([])
 const updatedAt = ref('')
 
@@ -144,9 +180,126 @@ const rankClass = (r) => {
 const indexClass = (i) => {
   const map = [
     'one','two','three','four','five','six','seven','eight',
-    'nine','ten','eleven','twelve','thirteen','fourteen','fifteen','sixteen'
+    'nine','ten','eleven','twelve','thirteen','fourteen','fifteen','sixteen',
+    'seventeen','eighteen','nineteen','twenty','twenty-one','twenty-two',
+    'twenty-three','twenty-four','twenty-five','twenty-six','twenty-seven',
+    'twenty-eight','twenty-nine','thirty','thirty-one'
   ];
+
   return map[i] || '';
+};
+
+const baskList = ref([]);
+const dodgList = ref([]);
+
+// 공통: 빈 매치(부전승/미편성용)
+const makeBlankMatch = (group = "") => ({
+  name: '',
+  logo: '',   // ✅ 추가
+  bye: true,
+  unearned: false,
+  group_name: group,
+});
+
+const baskData = ref([
+  { id: 'eight',   name: '전자바이오물리학과', url: 'https://lh3.googleusercontent.com/d/1-QihfDN5yaEaAUg7ACStMMXOILM58CrJ' },
+  { id: 'twelve',  name: '전자재료공학과', url: 'https://lh3.googleusercontent.com/d/19qhRL7JO44f52P1ZhBSJbJJEsbop7lOo' },
+  { id: 'sixteen', name: '화학과', url: 'https://lh3.googleusercontent.com/d/1sjgolpy2uKrD5jTb6gfDkNU8YLvLdjyR' },
+  { id: 'seventeen',   name: '전자융합공학과', url: 'https://lh3.googleusercontent.com/d/1DcDi78AUC-RMCGrwAwyfjqHPv4ni_WK7' },
+]);
+
+const dodgData = ref([
+  { id: 'eight',   name: '전자바이오물리학과', url: 'https://lh3.googleusercontent.com/d/1-QihfDN5yaEaAUg7ACStMMXOILM58CrJ' },
+  { id: 'twelve',  name: '전자재료공학과', url: 'https://lh3.googleusercontent.com/d/19qhRL7JO44f52P1ZhBSJbJJEsbop7lOo' },
+  { id: 'sixteen', name: '화학과', url: 'https://lh3.googleusercontent.com/d/1sjgolpy2uKrD5jTb6gfDkNU8YLvLdjyR' },
+  { id: 'seventeen',   name: '전자융합공학과', url: 'https://lh3.googleusercontent.com/d/1DcDi78AUC-RMCGrwAwyfjqHPv4ni_WK7' },
+]);
+
+// test 배열을 빠르게 찾기 위한 맵으로 변환
+const buildByeOverrideMap = (arr = []) => {
+  const map = new Map();
+  for (const it of arr) {
+    if (!it?.id) continue;
+    map.set(String(it.id).toLowerCase(), {
+      name: it.name ?? '',
+      logo: it.url  ?? it.logo ?? '',
+      unearned: true
+    });
+  }
+  return map;
+};
+
+// 정규화 끝난 최종 리스트에서 bye 슬롯을 test로 덮어쓰기
+const applyByeOverrides = (list, overridesArr = []) => {
+  const ov = buildByeOverrideMap(overridesArr);
+  return list.map((m, idx) => {
+    if (!m?.bye) return m;
+    const key = String(indexClass(idx)).toLowerCase(); // ex) 'eight', 'twelve', 'sixteen'
+    const data = ov.get(key);
+    return data ? { ...m, ...data } : m;
+  });
+};
+
+// 라운드별 M 개수 정의
+const ROUND_SPEC = {
+  R2: 8, // 16강 → 8매치
+  R3: 4, // 8강  → 4매치
+  R4: 2, // 4강  → 2매치
+  R5: 1 // 결숭 
+};
+
+// 공통: 특정 라운드(R2/R3/R4)를 M1..M{expected}로 채워 반환
+const collectRound = (items, round, expected) => {
+  const key = round.toUpperCase();
+  const re = new RegExp(`^${key}M(\\d{1,2})$`);
+  const map = new Map();
+
+  for (const it of items) {
+    const g = (it.group_name || "").toUpperCase().trim();
+    const m = Number(g.match(re)?.[1]);
+    if (m >= 1 && m <= expected && !map.has(m)) {
+      map.set(m, it);
+    }
+  }
+
+  const out = [];
+  for (let m = 1; m <= expected; m++) {
+    out.push(map.get(m) ?? makeBlankMatch(`${key}M${m}`));
+  }
+  return out;
+};
+
+// 전체 정규화: R1(32강) + R2 + R3 + R4
+const normalizeBaskList = (items, byeOverrides = []) => {
+  // === R1 (32강) ===
+  // 규칙: API 앞 13개가 실데이터, 8/12/16번째는 부전승 빈칸
+  const R1_SOURCE_COUNT = 13;
+  const R1_MISSING_POS = new Set([8, 12, 16]); // 1-based index
+  const r1Src = items.slice(0, R1_SOURCE_COUNT);
+  const r1 = [];
+  let take = 0;
+  for (let pos = 1; pos <= 16; pos++) {
+    if (R1_MISSING_POS.has(pos)) {
+      r1.push(makeBlankMatch("")); // R1 빈칸
+    } else {
+      r1.push(r1Src[take++] ?? makeBlankMatch(""));
+    }
+  }
+
+  // === R2 (16강) ===
+  const r2 = collectRound(items, "R2", ROUND_SPEC.R2);
+
+  // === R3 (8강) ===
+  const r3 = collectRound(items, "R3", ROUND_SPEC.R3);
+
+  // === R4 (4강) ===
+  const r4 = collectRound(items, "R4", ROUND_SPEC.R4);
+
+  // === R5 (결승) ===
+  const r5 = collectRound(items, "R5", ROUND_SPEC.R5);
+
+  const merged = [...r1, ...r2, ...r3, ...r4, ...r5];
+  return applyByeOverrides(merged, byeOverrides); // ✅ 여기서 주입
 };
 
 const getRank = () => {
@@ -166,12 +319,13 @@ const getLeague = () => {
   })
 };
 
-const baskList = ref([])
-
 const getMatch = (id) => {
-  return 0;
   Yeonchon.getMatch({ sport_id: id }).then((res) => {
-    baskList.value = res.data.items;
+    if(id === 2){
+      baskList.value = normalizeBaskList(res.data.items, baskData.value);
+    } else if(id === 3){
+      dodgList.value = normalizeBaskList(res.data.items, dodgData.value);
+    }
   }).catch((err) => {
     console.log(err)
   })
