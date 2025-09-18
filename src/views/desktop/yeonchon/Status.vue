@@ -87,20 +87,36 @@
                 <div v-else></div>
               </template>
               <template v-else>
-                <div :class="['team left', bask.win === 'team1' ? 'win' : bask.win === null ? 'draw' : bask.team1.abstention ? 'red' : 'lose' ]">
-                  <img :src="bask.team1.logo" :alt="bask.team1.name">
-                  <div class="info-wrap">
-                    <div class="score" v-if="!bask.rain">{{ bask.team1.score }}</div>
-                    <div class="name">{{ bask.team1.name }}</div>
+                <template v-if="bask.result">
+                  <div :class="['team left', bask.win === 'team1' ? 'win' : bask.win === null ? 'draw' : bask.team1.abstention ? 'red' : 'lose' ]">
+                    <img :src="bask.team1.logo" :alt="bask.team1.name">
+                    <div class="info-wrap">
+                      <div class="score" v-if="!bask.rain">{{ bask.team1.score }}</div>
+                      <div class="name">{{ bask.team1.name }}</div>
+                    </div>
                   </div>
-                </div>
-                <div :class="['team right', bask.win === 'team2' ? 'win' : bask.win === null ? 'draw' : bask.team2.abstention ? 'red' : 'lose' ]">
-                  <img :src="bask.team2.logo" :alt="bask.team2.name">
-                  <div class="info-wrap">
-                    <div class="score" v-if="!bask.rain">{{ bask.team2.score }}</div>
-                    <div class="name">{{ bask.team2.name }}</div>
+                  <div :class="['team right', bask.win === 'team2' ? 'win' : bask.win === null ? 'draw' : bask.team2.abstention ? 'red' : 'lose' ]">
+                    <img :src="bask.team2.logo" :alt="bask.team2.name">
+                    <div class="info-wrap">
+                      <div class="score" v-if="!bask.rain">{{ bask.team2.score }}</div>
+                      <div class="name">{{ bask.team2.name }}</div>
+                    </div>
                   </div>
-                </div>
+                </template>
+                <template v-else>
+                  <div class="team left">
+                    <img :src="bask.team1.logo" :alt="bask.team1.name">
+                    <div class="info-wrap">
+                      <div class="name">{{ bask.team1.name }}</div>
+                    </div>
+                  </div>
+                  <div class="team right">
+                    <img :src="bask.team2.logo" :alt="bask.team2.name">
+                    <div class="info-wrap">
+                      <div class="name">{{ bask.team2.name }}</div>
+                    </div>
+                  </div>
+                </template>
               </template>
             </div>
           </div>
@@ -116,29 +132,265 @@
                 <div v-else></div>
               </template>
               <template v-else>
-                <div :class="['team left', dodg.win === 'team1' ? 'win' : dodg.win === null ? 'draw' : dodg.team1.abstention ? 'red' : 'lose' ]">
-                  <img :src="dodg.team1.logo" :alt="dodg.team1.name">
-                  <div class="info-wrap">
-                    <div class="score" v-if="!dodg.rain">{{ dodg.team1.score }}</div>
-                    <div class="name">{{ dodg.team1.name }}</div>
+                <template v-if="dodg.result">
+                  <div :class="['team left', dodg.win === 'team1' ? 'win' : dodg.win === null ? 'draw' : dodg.team1.abstention ? 'red' : 'lose' ]">
+                    <img :src="dodg.team1.logo" :alt="dodg.team1.name">
+                    <div class="info-wrap">
+                      <div class="score" v-if="!dodg.rain">{{ dodg.team1.score }}</div>
+                      <div class="name">{{ dodg.team1.name }}</div>
+                    </div>
                   </div>
-                </div>
-                <div :class="['team right', dodg.win === 'team2' ? 'win' : dodg.win === null ? 'draw' : dodg.team2.abstention ? 'red' : 'lose' ]">
-                  <img :src="dodg.team2.logo" :alt="dodg.team2.name">
-                  <div class="info-wrap">
-                    <div class="score" v-if="!dodg.rain">{{ dodg.team2.score }}</div>
-                    <div class="name">{{ dodg.team2.name }}</div>
+                  <div :class="['team right', dodg.win === 'team2' ? 'win' : dodg.win === null ? 'draw' : dodg.team2.abstention ? 'red' : 'lose' ]">
+                    <img :src="dodg.team2.logo" :alt="dodg.team2.name">
+                    <div class="info-wrap">
+                      <div class="score" v-if="!dodg.rain">{{ dodg.team2.score }}</div>
+                      <div class="name">{{ dodg.team2.name }}</div>
+                    </div>
                   </div>
-                </div>
+                </template>
+                <template v-else>
+                  <div class="team left">
+                    <img :src="dodg.team1.logo" :alt="dodg.team1.name">
+                    <div class="info-wrap">
+                      <div class="name">{{ dodg.team1.name }}</div>
+                    </div>
+                  </div>
+                  <div class="team right">
+                    <img :src="dodg.team2.logo" :alt="dodg.team2.name">
+                    <div class="info-wrap">
+                      <div class="name">{{ dodg.team2.name }}</div>
+                    </div>
+                  </div>
+                </template>
               </template>
             </div>
           </div>
         </div>
-        <div class="foot-wrap" v-show="sportId === 4">준비 중입니다.</div>
-        <div class="foot-wrap" v-show="sportId === 5">준비 중입니다.</div>
-        <div class="foot-wrap" v-show="sportId === 6">준비 중입니다.</div>
-        <div class="foot-wrap" v-show="sportId === 7">준비 중입니다.</div>
-        <div class="foot-wrap" v-show="sportId === 8">준비 중입니다.</div>
+        <div class="joku-wrap"  v-show="sportId === 4">
+          <div class="match-wrap" v-if="jokuList.length">
+            <div :class="['match', indexClass(i), { cancel: joku.rain }]" v-for="(joku, i) in jokuList" :key="i">
+              <template v-if="joku.bye">
+                <div class="unearned-wrap" v-if="joku.unearned">
+                  <img :src="joku.logo" :alt="joku.name">
+                  <div class="name">{{ joku.name }}</div>
+                </div>
+                <div v-else></div>
+              </template>
+              <template v-else>
+                <template v-if="joku.result">
+                  <div :class="['team left', joku.win === 'team1' ? 'win' : joku.win === null ? 'draw' : joku.team1.abstention ? 'red' : 'lose' ]">
+                    <img :src="joku.team1.logo" :alt="joku.team1.name">
+                    <div class="info-wrap">
+                      <div class="score" v-if="!joku.rain">{{ joku.team1.score }}</div>
+                      <div class="name">{{ joku.team1.name }}</div>
+                    </div>
+                  </div>
+                  <div :class="['team right', joku.win === 'team2' ? 'win' : joku.win === null ? 'draw' : joku.team2.abstention ? 'red' : 'lose' ]">
+                    <img :src="joku.team2.logo" :alt="joku.team2.name">
+                    <div class="info-wrap">
+                      <div class="score" v-if="!joku.rain">{{ joku.team2.score }}</div>
+                      <div class="name">{{ joku.team2.name }}</div>
+                    </div>
+                  </div>
+                </template>
+                <template v-else>
+                  <div class="team left">
+                    <img :src="joku.team1.logo" :alt="joku.team1.name">
+                    <div class="info-wrap">
+                      <div class="name">{{ joku.team1.name }}</div>
+                    </div>
+                  </div>
+                  <div class="team right">
+                    <img :src="joku.team2.logo" :alt="joku.team2.name">
+                    <div class="info-wrap">
+                      <div class="name">{{ joku.team2.name }}</div>
+                    </div>
+                  </div>
+                </template>
+              </template>
+            </div>
+          </div>
+        </div>
+        <div class="ping-wrap"  v-show="sportId === 5">
+          <div class="match-wrap" v-if="pingList.length">
+            <div :class="['match', indexClass(i), { cancel: ping.rain }]" v-for="(ping, i) in pingList" :key="i">
+              <template v-if="ping.bye">
+                <div class="unearned-wrap" v-if="ping.unearned">
+                  <img :src="ping.logo" :alt="ping.name">
+                  <div class="name">{{ ping.name }}</div>
+                </div>
+                <div v-else></div>
+              </template>
+              <template v-else>
+                <template v-if="ping.result">
+                  <div :class="['team left', ping.win === 'team1' ? 'win' : ping.win === null ? 'draw' : ping.team1.abstention ? 'red' : 'lose' ]">
+                    <img :src="ping.team1.logo" :alt="ping.team1.name">
+                    <div class="info-wrap">
+                      <div class="score" v-if="!ping.rain">{{ ping.team1.score }}</div>
+                      <div class="name">{{ ping.team1.name }}</div>
+                    </div>
+                  </div>
+                  <div :class="['team right', ping.win === 'team2' ? 'win' : ping.win === null ? 'draw' : ping.team2.abstention ? 'red' : 'lose' ]">
+                    <img :src="ping.team2.logo" :alt="ping.team2.name">
+                    <div class="info-wrap">
+                      <div class="score" v-if="!ping.rain">{{ ping.team2.score }}</div>
+                      <div class="name">{{ ping.team2.name }}</div>
+                    </div>
+                  </div>
+                </template>
+                <template v-else>
+                  <div class="team left">
+                    <img :src="ping.team1.logo" :alt="ping.team1.name">
+                    <div class="info-wrap">
+                      <div class="name">{{ ping.team1.name }}</div>
+                    </div>
+                  </div>
+                  <div class="team right">
+                    <img :src="ping.team2.logo" :alt="ping.team2.name">
+                    <div class="info-wrap">
+                      <div class="name">{{ ping.team2.name }}</div>
+                    </div>
+                  </div>
+                </template>
+              </template>
+            </div>
+          </div>
+        </div>
+        <div class="tow-wrap"  v-show="sportId === 6">
+          <div class="match-wrap" v-if="towList.length">
+            <div :class="['match', indexClass(i), { cancel: tow.rain }]" v-for="(tow, i) in towList" :key="i">
+              <template v-if="tow.bye">
+                <div class="unearned-wrap" v-if="tow.unearned">
+                  <img :src="tow.logo" :alt="tow.name">
+                  <div class="name">{{ tow.name }}</div>
+                </div>
+                <div v-else></div>
+              </template>
+              <template v-else>
+                <template v-if="tow.result">
+                  <div :class="['team left', tow.win === 'team1' ? 'win' : tow.win === null ? 'draw' : tow.team1.abstention ? 'red' : 'lose' ]">
+                    <img :src="tow.team1.logo" :alt="tow.team1.name">
+                    <div class="info-wrap">
+                      <div class="score" v-if="!tow.rain">{{ tow.team1.score }}</div>
+                      <div class="name">{{ tow.team1.name }}</div>
+                    </div>
+                  </div>
+                  <div :class="['team right', tow.win === 'team2' ? 'win' : tow.win === null ? 'draw' : tow.team2.abstention ? 'red' : 'lose' ]">
+                    <img :src="tow.team2.logo" :alt="tow.team2.name">
+                    <div class="info-wrap">
+                      <div class="score" v-if="!tow.rain">{{ tow.team2.score }}</div>
+                      <div class="name">{{ tow.team2.name }}</div>
+                    </div>
+                  </div>
+                </template>
+                <template v-else>
+                  <div class="team left">
+                    <img :src="tow.team1.logo" :alt="tow.team1.name">
+                    <div class="info-wrap">
+                      <div class="name">{{ tow.team1.name }}</div>
+                    </div>
+                  </div>
+                  <div class="team right">
+                    <img :src="tow.team2.logo" :alt="tow.team2.name">
+                    <div class="info-wrap">
+                      <div class="name">{{ tow.team2.name }}</div>
+                    </div>
+                  </div>
+                </template>
+              </template>
+            </div>
+          </div>
+        </div>
+        <div class="lol-wrap"  v-show="sportId === 7">
+          <div class="match-wrap" v-if="lolList.length">
+            <div :class="['match', indexClass(i), { cancel: lol.rain }]" v-for="(lol, i) in lolList" :key="i">
+              <template v-if="lol.bye">
+                <div class="unearned-wrap" v-if="lol.unearned">
+                  <img :src="lol.logo" :alt="lol.name">
+                  <div class="name">{{ lol.name }}</div>
+                </div>
+                <div v-else></div>
+              </template>
+              <template v-else>
+                <template v-if="lol.result">
+                  <div :class="['team left', lol.win === 'team1' ? 'win' : lol.win === null ? 'draw' : lol.team1.abstention ? 'red' : 'lose' ]">
+                    <img :src="lol.team1.logo" :alt="lol.team1.name">
+                    <div class="info-wrap">
+                      <div class="score" v-if="!lol.rain">{{ lol.team1.score }}</div>
+                      <div class="name">{{ lol.team1.name }}</div>
+                    </div>
+                  </div>
+                  <div :class="['team right', lol.win === 'team2' ? 'win' : lol.win === null ? 'draw' : lol.team2.abstention ? 'red' : 'lose' ]">
+                    <img :src="lol.team2.logo" :alt="lol.team2.name">
+                    <div class="info-wrap">
+                      <div class="score" v-if="!lol.rain">{{ lol.team2.score }}</div>
+                      <div class="name">{{ lol.team2.name }}</div>
+                    </div>
+                  </div>
+                </template>
+                <template v-else>
+                  <div class="team left">
+                    <img :src="lol.team1.logo" :alt="lol.team1.name">
+                    <div class="info-wrap">
+                      <div class="name">{{ lol.team1.name }}</div>
+                    </div>
+                  </div>
+                  <div class="team right">
+                    <img :src="lol.team2.logo" :alt="lol.team2.name">
+                    <div class="info-wrap">
+                      <div class="name">{{ lol.team2.name }}</div>
+                    </div>
+                  </div>
+                </template>
+              </template>
+            </div>
+          </div>
+        </div>
+        <div class="fc-wrap"  v-show="sportId === 8">
+          <div class="match-wrap" v-if="fcList.length">
+            <div :class="['match', indexClass(i), { cancel: fc.rain }]" v-for="(fc, i) in fcList" :key="i">
+              <template v-if="fc.bye">
+                <div class="unearned-wrap" v-if="fc.unearned">
+                  <img :src="fc.logo" :alt="fc.name">
+                  <div class="name">{{ fc.name }}</div>
+                </div>
+                <div v-else></div>
+              </template>
+              <template v-else>
+                <template v-if="fc.result">
+                  <div :class="['team left', fc.win === 'team1' ? 'win' : fc.win === null ? 'draw' : fc.team1.abstention ? 'red' : 'lose' ]">
+                    <img :src="fc.team1.logo" :alt="fc.team1.name">
+                    <div class="info-wrap">
+                      <div class="score" v-if="!fc.rain">{{ fc.team1.score }}</div>
+                      <div class="name">{{ fc.team1.name }}</div>
+                    </div>
+                  </div>
+                  <div :class="['team right', fc.win === 'team2' ? 'win' : fc.win === null ? 'draw' : fc.team2.abstention ? 'red' : 'lose' ]">
+                    <img :src="fc.team2.logo" :alt="fc.team2.name">
+                    <div class="info-wrap">
+                      <div class="score" v-if="!fc.rain">{{ fc.team2.score }}</div>
+                      <div class="name">{{ fc.team2.name }}</div>
+                    </div>
+                  </div>
+                </template>
+                <template v-else>
+                  <div class="team left">
+                    <img :src="fc.team1.logo" :alt="fc.team1.name">
+                    <div class="info-wrap">
+                      <div class="name">{{ fc.team1.name }}</div>
+                    </div>
+                  </div>
+                  <div class="team right">
+                    <img :src="fc.team2.logo" :alt="fc.team2.name">
+                    <div class="info-wrap">
+                      <div class="name">{{ fc.team2.name }}</div>
+                    </div>
+                  </div>
+                </template>
+              </template>
+            </div>
+          </div>
+        </div>
       </div>
     </div>
   </div>
@@ -191,6 +443,11 @@ const indexClass = (i) => {
 
 const baskList = ref([]);
 const dodgList = ref([]);
+const jokuList = ref([]);
+const pingList = ref([]);
+const towList = ref([]);
+const lolList = ref([]);
+const fcList = ref([]);
 
 // 공통: 빈 매치(부전승/미편성용)
 const makeBlankMatch = (group = "") => ({
@@ -209,10 +466,21 @@ const baskData = ref([
 ]);
 
 const dodgData = ref([
-  { id: 'eight',   name: '전자바이오물리학과', url: 'https://lh3.googleusercontent.com/d/1-QihfDN5yaEaAUg7ACStMMXOILM58CrJ' },
-  { id: 'twelve',  name: '전자재료공학과', url: 'https://lh3.googleusercontent.com/d/19qhRL7JO44f52P1ZhBSJbJJEsbop7lOo' },
-  { id: 'sixteen', name: '화학과', url: 'https://lh3.googleusercontent.com/d/1sjgolpy2uKrD5jTb6gfDkNU8YLvLdjyR' },
-  { id: 'seventeen',   name: '전자융합공학과', url: 'https://lh3.googleusercontent.com/d/1DcDi78AUC-RMCGrwAwyfjqHPv4ni_WK7' },
+]);
+
+const jokuData = ref([
+]);
+
+const pingData = ref([
+]);
+
+const towData = ref([
+]);
+
+const lolData = ref([
+]);
+
+const fcData = ref([
 ]);
 
 // test 배열을 빠르게 찾기 위한 맵으로 변환
@@ -325,6 +593,16 @@ const getMatch = (id) => {
       baskList.value = normalizeBaskList(res.data.items, baskData.value);
     } else if(id === 3){
       dodgList.value = normalizeBaskList(res.data.items, dodgData.value);
+    } else if(id === 4){
+      jokuList.value = normalizeBaskList(res.data.items, jokuData.value);
+    } else if(id === 5){
+      pingList.value = normalizeBaskList(res.data.items, pingData.value);
+    } else if(id === 6){
+      towList.value = normalizeBaskList(res.data.items, towData.value);
+    } else if(id === 7){
+      lolList.value = normalizeBaskList(res.data.items, lolData.value);
+    } else if(id === 8){
+      fcList.value = normalizeBaskList(res.data.items, fcData.value);
     }
   }).catch((err) => {
     console.log(err)
