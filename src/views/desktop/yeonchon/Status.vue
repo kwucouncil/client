@@ -404,7 +404,7 @@
 import Yeonchon from '@/api/yeonchon/yeonchon';
 import { ref } from 'vue';
 
-const tab = ref('status')
+const tab = ref('rank')
 const rankList = ref([])
 const updatedAt = ref('')
 
