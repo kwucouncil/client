@@ -52,7 +52,7 @@
                   </tr>
                 </thead>
                 <tbody>
-                  <tr v-for="team in teams" :key="team.name" :class="{ wild: groupName === 'G조' && team.rank === 3 }">
+                  <tr v-for="team in teams" :key="team.name" :class="{ wild: (groupName === 'G조' && team.rank === 3) || (groupName === 'D조' && team.rank === 3) }">
                     <td>{{ team.name }}</td>
                     <td>{{ team.matches }}</td>
                     <td>{{ team.wins }}</td>

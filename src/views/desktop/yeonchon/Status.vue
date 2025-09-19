@@ -61,7 +61,7 @@
                   </tr>
                 </thead>
                 <tbody>
-                  <tr v-for="team in teams" :key="team.name" :class="{ wild: groupName === 'G조' && team.rank === 3 }">
+                  <tr v-for="team in teams" :key="team.name" :class="{ wild: (groupName === 'G조' && team.rank === 3) || (groupName === 'D조' && team.rank === 3) }">
                     <td>{{ team.rank }}</td>
                     <td><img :src="team.logo" :alt="team.name">{{ team.name }}</td>
                     <td>{{ team.matches }}</td>
@@ -82,7 +82,7 @@
               <template v-if="bask.bye">
                 <div class="unearned-wrap" v-if="bask.unearned">
                   <img :src="bask.logo" :alt="bask.name">
-                  <div class="name">{{ bask.name }}</div>
+                  <div :class="['name', bask.abstention && 'red']">{{ bask.name }}</div>
                 </div>
                 <div v-else></div>
               </template>
@@ -127,7 +127,7 @@
               <template v-if="dodg.bye">
                 <div class="unearned-wrap" v-if="dodg.unearned">
                   <img :src="dodg.logo" :alt="dodg.name">
-                  <div class="name">{{ dodg.name }}</div>
+                  <div :class="['name', dodg.abstention && 'red']">{{ dodg.name }}</div>
                 </div>
                 <div v-else></div>
               </template>
@@ -172,7 +172,7 @@
               <template v-if="joku.bye">
                 <div class="unearned-wrap" v-if="joku.unearned">
                   <img :src="joku.logo" :alt="joku.name">
-                  <div class="name">{{ joku.name }}</div>
+                  <div :class="['name', joku.abstention && 'red']">{{ joku.name }}</div>
                 </div>
                 <div v-else></div>
               </template>
@@ -217,7 +217,7 @@
               <template v-if="ping.bye">
                 <div class="unearned-wrap" v-if="ping.unearned">
                   <img :src="ping.logo" :alt="ping.name">
-                  <div class="name">{{ ping.name }}</div>
+                  <div :class="['name', ping.abstention && 'red']">{{ ping.name }}</div>
                 </div>
                 <div v-else></div>
               </template>
@@ -262,7 +262,7 @@
               <template v-if="tow.bye">
                 <div class="unearned-wrap" v-if="tow.unearned">
                   <img :src="tow.logo" :alt="tow.name">
-                  <div class="name">{{ tow.name }}</div>
+                  <div :class="['name', tow.abstention && 'red']">{{ tow.name }}</div>
                 </div>
                 <div v-else></div>
               </template>
@@ -307,7 +307,7 @@
               <template v-if="lol.bye">
                 <div class="unearned-wrap" v-if="lol.unearned">
                   <img :src="lol.logo" :alt="lol.name">
-                  <div class="name">{{ lol.name }}</div>
+                  <div :class="['name', lol.abstention && 'red']">{{ lol.name }}</div>
                 </div>
                 <div v-else></div>
               </template>
@@ -352,7 +352,7 @@
               <template v-if="fc.bye">
                 <div class="unearned-wrap" v-if="fc.unearned">
                   <img :src="fc.logo" :alt="fc.name">
-                  <div class="name">{{ fc.name }}</div>
+                  <div :class="['name', fc.abstention && 'red']">{{ fc.name }}</div>
                 </div>
                 <div v-else></div>
               </template>
@@ -466,39 +466,57 @@ const baskData = ref([
 ]);
 
 const dodgData = ref([
-  { id: 'eight',   name: '전기공학과', url: 'https://lh3.googleusercontent.com/d/1VLjAzWe9yn6jC155GikZgtPnFDecwOEf' },
-  { id: 'twelve',  name: '국제학부', url: 'https://lh3.googleusercontent.com/d/19yDo_GAQHrSxTGRM18atvtJ9oPRfLwdz' },
+  { id: 'eight',   name: '전기공학과', url: 'https://lh3.googleusercontent.com/d/1VLjAzWe9yn6jC155GikZgtPnFDecwOEf', abstention: true },
+  { id: 'twelve',  name: '국제학부', url: 'https://lh3.googleusercontent.com/d/19yDo_GAQHrSxTGRM18atvtJ9oPRfLwdz', abstention: true },
   { id: 'sixteen', name: '정보융합학부', url: 'https://lh3.googleusercontent.com/d/1C_BFU90z8H00JxyYAvZCWYzbAOZ-Io8p' },
+  { id: 'nineteen', name: '화학과', url: 'https://lh3.googleusercontent.com/d/1sjgolpy2uKrD5jTb6gfDkNU8YLvLdjyR' },
+  { id: 'twenty-two', name: '스포츠융합과학과', url: 'https://lh3.googleusercontent.com/d/1bNsEQ8oyshfwc7NjF62yRLDqv_ovp-PI' },
+  { id: 'twenty-five', name: '전자융합공학과', url: 'https://lh3.googleusercontent.com/d/1DcDi78AUC-RMCGrwAwyfjqHPv4ni_WK7' },
+  { id: 'twenty-six', name: '화학과', url: 'https://lh3.googleusercontent.com/d/1sjgolpy2uKrD5jTb6gfDkNU8YLvLdjyR' },
+  { id: 'twenty-seven', name: '스포츠융합과학과', url: 'https://lh3.googleusercontent.com/d/1bNsEQ8oyshfwc7NjF62yRLDqv_ovp-PI' },
 ]);
 
 const jokuData = ref([
   { id: 'eight',   name: '환경공학과', url: 'https://lh3.googleusercontent.com/d/1iaFESgSOBE1W37hKc2a0_tPfHKv93T9Z' },
   { id: 'twelve',  name: '영어산업학과', url: 'https://lh3.googleusercontent.com/d/10sMfMz614W8hc4GHq1F2-vkFp87gmQov' },
   { id: 'sixteen', name: '전자재료공학과', url: 'https://lh3.googleusercontent.com/d/19qhRL7JO44f52P1ZhBSJbJJEsbop7lOo' },
+  { id: 'seventeen', name: '스포츠융합과학과', url: 'https://lh3.googleusercontent.com/d/1bNsEQ8oyshfwc7NjF62yRLDqv_ovp-PI' },
+  { id: 'eighteen',  name: '건축학과', url: 'https://lh3.googleusercontent.com/d/1N24FaQ8bWHkDScjWFLWajQDS00U77uKW' },
+  { id: 'twenty-one',  name: '전자통신공학과', url: 'https://lh3.googleusercontent.com/d/1q5k4lx8OTtwnfxQXNGpaA8wTzYxZrmyK' },
+  { id: 'twenty-two',  name: '영어산업학과', url: 'https://lh3.googleusercontent.com/d/10sMfMz614W8hc4GHq1F2-vkFp87gmQov' },
 ]);
 
 const pingData = ref([
   { id: 'eight',   name: '전자공학과', url: 'https://lh3.googleusercontent.com/d/1xzkxkYGsBMiGnrkfnh6m4samdwP8a5PL' },
-  { id: 'twelve',  name: '전자통신공학과', url: 'https://lh3.googleusercontent.com/d/1q5k4lx8OTtwnfxQXNGpaA8wTzYxZrmyK' },
-  { id: 'sixteen', name: '동북아문화산업학부', url: 'https://lh3.googleusercontent.com/d/1njf0hGtl1Rc45578BXUfdN4nBIMRReGK' },
+  { id: 'twelve',  name: '전자통신공학과', url: 'https://lh3.googleusercontent.com/d/1q5k4lx8OTtwnfxQXNGpaA8wTzYxZrmyK', abstention: true },
+  { id: 'sixteen', name: '동북아문화산업학부', url: 'https://lh3.googleusercontent.com/d/1njf0hGtl1Rc45578BXUfdN4nBIMRReGK', abstention: true },
+  { id: 'seventeen', name: '로봇학부', url: 'https://lh3.googleusercontent.com/d/1ErwIfyz3fIijdmi6a7idtYgomoQCN6Qp' },
+  { id: 'eighteen', name: '스포츠융합과학과', url: 'https://lh3.googleusercontent.com/d/1bNsEQ8oyshfwc7NjF62yRLDqv_ovp-PI' },
+  { id: 'twenty-two', name: '전기공학과', url: 'https://lh3.googleusercontent.com/d/1VLjAzWe9yn6jC155GikZgtPnFDecwOEf' },
+  { id: 'twenty-three', name: '정보융합학부', url: 'https://lh3.googleusercontent.com/d/1C_BFU90z8H00JxyYAvZCWYzbAOZ-Io8p' },
+  { id: 'twenty-four', name: '소프트웨어학부', url: 'https://lh3.googleusercontent.com/d/1MYISLdniXyqNMX8UcQc-yPAyagz_xl_H' },
 ]);
 
 const towData = ref([
-  { id: 'eight',   name: '컴퓨터정보공학부', url: 'https://lh3.googleusercontent.com/d/15sYNrDu6T88FNfz8Vja0lnzDLiiUXVTm' },
-  { id: 'twelve',  name: '영어산업학과', url: 'https://lh3.googleusercontent.com/d/10sMfMz614W8hc4GHq1F2-vkFp87gmQov' },
-  { id: 'sixteen', name: '전자융합공학과', url: 'https://lh3.googleusercontent.com/d/1DcDi78AUC-RMCGrwAwyfjqHPv4ni_WK7' },
+  { id: 'eight',   name: '컴퓨터정보공학부', url: 'https://lh3.googleusercontent.com/d/15sYNrDu6T88FNfz8Vja0lnzDLiiUXVTm', abstention: true },
+  { id: 'twelve',  name: '영어산업학과', url: 'https://lh3.googleusercontent.com/d/10sMfMz614W8hc4GHq1F2-vkFp87gmQov', abstention: true },
+  { id: 'sixteen', name: '전자융합공학과', url: 'https://lh3.googleusercontent.com/d/1DcDi78AUC-RMCGrwAwyfjqHPv4ni_WK7', abstention: true },
+  { id: 'twenty', name: '화학과', url: 'https://lh3.googleusercontent.com/d/1sjgolpy2uKrD5jTb6gfDkNU8YLvLdjyR' },
+  { id: 'twenty-two', name: '소프트웨어학부', url: 'https://lh3.googleusercontent.com/d/1MYISLdniXyqNMX8UcQc-yPAyagz_xl_H' },
+  { id: 'twenty-three', name: '정보융합학부', url: 'https://lh3.googleusercontent.com/d/1C_BFU90z8H00JxyYAvZCWYzbAOZ-Io8p' },
+  { id: 'twenty-eight', name: '정보융합학부', url: 'https://lh3.googleusercontent.com/d/1C_BFU90z8H00JxyYAvZCWYzbAOZ-Io8p' },
 ]);
 
 const lolData = ref([
-  { id: 'eight',   name: '전자재료공학과', url: 'https://lh3.googleusercontent.com/d/19qhRL7JO44f52P1ZhBSJbJJEsbop7lOo' },
-  { id: 'twelve',  name: '건축학과', url: 'https://lh3.googleusercontent.com/d/1N24FaQ8bWHkDScjWFLWajQDS00U77uKW' },
-  { id: 'sixteen', name: '전기공학과', url: 'https://lh3.googleusercontent.com/d/1VLjAzWe9yn6jC155GikZgtPnFDecwOEf' },
+  { id: 'eight',   name: '전자재료공학과', url: 'https://lh3.googleusercontent.com/d/19qhRL7JO44f52P1ZhBSJbJJEsbop7lOo', abstention: true },
+  { id: 'twelve',  name: '건축학과', url: 'https://lh3.googleusercontent.com/d/1N24FaQ8bWHkDScjWFLWajQDS00U77uKW', abstention: true },
+  { id: 'sixteen', name: '전기공학과', url: 'https://lh3.googleusercontent.com/d/1VLjAzWe9yn6jC155GikZgtPnFDecwOEf', abstention: true },
 ]);
 
 const fcData = ref([
-  { id: 'eight',   name: '환경공학과', url: 'https://lh3.googleusercontent.com/d/1iaFESgSOBE1W37hKc2a0_tPfHKv93T9Z' },
-  { id: 'twelve',  name: '영어산업학과', url: 'https://lh3.googleusercontent.com/d/10sMfMz614W8hc4GHq1F2-vkFp87gmQov' },
-  { id: 'sixteen', name: '로봇학부', url: 'https://lh3.googleusercontent.com/d/1ErwIfyz3fIijdmi6a7idtYgomoQCN6Qp' },
+  { id: 'eight',   name: '환경공학과', url: 'https://lh3.googleusercontent.com/d/1iaFESgSOBE1W37hKc2a0_tPfHKv93T9Z', abstention: true },
+  { id: 'twelve',  name: '영어산업학과', url: 'https://lh3.googleusercontent.com/d/10sMfMz614W8hc4GHq1F2-vkFp87gmQov', abstention: true },
+  { id: 'sixteen', name: '로봇학부', url: 'https://lh3.googleusercontent.com/d/1ErwIfyz3fIijdmi6a7idtYgomoQCN6Qp', abstention: true },
 ]);
 
 // test 배열을 빠르게 찾기 위한 맵으로 변환
@@ -509,7 +527,8 @@ const buildByeOverrideMap = (arr = []) => {
     map.set(String(it.id).toLowerCase(), {
       name: it.name ?? '',
       logo: it.url  ?? it.logo ?? '',
-      unearned: true
+      unearned: true,
+      abstention: it.abstention
     });
   }
   return map;
@@ -613,6 +632,7 @@ const getMatch = (id) => {
       baskList.value = normalizeBaskList(res.data.items, baskData.value);
     } else if(id === 3){
       dodgList.value = normalizeBaskList(res.data.items, dodgData.value);
+      console.log(dodgList.value)
     } else if(id === 4){
       jokuList.value = normalizeBaskList(res.data.items, jokuData.value);
     } else if(id === 5){

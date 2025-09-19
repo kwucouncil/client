@@ -3,6 +3,7 @@
     <div class="container">
       <div class="yeonchon-banner-wrap">
         <img src="@/assets/imgs/desktop/yeonchon/banner/main.svg" alt="2025 광운대학교 연촌체전">
+        <!-- <img src="@/assets/imgs/desktop/yeonchon/banner/final.png" alt="2025 광운대학교 연촌체전"> -->
       </div>
       <div class="content-wrap">
         <div class="today-wrap">
