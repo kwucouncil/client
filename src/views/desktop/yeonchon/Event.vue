@@ -139,7 +139,7 @@
             <b>{{ thirdLabel }}</b>
           </div>
         </div>
-        <button @click="apply">제출</button>
+        <button @click="apply" disabled>제출</button>
       </div>
     </div>
   </div>
