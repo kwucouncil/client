@@ -151,6 +151,29 @@
     .foot-wrap {
       padding: 0 5.33vw 5.33vw;
 
+      .btn-wrap {
+        @include flex-box(normal, center, 1.07vw);
+        padding-bottom: 5.33vw;
+
+        button {
+          padding: 1.6vw 3.73vw;
+          border-radius: 1.33vw;
+          border: 0.27vw solid #C6C6C6;
+          font-size: 3.73vw;
+          color: #C6C6C6;
+          text-align: center;
+          font-weight: 500;
+          background-color: $white;
+          cursor: pointer;
+
+          &.active {
+            border: 0.27vw solid var(--Violet-violet-13, #5317AB);
+            font-weight: 800;
+            color: #5317AB;
+          }
+        }
+      }
+
       .league-wrap {
         .league {
           border: 0.27vw solid #F6F6F6;
@@ -220,6 +243,223 @@
               }
             }
           }
+        }
+      }
+    }
+
+    .foot-tour-wrap, .bask-wrap, .dodg-wrap, .joku-wrap, .ping-wrap, .tow-wrap, .lol-wrap, .fc-wrap {
+      padding: 50px 20px 100px;
+      overflow-x: auto;
+
+      .match-wrap {
+        @include size(1200px, 1450px);
+        position: relative;
+        background-repeat: no-repeat;
+        background-image: url('/src/assets/imgs/desktop/common/status_line.svg');
+        background-position: center;
+
+        .match {
+          @include size(248px, 87px);
+          @include flex-box(center, center, 18px);
+          position: absolute;
+          border-radius: 15.39px;
+          background-color: #F1F1F1;
+          overflow: hidden;
+
+          .unearned-wrap {
+            @include flex-box(center, center, 30px);
+
+            img {
+              @include size(70px, 70px);
+              position: absolute;
+              opacity: 20%;
+              transform: -50% 50%;
+            }
+
+            .name {
+              position: relative;
+              font-size: 14px;
+              font-weight: 600;
+              color: #5317AB;
+            }
+
+            .red {
+              color: #FF0000;
+            }
+          }
+
+          .team {
+            @include size(50%);
+            text-align: right;
+
+            img {
+              @include size(87.716px, 87.716px);
+              position: absolute;
+              top: 0;
+              opacity: 40%;
+            }
+
+            .score {
+              font-size: 25px;
+              font-weight: 600;
+            }
+
+            .name {
+              position: relative;
+              margin-top: 3px;
+              font-size: 10px;
+              font-weight: 600;
+            }
+          }
+
+          .left {
+            img {
+              left: -40px;
+            }
+          }
+
+          .right {
+            text-align: left;
+            img {
+              right: -40px;
+            }
+          }
+
+          .win {
+            color: #5317AB;
+          }
+
+          .lose {
+            color: #989898;
+            img {
+              filter: grayscale(1);
+            }
+          }
+
+          .red {
+            color: #FF0000;
+          }
+
+        }
+
+        .cancel {
+          img {
+            filter: grayscale(1);
+          }
+          color: #FF0000;
+          .team .name {
+            font-size: 12px;
+          }
+
+        }
+
+        .one, .two, .three, .four, .nine, .ten, .eleven, .twelve {
+          left: 0;
+        }
+
+        .seventeen, .eighteen, .twenty-one, .twenty-two {
+          left: 264px;
+        }
+
+        .twenty-five, .twenty-seven {
+          left: 327px;
+        }
+
+        .twenty-nine, .thirty, .thirty-one {
+          left: 473px;
+        }
+        
+        .five, .six, .seven, .eight, .thirteen, .fourteen, .fifteen, .sixteen {
+          right: 0;
+        }
+        
+        .nineteen, .twenty, .twenty-three, .twenty-four {
+          right: 263px;
+        }
+
+        .twenty-six, .twenty-eight {
+          right: 327px;
+        }
+
+        .one, .five {
+          top: -40px;
+        }
+
+        .seventeen, .nine-teen {
+          top: 10px;
+        }
+
+        .twenty-five, .twenty-six {
+          top: 162px;
+        }
+
+        .eighteen, .twenty {
+          top: 310px;
+        }
+
+        .two, .six {
+          top: 60px;
+        }
+
+        .three, .seven {
+          top: 260px;
+        }
+
+        .four, .eight {
+          top: 360px;
+        }
+
+        .twenty-nine {
+          top: 450px;
+        }
+
+        .thirty-one {
+          top: 680px;
+        }
+
+        .thirty {
+          top: 910px;
+        }
+
+        .nine, .thirteen {
+          top: 1000px;
+        }
+
+        .twenty-one, .twenty-three {
+          top: 1053px;
+        }
+        
+        .ten, .fourteen {
+          top: 1100px;
+        }
+
+        .twenty-seven, .twenty-eight {
+          top: 1204px;
+        }
+
+        .eleven, .fifteen {
+          top: 1300px;
+        }
+
+        .twenty-two, .twenty-four {
+          top: 1353px;
+        }
+
+        .twelve, .sixteen {
+          top: 1400px;
+        }
+      }
+    }
+
+    .foot-tour-wrap {
+      padding-bottom: 200px;
+
+      .match-wrap {
+        height: 656px;
+        background-image: url('/src/assets/imgs/desktop/common/status_line_foot.svg');
+
+        .nine, .ten, .eleven, .thirteen, .fourteen, .fifteen, .twelve {
+          display: none;
         }
       }
     }
