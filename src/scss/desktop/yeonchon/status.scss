@@ -285,7 +285,6 @@ $icons: all, foot, bask, dodg, tow, joku, ping, lol, fc;
                       border: 50%;
                     }
                   }
-
                 }
 
                 &:nth-child(n+3) {
@@ -304,9 +303,32 @@ $icons: all, foot, bask, dodg, tow, joku, ping, lol, fc;
           }
         }
       }
+
+      .btn-wrap {
+        @include flex-box(normal, center, 16px);
+        padding-bottom: 30px;
+
+        button {
+          padding: 8px 14px;
+          border-radius: 15px;
+          border: 1px solid #C6C6C6;
+          color: #C6C6C6;
+          text-align: center;
+          font-weight: 500;
+          background-color: $white;
+          cursor: pointer;
+
+          &.active {
+            border: 1px solid #5317AB;
+            background-color: #5317AB;
+            font-weight: 700;
+            color: $white;
+          }
+        }
+      }
     }
 
-    .bask-wrap, .dodg-wrap, .joku-wrap, .ping-wrap, .tow-wrap, .lol-wrap, .fc-wrap {
+    .foot-tour-wrap, .bask-wrap, .dodg-wrap, .joku-wrap, .ping-wrap, .tow-wrap, .lol-wrap, .fc-wrap {
       padding-top: 110px;
 
       .match-wrap {
@@ -505,6 +527,19 @@ $icons: all, foot, bask, dodg, tow, joku, ping, lol, fc;
 
         .twelve, .sixteen {
           top: 1400px;
+        }
+      }
+    }
+
+    .foot-tour-wrap {
+      padding: 35px 0 100px;
+
+      .match-wrap {
+        @include size(100%, 656px);
+        background-image: url('/src/assets/imgs/desktop/common/status_line_foot.svg');
+
+        .nine, .ten, .eleven, .fifteen, .twelve {
+          display: none;
         }
       }
     }

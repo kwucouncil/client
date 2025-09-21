@@ -46,7 +46,11 @@
           </ul>
         </div>
         <div class="foot-wrap" v-show="sportId === 1">
-          <div class="league-wrap">
+          <div class="btn-wrap">
+            <button :class="{ active: footId === 1 }" @click="() => {footId = 1}">예선리그</button>
+            <button :class="{ active: footId === 2 }" @click="() => {footId = 2}">결선 토너먼트</button>
+          </div>
+          <div class="league-wrap" v-show="footId === 1">
             <div class="league" v-for="(teams, groupName) in leagueList" :key="groupName">
               <table>
                 <thead>
@@ -73,6 +77,59 @@
                   </tr>
                 </tbody>
               </table>
+            </div>
+          </div>
+          <div class="foot-tour-wrap" v-show="footId === 2">
+            <div class="match-wrap" v-if="footList.length">
+              <div :class="['match', indexClass(i), { cancel: foot.rain }]" v-for="(foot, i) in footList" :key="i">
+                <template v-if="foot.bye">
+                  <div class="unearned-wrap" v-if="foot.unearned">
+                    <img :src="foot.logo" :alt="foot.name">
+                    <div :class="['name', foot.abstention && 'red']">{{ foot.name }}</div>
+                  </div>
+                  <div v-else></div>
+                </template>
+                <template v-else>
+                  <template v-if="foot.result">
+                    <div :class="['team left', foot.win === 'team1' ? 'win' : foot.win === null ? 'draw' : foot.team1.abstention ? 'red' : 'lose' ]">
+                      <img :src="foot.team1.logo" :alt="foot.team1.name">
+                      <div class="info-wrap">
+                        <div class="score" v-if="!foot.rain">{{ foot.team1.score }}</div>
+                        <div class="name">{{ foot.team1.name }}</div>
+                      </div>
+                    </div>
+                    <div :class="['team right', foot.win === 'team2' ? 'win' : foot.win === null ? 'draw' : foot.team2.abstention ? 'red' : 'lose' ]">
+                      <img :src="foot.team2.logo" :alt="foot.team2.name">
+                      <div class="info-wrap">
+                        <div class="score" v-if="!foot.rain">{{ foot.team2.score }}</div>
+                        <div class="name">{{ foot.team2.name }}</div>
+                      </div>
+                    </div>
+                  </template>
+                  <template v-else>
+                    <div class="team left">
+                      <img :src="foot.team1.logo" :alt="foot.team1.name">
+                      <div class="info-wrap">
+                        <div class="name">{{ foot.team1.name }}</div>
+                      </div>
+                    </div>
+                    <div class="team right">
+                      <img :src="foot.team2.logo" :alt="foot.team2.name">
+                      <div class="info-wrap">
+                        <div class="name">{{ foot.team2.name }}</div>
+                      </div>
+                    </div>
+                  </template>
+                </template>
+              </div>
+              <div class="match seventeen"></div>
+              <div class="match eighteen"></div>
+              <div class="match nineteen"></div>
+              <div class="match twenty"></div>
+              <div class="match twenty-five"></div>
+              <div class="match twenty-six"></div>
+              <div class="match twenty-nine"></div>
+              <div class="match thirty-one"></div>
             </div>
           </div>
         </div>
@@ -409,6 +466,7 @@ const rankList = ref([])
 const updatedAt = ref('')
 
 const sportId = ref(1);
+const footId = ref(1);
 const leagueList = ref([])
 
 const navItems = [
@@ -441,6 +499,7 @@ const indexClass = (i) => {
   return map[i] || '';
 };
 
+const footList = ref([]);
 const baskList = ref([]);
 const dodgList = ref([]);
 const jokuList = ref([]);
@@ -457,6 +516,10 @@ const makeBlankMatch = (group = "") => ({
   unearned: false,
   group_name: group,
 });
+
+const footData = ref([
+  { id: 'seventeen', name: '123', url: '123' },
+])
 
 const baskData = ref([
   { id: 'eight',   name: '경영학부', url: 'https://lh3.googleusercontent.com/d/11rflTEiS8bw5SF_qodkbQHPKI2QhzXN5' },
@@ -586,20 +649,21 @@ const collectRound = (items, round, expected) => {
   return out;
 };
 
-// 전체 정규화: R1(32강) + R2 + R3 + R4
-const normalizeBaskList = (items, byeOverrides = []) => {
+const normalizeBaskList = (items, byeOverrides = [], sportId) => {
   // === R1 (32강) ===
-  // 규칙: API 앞 13개가 실데이터, 8/12/16번째는 부전승 빈칸
+  // 풋살의 경우, 32강을 건너뛰고 16강(R2)부터 시작
   const R1_SOURCE_COUNT = 13;
   const R1_MISSING_POS = new Set([8, 12, 16]); // 1-based index
   const r1Src = items.slice(0, R1_SOURCE_COUNT);
   const r1 = [];
   let take = 0;
-  for (let pos = 1; pos <= 16; pos++) {
-    if (R1_MISSING_POS.has(pos)) {
-      r1.push(makeBlankMatch("")); // R1 빈칸
-    } else {
-      r1.push(r1Src[take++] ?? makeBlankMatch(""));
+  if (sportId !== 1){
+    for (let pos = 1; pos <= 16; pos++) {
+      if (R1_MISSING_POS.has(pos)) {
+        r1.push(makeBlankMatch("")); // R1 빈칸
+      } else {
+        r1.push(r1Src[take++] ?? makeBlankMatch(""));
+      }
     }
   }
 
@@ -638,12 +702,14 @@ const getLeague = () => {
 
 const getMatch = (id) => {
   Yeonchon.getMatch({ sport_id: id }).then((res) => {
-    if(id === 1){
-      footList.value = normalizeBaskList(res.data.items, footData.value);
+    if(id === 1){  // 풋살
+      const items = res.data.items.slice(47);
+      console.log(items)
+      footList.value = normalizeBaskList(items, footData.value, 1); // 16강부터 시작
     } else if(id === 2){
       baskList.value = normalizeBaskList(res.data.items, baskData.value);
     } else if(id === 3){
-      dodgList.value = normalizeBaskList(items, dodgData.value);
+      dodgList.value = normalizeBaskList(res.data.items, dodgData.value);
     } else if(id === 4){
       jokuList.value = normalizeBaskList(res.data.items, jokuData.value);
     } else if(id === 5){
@@ -666,5 +732,5 @@ const getMatch = (id) => {
 
 getRank()
 getLeague()
-getMatch()
+getMatch(1)
 </script>
