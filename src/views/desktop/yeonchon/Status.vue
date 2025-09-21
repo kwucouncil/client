@@ -477,13 +477,15 @@ const dodgData = ref([
 ]);
 
 const jokuData = ref([
-  { id: 'eight',   name: '환경공학과', url: 'https://lh3.googleusercontent.com/d/1iaFESgSOBE1W37hKc2a0_tPfHKv93T9Z' },
-  { id: 'twelve',  name: '영어산업학과', url: 'https://lh3.googleusercontent.com/d/10sMfMz614W8hc4GHq1F2-vkFp87gmQov' },
-  { id: 'sixteen', name: '전자재료공학과', url: 'https://lh3.googleusercontent.com/d/19qhRL7JO44f52P1ZhBSJbJJEsbop7lOo' },
+  { id: 'eight',   name: '환경공학과', url: 'https://lh3.googleusercontent.com/d/1iaFESgSOBE1W37hKc2a0_tPfHKv93T9Z', abstention: true },
+  { id: 'twelve',  name: '영어산업학과', url: 'https://lh3.googleusercontent.com/d/10sMfMz614W8hc4GHq1F2-vkFp87gmQov', abstention: true },
+  { id: 'sixteen', name: '전자재료공학과', url: 'https://lh3.googleusercontent.com/d/19qhRL7JO44f52P1ZhBSJbJJEsbop7lOo' , abstention: true},
   { id: 'seventeen', name: '스포츠융합과학과', url: 'https://lh3.googleusercontent.com/d/1bNsEQ8oyshfwc7NjF62yRLDqv_ovp-PI' },
   { id: 'eighteen',  name: '건축학과', url: 'https://lh3.googleusercontent.com/d/1N24FaQ8bWHkDScjWFLWajQDS00U77uKW' },
+  { id: 'twenty', name: '소프트웨어학부', url: 'https://lh3.googleusercontent.com/d/1MYISLdniXyqNMX8UcQc-yPAyagz_xl_H' },
   { id: 'twenty-one',  name: '전자통신공학과', url: 'https://lh3.googleusercontent.com/d/1q5k4lx8OTtwnfxQXNGpaA8wTzYxZrmyK' },
-  { id: 'twenty-two',  name: '영어산업학과', url: 'https://lh3.googleusercontent.com/d/10sMfMz614W8hc4GHq1F2-vkFp87gmQov' },
+  { id: 'twenty-four', name: '화학과', url: 'https://lh3.googleusercontent.com/d/1sjgolpy2uKrD5jTb6gfDkNU8YLvLdjyR' },
+  { id: 'twenty-seven',  name: '전자통신공학과', url: 'https://lh3.googleusercontent.com/d/1q5k4lx8OTtwnfxQXNGpaA8wTzYxZrmyK' },
 ]);
 
 const pingData = ref([
@@ -502,7 +504,7 @@ const towData = ref([
   { id: 'twelve',  name: '영어산업학과', url: 'https://lh3.googleusercontent.com/d/10sMfMz614W8hc4GHq1F2-vkFp87gmQov', abstention: true },
   { id: 'sixteen', name: '전자융합공학과', url: 'https://lh3.googleusercontent.com/d/1DcDi78AUC-RMCGrwAwyfjqHPv4ni_WK7', abstention: true },
   { id: 'twenty', name: '화학과', url: 'https://lh3.googleusercontent.com/d/1sjgolpy2uKrD5jTb6gfDkNU8YLvLdjyR' },
-  { id: 'twenty-two', name: '소프트웨어학부', url: 'https://lh3.googleusercontent.com/d/1MYISLdniXyqNMX8UcQc-yPAyagz_xl_H' },
+  { id: 'twenty-two', name: '법학부', url: 'https://lh3.googleusercontent.com/d/10vU1UanE4lC344DcaaaucQ9KJQtPGHD_' },
   { id: 'twenty-three', name: '정보융합학부', url: 'https://lh3.googleusercontent.com/d/1C_BFU90z8H00JxyYAvZCWYzbAOZ-Io8p' },
   { id: 'twenty-eight', name: '정보융합학부', url: 'https://lh3.googleusercontent.com/d/1C_BFU90z8H00JxyYAvZCWYzbAOZ-Io8p' },
 ]);
@@ -511,12 +513,22 @@ const lolData = ref([
   { id: 'eight',   name: '전자재료공학과', url: 'https://lh3.googleusercontent.com/d/19qhRL7JO44f52P1ZhBSJbJJEsbop7lOo', abstention: true },
   { id: 'twelve',  name: '건축학과', url: 'https://lh3.googleusercontent.com/d/1N24FaQ8bWHkDScjWFLWajQDS00U77uKW', abstention: true },
   { id: 'sixteen', name: '전기공학과', url: 'https://lh3.googleusercontent.com/d/1VLjAzWe9yn6jC155GikZgtPnFDecwOEf', abstention: true },
+  { id: 'seventeen', name: '컴퓨터정보공학부', url: 'https://lh3.googleusercontent.com/d/15sYNrDu6T88FNfz8Vja0lnzDLiiUXVTm' },
+  { id: 'twenty',  name: '건축공학과', url: 'https://lh3.googleusercontent.com/d/12ZDDHJuGth3LIqSeZQ-XrgFbOu6zjKEV' },
+  { id: 'twenty-two',  name: '산업심리학과', url: 'https://lh3.googleusercontent.com/d/1ay1Sl6Ot15YPgM6m8rtNp9GGxm2EZhlP' },
+  { id: 'twenty-four',  name: '법학부', url: 'https://lh3.googleusercontent.com/d/10vU1UanE4lC344DcaaaucQ9KJQtPGHD_' },
 ]);
 
 const fcData = ref([
   { id: 'eight',   name: '환경공학과', url: 'https://lh3.googleusercontent.com/d/1iaFESgSOBE1W37hKc2a0_tPfHKv93T9Z', abstention: true },
   { id: 'twelve',  name: '영어산업학과', url: 'https://lh3.googleusercontent.com/d/10sMfMz614W8hc4GHq1F2-vkFp87gmQov', abstention: true },
   { id: 'sixteen', name: '로봇학부', url: 'https://lh3.googleusercontent.com/d/1ErwIfyz3fIijdmi6a7idtYgomoQCN6Qp', abstention: true },
+  { id: 'seventeen', name: '동북아문화산업학부', url: 'https://lh3.googleusercontent.com/d/1njf0hGtl1Rc45578BXUfdN4nBIMRReGK' },
+  { id: 'nineteen', name: '소프트웨어학부', url: 'https://lh3.googleusercontent.com/d/1MYISLdniXyqNMX8UcQc-yPAyagz_xl_H' },
+  { id: 'twenty-two',   name: '전자융합공학과', url: 'https://lh3.googleusercontent.com/d/1DcDi78AUC-RMCGrwAwyfjqHPv4ni_WK7' },
+  { id: 'twenty-four', name: '컴퓨터정보공학부', url: 'https://lh3.googleusercontent.com/d/15sYNrDu6T88FNfz8Vja0lnzDLiiUXVTm' },
+  { id: 'twenty-five', name: '동북아문화산업학부', url: 'https://lh3.googleusercontent.com/d/1njf0hGtl1Rc45578BXUfdN4nBIMRReGK' },
+  { id: 'twenty-six', name: '소프트웨어학부', url: 'https://lh3.googleusercontent.com/d/1MYISLdniXyqNMX8UcQc-yPAyagz_xl_H' },
 ]);
 
 // test 배열을 빠르게 찾기 위한 맵으로 변환
@@ -631,14 +643,17 @@ const getMatch = (id) => {
     } else if(id === 2){
       baskList.value = normalizeBaskList(res.data.items, baskData.value);
     } else if(id === 3){
-      dodgList.value = normalizeBaskList(res.data.items, dodgData.value);
-      console.log(dodgList.value)
+      dodgList.value = normalizeBaskList(items, dodgData.value);
     } else if(id === 4){
       jokuList.value = normalizeBaskList(res.data.items, jokuData.value);
     } else if(id === 5){
       pingList.value = normalizeBaskList(res.data.items, pingData.value);
     } else if(id === 6){
-      towList.value = normalizeBaskList(res.data.items, towData.value);
+      const items = res.data.items.slice();
+      if (items.length >= 10) {
+        [items[8], items[9]] = [items[9], items[8]];
+      }
+      towList.value = normalizeBaskList(items, towData.value);
     } else if(id === 7){
       lolList.value = normalizeBaskList(res.data.items, lolData.value);
     } else if(id === 8){
