@@ -448,11 +448,11 @@ $icons: all, foot, bask, dodg, tow, joku, ping, lol, fc;
         .twenty-nine, .thirty, .thirty-one {
           left: 473px;
         }
-        
+
         .five, .six, .seven, .eight, .thirteen, .fourteen, .fifteen, .sixteen {
           right: 0;
         }
-        
+
         .nineteen, .twenty, .twenty-three, .twenty-four {
           right: 263px;
         }
@@ -508,7 +508,7 @@ $icons: all, foot, bask, dodg, tow, joku, ping, lol, fc;
         .twenty-one, .twenty-three {
           top: 1053px;
         }
-        
+
         .ten, .fourteen {
           top: 1100px;
         }
@@ -535,10 +535,10 @@ $icons: all, foot, bask, dodg, tow, joku, ping, lol, fc;
       padding: 35px 0 100px;
 
       .match-wrap {
-        @include size(100%, 656px);
+        @include size(100%, 436px);
         background-image: url('/src/assets/imgs/desktop/common/status_line_foot.svg');
 
-        .nine, .ten, .eleven, .fifteen, .twelve {
+        .nine, .ten, .eleven, .twelve, .thirteen, .fourteen, .fifteen, .sixteen, .twenty-one, .twenty-two, .twenty-three, .twenty-four, .twenty-seven, .twenty-eight {
           display: none;
         }
       }

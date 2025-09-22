@@ -122,14 +122,6 @@
                   </template>
                 </template>
               </div>
-              <div class="match seventeen"></div>
-              <div class="match eighteen"></div>
-              <div class="match nineteen"></div>
-              <div class="match twenty"></div>
-              <div class="match twenty-five"></div>
-              <div class="match twenty-six"></div>
-              <div class="match twenty-nine"></div>
-              <div class="match thirty-one"></div>
             </div>
           </div>
         </div>
@@ -625,7 +617,7 @@ const ROUND_SPEC = {
   R2: 8, // 16강 → 8매치
   R3: 4, // 8강  → 4매치
   R4: 2, // 4강  → 2매치
-  R5: 1 // 결숭 
+  R5: 1 // 결숭
 };
 
 // 공통: 특정 라운드(R2/R3/R4)를 M1..M{expected}로 채워 반환
@@ -649,39 +641,60 @@ const collectRound = (items, round, expected) => {
   return out;
 };
 
+// 공통: N개의 빈 매치 생성
+const makeNBlanks = (n, labelPrefix = "") =>
+  Array.from({ length: n }, (_, i) => makeBlankMatch(labelPrefix ? `${labelPrefix}${i+1}` : ""));
+
 const normalizeBaskList = (items, byeOverrides = [], sportId) => {
   // === R1 (32강) ===
-  // 풋살의 경우, 32강을 건너뛰고 16강(R2)부터 시작
   const R1_SOURCE_COUNT = 13;
   const R1_MISSING_POS = new Set([8, 12, 16]); // 1-based index
   const r1Src = items.slice(0, R1_SOURCE_COUNT);
   const r1 = [];
   let take = 0;
-  if (sportId !== 1){
+
+  if (sportId !== 1) {
     for (let pos = 1; pos <= 16; pos++) {
-      if (R1_MISSING_POS.has(pos)) {
-        r1.push(makeBlankMatch("")); // R1 빈칸
-      } else {
-        r1.push(r1Src[take++] ?? makeBlankMatch(""));
-      }
+      if (R1_MISSING_POS.has(pos)) r1.push(makeBlankMatch(""));
+      else r1.push(r1Src[take++] ?? makeBlankMatch(""));
     }
   }
 
-  // === R2 (16강) ===
-  const r2 = collectRound(items, "R2", ROUND_SPEC.R2);
+  // 라운드 수집
+  const r2 = collectRound(items, "R2", ROUND_SPEC.R2); // 16강 (8매치)
+  const r3 = collectRound(items, "R3", ROUND_SPEC.R3); // 8강  (4매치)
+  const r4 = collectRound(items, "R4", ROUND_SPEC.R4); // 4강  (2매치)
+  const r5 = collectRound(items, "R5", ROUND_SPEC.R5); // 결승  (1매치)
 
-  // === R3 (8강) ===
-  const r3 = collectRound(items, "R3", ROUND_SPEC.R3);
+  let merged;
+  if (sportId === 1) {
+    // 풋살 전용 배치:
+    // R2: 1~8
+    const padAfterR2 = makeNBlanks(8);      // 9~16 (→ R3가 17~20로 떨어지게)
+    // R3: 17~20
+    const padBetweenR3R4 = makeNBlanks(4);  // 21~24 (→ R4가 25~26)
+    // R4: 25~26
+    const padBetweenR4R5 = makeNBlanks(2);  // 27~28 (→ R5가 29)
+    // R5: 29
 
-  // === R4 (4강) ===
-  const r4 = collectRound(items, "R4", ROUND_SPEC.R4);
+    merged = [
+      ...r2,
+      ...padAfterR2,
+      ...r3,
+      ...padBetweenR3R4,
+      ...r4,
+      ...padBetweenR4R5,
+      ...r5,
+    ];
+  } else {
+    // 일반 종목: R1 → R2 → R3 → R4 → R5
+    merged = [...r1, ...r2, ...r3, ...r4, ...r5];
+  }
 
-  // === R5 (결승) ===
-  const r5 = collectRound(items, "R5", ROUND_SPEC.R5);
-
-  const merged = [...r1, ...r2, ...r3, ...r4, ...r5];
-  return applyByeOverrides(merged, byeOverrides); // ✅ 여기서 주입
+  return applyByeOverrides(merged, byeOverrides);
 };
+
+
 
 const getRank = () => {
   Yeonchon.getRank().then((res) => {
