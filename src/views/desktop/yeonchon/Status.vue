@@ -510,7 +510,6 @@ const makeBlankMatch = (group = "") => ({
 });
 
 const footData = ref([
-  { id: 'seventeen', name: '123', url: '123' },
 ])
 
 const baskData = ref([
@@ -562,6 +561,7 @@ const towData = ref([
   { id: 'twenty-two', name: '법학부', url: 'https://lh3.googleusercontent.com/d/10vU1UanE4lC344DcaaaucQ9KJQtPGHD_' },
   { id: 'twenty-three', name: '정보융합학부', url: 'https://lh3.googleusercontent.com/d/1C_BFU90z8H00JxyYAvZCWYzbAOZ-Io8p' },
   { id: 'twenty-eight', name: '정보융합학부', url: 'https://lh3.googleusercontent.com/d/1C_BFU90z8H00JxyYAvZCWYzbAOZ-Io8p' },
+  { id: 'twenty-nine', name: '스포츠융합과학과', url: 'https://lh3.googleusercontent.com/d/1bNsEQ8oyshfwc7NjF62yRLDqv_ovp-PI' },
 ]);
 
 const lolData = ref([
