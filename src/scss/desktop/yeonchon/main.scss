@@ -246,6 +246,7 @@ $icons: all, foot, bask, dodg, tow, joku, ping, lol, fc;
             .spot {
               @include flex-box(center, center);
               font-size: 46px;
+              min-width: 50px;
 
               span {
                 font-size: 20px;
@@ -254,7 +255,7 @@ $icons: all, foot, bask, dodg, tow, joku, ping, lol, fc;
 
             .team {
               font-size: 20px;
-              min-width: 307px;
+              min-width: 330px;
             }
 
             img {
@@ -271,7 +272,7 @@ $icons: all, foot, bask, dodg, tow, joku, ping, lol, fc;
             height: 132px;
 
             .score {
-              font-size: 55px;
+              font-size: 48px;
             }
           }
 
@@ -280,7 +281,7 @@ $icons: all, foot, bask, dodg, tow, joku, ping, lol, fc;
             height: 112px;
 
             .score {
-              font-size: 50px;
+              font-size: 45px;
             }
           }
 
@@ -289,7 +290,7 @@ $icons: all, foot, bask, dodg, tow, joku, ping, lol, fc;
             height: 92px;
 
             .score {
-              font-size: 46px;
+              font-size: 43px;
             }
           }
         }
