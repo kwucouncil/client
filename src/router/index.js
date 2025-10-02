@@ -233,6 +233,11 @@ const m_routes = [
             name: 'Meeting',
             component: () => import('@/views/mobile/document/Meeting.vue'),
           },
+          {
+            path: '/document/rule',
+            name: 'Rule',
+            component: () => import('@/views/mobile/document/Rule.vue'),
+          },
         ]
       }
     ]

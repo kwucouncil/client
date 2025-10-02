@@ -21,12 +21,13 @@
             </ul>
           </li>
           <li class="menu"><a href="/#/yeonchon" target="_blank" class="menu-down">연촌체전</a></li>
-          <!-- <li class="menu">
+          <li class="menu">
             <div class="menu-down" :class="[menu === 'document' ? 'down' : 'up']" @click="ClickMenuDetail('document')">자료실</div>
             <ul v-if="menu === 'document'">
-              <li><router-link to="/document/meeting" @click="isMenu = false">회의록</router-link></li>
+              <!-- <li><router-link to="/document/meeting" @click="isMenu = false">회의록</router-link></li> -->
+              <li><router-link to="/document/rule" @click="isMenu = false">회칙 및 예하 세칙</router-link></li>
             </ul>
-          </li> -->
+          </li>
           <li class="menu">
             <router-link to="/notice" class="menu-down" @click="isMenu = false">공지사항</router-link>
           </li>
